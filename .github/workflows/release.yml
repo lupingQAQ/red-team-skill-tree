@@ -1,0 +1,27 @@
+name: release
+on:
+  push:
+    tags: ['v*']
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Create release with assets
+        run: |
+          gh release create "${GITHUB_REF_NAME}" \
+            --title "${GITHUB_REF_NAME}" \
+            --notes "$(cat <<'EOF'
+          First stable release.
+
+          - 24-chapter full-stack offensive security reference (English + Chinese)
+          - 2025-2026 techniques: ADCS ESC1-ESC16, AI infrastructure CVEs, OWASP LLM Top 10, eBPF rootkits, EvilTokens device-code phishing, sleep obfuscation
+          - Bilingual docs site: https://lupingqaq.github.io/red-team-skill-tree/
+          - Assets: XMind source and full-resolution mind map
+          EOF
+          )" \
+            red-team-skill-tree.xmind red-team-skill-tree.png
+        env:
+          GH_TOKEN: ${{ github.token }}

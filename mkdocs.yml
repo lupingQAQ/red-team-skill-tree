@@ -1,0 +1,102 @@
+site_name: Red Team Skill Tree
+site_description: >-
+  Full-stack offensive security reference — anti-attribution, reconnaissance,
+  AD attacks, C2 development, AV/EDR evasion, cloud-native and AI-powered
+  attacks, updated with 2025-2026 APT techniques.
+site_url: https://lupingqaq.github.io/red-team-skill-tree/
+repo_url: https://github.com/lupingQAQ/red-team-skill-tree
+repo_name: lupingQAQ/red-team-skill-tree
+edit_uri: edit/main/docs/
+theme:
+  name: material
+  language: en
+  palette:
+    - scheme: default
+      primary: red
+      accent: red
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: red
+      accent: red
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.top
+    - navigation.tracking
+    - navigation.footer
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+extra:
+  alternate:
+    - name: English
+      link: /red-team-skill-tree/
+      lang: en
+    - name: 简体中文
+      link: /red-team-skill-tree/zh-CN/
+      lang: zh
+plugins:
+  - search
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - attr_list
+  - md_in_html
+nav:
+  - Home: index.md
+  - "1. Anti-Attribution and Anonymization": ch-01.md
+  - "2. Reconnaissance": ch-02.md
+  - "3. Penetration Testing in Practice": ch-03.md
+  - "4. Code Audit": ch-04.md
+  - "5. Post-Exploitation and Internal Network Lateral Movement": ch-05.md
+  - "6. Server and Personal PC Reconnaissance": ch-06.md
+  - "7. Phishing": ch-07.md
+  - "8. RAT/C2 Tool Development": ch-08.md
+  - "9. Trojan AV/EDR Evasion": ch-09.md
+  - "10. Evidence Image System Restore (Linux)": ch-10.md
+  - "11. Practical Wordlists and Toolkits": ch-11.md
+  - "12. AI-Powered Attacks": ch-12.md
+  - "13. Cloud-Native Attack and Defense": ch-13.md
+  - "14. Modern C2 Evolution": ch-14.md
+  - "15. Advanced Evasion Techniques": ch-15.md
+  - "16. Latest AD/Infrastructure Attacks": ch-16.md
+  - "17. Initial Access Evolution": ch-17.md
+  - "18. Cloud Post-Exploitation": ch-18.md
+  - "19. HVV / Red-vs-Blue Practical Topics": ch-19.md
+  - "20. Zero Trust Environment Bypass": ch-20.md
+  - "21. OT/ICS Industrial Control Security": ch-21.md
+  - "22. Mobile Attacks": ch-22.md
+  - "23. Living off the Land (LotL) Attack Chains": ch-23.md
+  - "24. Outdated Content Warnings and Alternatives": ch-24.md
+  - "Appendix — Raw Outline": appendix.md
+  - 简体中文:
+      - 首页: zh-CN/index.md
+      - "1. 反溯源与匿名化": zh-CN/ch-01.md
+      - "2. 信息收集": zh-CN/ch-02.md
+      - "3. 渗透实战": zh-CN/ch-03.md
+      - "4. 代码审计": zh-CN/ch-04.md
+      - "5. 后渗透与内网横向": zh-CN/ch-05.md
+      - "6. 服务器及个人PC信息收集": zh-CN/ch-06.md
+      - "7. 钓鱼": zh-CN/ch-07.md
+      - "8. 远控工具开发": zh-CN/ch-08.md
+      - "9. 木马免杀": zh-CN/ch-09.md
+      - "10. 调证镜像系统还原(Linux)": zh-CN/ch-10.md
+      - "11. 实战字典与工具包": zh-CN/ch-11.md
+      - "12. AI赋能攻击": zh-CN/ch-12.md
+      - "13. 云原生攻防": zh-CN/ch-13.md
+      - "14. 现代C2演进": zh-CN/ch-14.md
+      - "15. 高级规避技术": zh-CN/ch-15.md
+      - "16. 最新AD/基础设施攻击": zh-CN/ch-16.md
+      - "17. 初始访问演进": zh-CN/ch-17.md
+      - "18. Cloud Post-Exploitation": zh-CN/ch-18.md
+      - "19. HW/红蓝对抗实战专题": zh-CN/ch-19.md
+      - "20. 零信任环境绕过": zh-CN/ch-20.md
+      - "21. OT/ICS工控安全": zh-CN/ch-21.md
+      - "22. 移动端攻击": zh-CN/ch-22.md
+      - "23. Living off the Land (LotL) 攻击链": zh-CN/ch-23.md
+      - "24. 过时内容警告与替代方案": zh-CN/ch-24.md
+      - "附录 — 原始大纲": zh-CN/appendix.md
