@@ -38,10 +38,12 @@ A comprehensive red team skill reference covering the full offensive security st
 
 | File | Description |
 |------|-------------|
-| [炼化.md](炼化.md) | Main content — refined skill tree with 24 sections (Chinese) |
-| [蓝军技能树.md](蓝军技能树.md) | Original XMind export (raw outline) |
-| [蓝军技能树.xmind](蓝军技能树.xmind) | XMind source file |
-| [蓝军技能树.png](蓝军技能树.png) | Full-resolution mind map |
+| [red-team-skill-tree.md](red-team-skill-tree.md) | Main content — refined skill tree with 24 sections (English) |
+| [red-team-skill-tree.zh-CN.md](red-team-skill-tree.zh-CN.md) | 主内容——24 章精炼版技能参考（中文） |
+| [red-team-skill-tree-outline.md](red-team-skill-tree-outline.md) | Original XMind export, raw outline (English) |
+| [red-team-skill-tree-outline.zh-CN.md](red-team-skill-tree-outline.zh-CN.md) | 原始 XMind 导出大纲（中文） |
+| [red-team-skill-tree.xmind](red-team-skill-tree.xmind) | XMind source file |
+| [red-team-skill-tree.png](red-team-skill-tree.png) | Full-resolution mind map |
 
 ## Disclaimer
 

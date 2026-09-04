@@ -33,10 +33,12 @@
 
 | 文件 | 说明 |
 |------|------|
-| [炼化.md](炼化.md) | 主内容——24 章精炼版技能参考 |
-| [蓝军技能树.md](蓝军技能树.md) | 原始 XMind 导出（大纲源文件） |
-| [蓝军技能树.xmind](蓝军技能树.xmind) | XMind 源文件 |
-| [蓝军技能树.png](蓝军技能树.png) | 全分辨率思维导图 |
+| [red-team-skill-tree.zh-CN.md](red-team-skill-tree.zh-CN.md) | 主内容——24 章精炼版技能参考 |
+| [red-team-skill-tree.md](red-team-skill-tree.md) | 主内容英文版（Main content in English） |
+| [red-team-skill-tree-outline.zh-CN.md](red-team-skill-tree-outline.zh-CN.md) | 原始 XMind 导出（大纲源文件） |
+| [red-team-skill-tree-outline.md](red-team-skill-tree-outline.md) | 原始大纲英文版（Outline in English） |
+| [red-team-skill-tree.xmind](red-team-skill-tree.xmind) | XMind 源文件 |
+| [red-team-skill-tree.png](red-team-skill-tree.png) | 全分辨率思维导图 |
 
 ## 免责声明
 
