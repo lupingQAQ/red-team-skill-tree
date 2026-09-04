@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="./蓝军技能树_微信正文_900px.png" alt="red_team_skill" width="880" />
-</p>
-
 <h1 align="center">red_team_skill</h1>
 
 <h3 align="center">Red Team Skill Tree · 红队全栈技能参考（蓝军技能树）</h3>
